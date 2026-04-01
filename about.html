@@ -457,7 +457,7 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
 <script>
 
 const spbar=document.getElementById('spbar'),navEl=document.getElementById('nav');
-window.addEventListener('scroll',()=>{spbar.style.width=(window.scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';navEl.classList.toggle('scrolled',window.scrollY > 40)},{passive:true});
+window.addEventListener('scroll',()=>{spbar.style.width=(window.scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';navEl.classList.add('scrolled')},{passive:true});
 function toggleMob(){const tog=document.getElementById('mobTog'),dr=document.getElementById('mobDrawer');tog.classList.toggle('open');dr.classList.toggle('open')}
 document.addEventListener('click',e=>{const dr=document.getElementById('mobDrawer'),tog=document.getElementById('mobTog');if(dr&&dr.classList.contains('open')&&!dr.contains(e.target)&&!tog.contains(e.target)){tog.classList.remove('open');dr.classList.remove('open')}});
 const ro=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),(i%3)*80);ro.unobserve(e.target)}})},{threshold:.1});
