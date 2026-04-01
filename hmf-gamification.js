@@ -111,17 +111,8 @@ function hmfInjectBar() {
   const style=document.createElement('style');
   style.textContent=`
 @keyframes hmf-slide{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-#hmf-bar{position:fixed;bottom:0;left:0;right:0;height:56px;background:#0a1a10;border-top:1px solid rgba(0,156,65,.2);display:flex;align-items:center;padding:0 4px;z-index:200;font-family:'Nunito',sans-serif;gap:0}
-.hmf-nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:6px 2px;text-decoration:none;cursor:pointer;background:none;border:none}
-.hmf-nav-item svg{width:18px;height:18px;stroke:rgba(255,255,255,.35);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
-.hmf-nav-item span{font-size:9px;color:rgba(255,255,255,.35);font-weight:700;letter-spacing:.02em;transition:color .2s;white-space:nowrap}
-.hmf-nav-item.active svg{stroke:#009c41}
-.hmf-nav-item.active span{color:#009c41}
-.hmf-nav-divider{width:1px;height:28px;background:rgba(0,156,65,.25);flex-shrink:0;margin:0 2px}
-.hmf-journey-btn{display:flex;align-items:center;gap:5px;background:rgba(0,156,65,.15);border:1px solid rgba(0,156,65,.3);border-radius:100px;padding:7px 10px;cursor:pointer;flex-shrink:0;margin-right:4px;transition:background .2s}
-.hmf-journey-btn:hover{background:rgba(0,156,65,.25)}
-.hmf-journey-btn svg{width:12px;height:12px;stroke:#009c41;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.hmf-journey-btn span{font-size:10px;color:#009c41;font-weight:800;letter-spacing:.02em;white-space:nowrap}
+#hmf-bar{position:fixed;bottom:0;left:0;right:0;height:52px;background:#fff;border-top:1.5px solid #dde8e2;display:flex;align-items:center;justify-content:space-between;padding:0 28px;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.06);font-family:'Nunito',sans-serif;gap:12px}
+.hmf-bar-left{display:flex;align-items:center;gap:14px}
 .hmf-bar-stat{display:flex;align-items:center;gap:4px;font-size:.72rem;font-weight:700;color:#7a9e8a}
 .hmf-bar-stat strong{color:#1a2e22;font-weight:900}
 .hmf-bar-stat-lbl{color:#7a9e8a;font-size:.7rem}
@@ -132,7 +123,7 @@ function hmfInjectBar() {
 #hmf-streak-pill{display:none;align-items:center;gap:5px;background:#e8f5ee;border:1.5px solid #b3e6c8;border-radius:100px;padding:4px 11px;font-size:.72rem;font-weight:800;color:#007a33}
 #hmf-my-journey{padding:7px 16px;border-radius:100px;background:#e8f5ee;border:1.5px solid #b3e6c8;font-family:'Nunito',sans-serif;font-size:.74rem;font-weight:800;color:#007a33;cursor:pointer;transition:all .15s;white-space:nowrap}
 #hmf-my-journey:hover{background:#009c41;color:#fff;border-color:#009c41}
-.fdonate{bottom:84px!important}
+.fdonate{bottom:80px!important}
 #hmf-panel{position:fixed;bottom:52px;right:16px;width:360px;max-height:78vh;background:#fff;border:1.5px solid #dde8e2;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.14);z-index:300;overflow-y:auto;display:none}
 #hmf-panel.open{display:block;animation:hmf-slide .25s cubic-bezier(.4,0,.2,1)}
 .hmf-ph{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;background:#1a2e22;border-radius:18px 18px 0 0}
@@ -192,41 +183,10 @@ function hmfInjectBar() {
 `;
   document.head.appendChild(style);
   const bar=document.createElement('div');bar.id='hmf-bar';
-  bar.innerHTML=`
-  <a href="index.html" class="hmf-nav-item" id="hmf-nav-home">
-    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    <span>Home</span>
-  </a>
-  <a href="about.html" class="hmf-nav-item" id="hmf-nav-about">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-    <span>About</span>
-  </a>
-  <a href="programmes.html" class="hmf-nav-item" id="hmf-nav-programmes">
-    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-    <span>Programmes</span>
-  </a>
-  <a href="kids.html" class="hmf-nav-item" id="hmf-nav-kids">
-    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-    <span>The Kids</span>
-  </a>
-  <a href="stories.html" class="hmf-nav-item" id="hmf-nav-stories">
-    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-    <span>Stories</span>
-  </a>
-  <div class="hmf-nav-divider"></div>
-  <button class="hmf-journey-btn" onclick="hmfTogglePanel()">
-    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-    <span>My Journey</span>
-  </button>
-`;
+  bar.innerHTML=`<div class="hmf-bar-left"><div class="hmf-bar-stat"><span>📄</span><strong id="hmf-total-pages">0</strong><span class="hmf-bar-stat-lbl"> pages</span></div><div class="hmf-bar-stat"><span>🏅</span><strong id="hmf-total-badges">0</strong><span class="hmf-bar-stat-lbl"> badges</span></div><div class="hmf-recent-badges" id="hmf-recent-badges"></div></div><div class="hmf-bar-right"><div id="hmf-streak-pill"></div><button id="hmf-my-journey" onclick="hmfTogglePanel()">My Journey ✦</button></div>`;
   document.body.appendChild(bar);
-  // Highlight active nav item based on current page
-  const pg = window.location.pathname.split('/').pop() || 'index.html';
-  const map = {'index.html':'home','about.html':'about','programmes.html':'programmes','kids.html':'kids','stories.html':'stories','get-involved.html':'stories'};
-  const activeId = 'hmf-nav-' + (map[pg] || 'home');
-  const el = document.getElementById(activeId);
-  if(el) el.classList.add('active');
-  document.body.style.paddingBottom='56px';
+
+  document.body.style.paddingBottom='52px';
   hmfRefreshBar(hmfLoadState());
 }
 
