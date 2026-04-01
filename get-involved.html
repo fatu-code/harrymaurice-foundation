@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Get Involved - Harry Maurice Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Varela+Round&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#009c41;--gd:#007a33;--gl:#b3e6c8;--pale:#e8f5ee;--dark:#1a2e22;--deeper:#0d1f14;--bg:#F7FAF8;--card:#fff;--border:#dde8e2;--text:#1a2e22;--muted:#7a9e8a;--fv:'Varela Round',sans-serif;--fn:'Nunito',sans-serif;--r:16px;--rs:10px;--rf:100px}
+html{scroll-behavior:smooth}
+body{font-family:var(--fn);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;object-fit:cover}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 48px}
+section{padding:88px 0}
+.spbar{position:fixed;top:0;left:0;height:3px;background:var(--green);z-index:300;width:0;pointer-events:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;padding:0 48px;transition:all .3s;flex-wrap:nowrap}
+nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.nav-brand{display:flex;align-items:center;gap:9px;flex-shrink:0;min-width:0}
+.nav-dots{display:flex;gap:3px}
+.nav-dots span{width:8px;height:8px;border-radius:50%;display:block}
+.brand-n{font-family:var(--fn);font-size:1rem;font-weight:900;color:#fff;letter-spacing:-.03em;transition:color .3s;white-space:nowrap}
+.brand-n em{font-style:normal;color:#009c41;font-weight:700;display:inline!important}
+nav.scrolled .brand-n{color:var(--text)}
+nav.scrolled .brand-n em{color:#009c41;font-weight:700}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center;margin-left:auto;margin-right:24px}
+.nav-links a{font-size:.85rem;font-weight:700;color:rgba(255,255,255,.78);transition:color .25s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+nav.scrolled .nav-links a{color:var(--muted)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--text)}
+.nav-cta-btn{height:38px;padding:0 20px;background:var(--green);color:#fff;border-radius:var(--rf);font-family:var(--fn);font-size:.75rem;font-weight:800;display:inline-flex;align-items:center;box-shadow:0 2px 10px rgba(0,156,65,.3);transition:all .25s;white-space:nowrap}
+.nav-cta-btn:hover{background:var(--gd);transform:translateY(-1px)}
+nav.scrolled .nav-links .nav-cta-btn{color:#fff}
+.mob-tog{display:none;flex-direction:column;justify-content:space-between;width:24px;height:17px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0}
+.mob-tog span{display:block;height:2px;background:#fff;border-radius:2px;transition:all .25s}
+nav.scrolled .mob-tog span{background:var(--text)}
+.mob-tog.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.mob-tog.open span:nth-child(2){opacity:0}
+.mob-tog.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.mob-drawer{position:fixed;top:64px;left:0;right:0;background:#fff;border-bottom:1.5px solid var(--border);padding:12px 24px 20px;z-index:99;transform:translateY(-4px);opacity:0;pointer-events:none;transition:all .22s;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.mob-drawer.open{transform:none;opacity:1;pointer-events:all}
+.mob-drawer ul{list-style:none;display:flex;flex-direction:column;gap:2px;margin-bottom:14px}
+.mob-drawer ul a{display:block;padding:11px 4px;font-size:.92rem;font-weight:700;color:var(--muted);border-bottom:1px solid var(--pale);transition:color .2s}
+.mob-drawer ul a:hover,.mob-drawer ul a.mob-active{color:var(--green)}
+.mob-donate{display:block;width:100%;height:48px;background:var(--green);color:#fff;border:none;border-radius:var(--rs);font-family:var(--fn);font-size:.88rem;font-weight:800;text-align:center;line-height:48px;cursor:pointer;transition:background .2s}
+.mob-donate:hover{background:var(--gd)}
+.reveal,.reveal-l,.reveal-r{opacity:0;transition:opacity .7s ease,transform .7s ease}
+.reveal{transform:translateY(22px)}
+.reveal-l{transform:translateX(-22px)}
+.reveal-r{transform:translateX(22px)}
+.reveal.on,.reveal-l.on,.reveal-r.on{opacity:1;transform:none}
+.pill{display:inline-flex;align-items:center;gap:6px;background:var(--pale);border:1px solid rgba(0,156,65,.22);border-radius:var(--rf);padding:5px 12px;font-family:var(--fn);font-size:.65rem;font-weight:800;color:var(--green);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
+.pdot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+.pill-w{background:rgba(179,230,200,.1);border-color:rgba(179,230,200,.22);color:var(--gl)}
+.pill-w .pdot{background:var(--gl)}
+.sh{font-family:var(--fv);font-size:clamp(1.9rem,3.4vw,2.8rem);letter-spacing:-.02em;line-height:1.15;color:var(--text);margin-bottom:20px}
+.sh em{font-style:normal;color:var(--green)}
+.sh-w{color:#fff}
+.sh-w em{color:var(--gl)}
+.bd{font-size:.95rem;line-height:1.88;font-weight:600;color:var(--muted)}
+footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,156,65,.22)}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:56px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:32px}
+.f-top{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.f-dots{display:flex;gap:3px}
+.f-dots span{width:7px;height:7px;border-radius:50%;display:block}
+.f-name{font-family:var(--fv);font-size:1rem;color:#fff}
+.f-name em{font-style:normal;color:rgba(255,255,255,.36)}
+.f-mission{font-size:.82rem;font-weight:600;line-height:1.8;color:rgba(255,255,255,.28);max-width:260px}
+.f-col h4{font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:18px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.f-col a{font-size:.83rem;font-weight:600;color:rgba(255,255,255,.36);transition:color .2s}
+.f-col a:hover{color:var(--gl)}
+.f-btm{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.f-copy{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.2)}
+.f-tag{font-size:.75rem;font-weight:700;font-style:italic;color:rgba(255,255,255,.18)}
+.page-hero{position:relative;height:56vh;min-height:400px;display:flex;align-items:flex-end;overflow:hidden}
+.ph-bg{position:absolute;inset:0;transform:scale(1.04);transition:transform 9s ease}
+.ph-bg.loaded{transform:scale(1)}
+.ph-content{position:relative;z-index:2;padding-bottom:56px}
+.ph-title{font-family:var(--fv);font-size:clamp(2.4rem,5.5vw,4.2rem);color:#fff;letter-spacing:-.025em;line-height:1.1;margin-bottom:10px}
+.ph-sub{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.55);max-width:500px}
+
+/* HOW SECTION */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.how-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:28px 24px;border-top:3px solid transparent;transition:all .3s;cursor:pointer}
+.how-card:hover,.how-card.active{border-top-color:var(--green);transform:translateY(-3px);box-shadow:0 12px 40px rgba(26,46,34,.1)}
+.how-num{font-family:var(--fv);font-size:2rem;color:rgba(0,156,65,.2);line-height:1;margin-bottom:16px}
+.how-t{font-family:var(--fv);font-size:1.2rem;color:var(--text);margin-bottom:10px;letter-spacing:-.01em}
+.how-d{font-size:.84rem;font-weight:600;line-height:1.7;color:var(--muted)}
+
+/* DONATE */
+.don-split{display:grid;grid-template-columns:55% 45%;min-height:600px}
+.don-left{background:var(--dark);display:flex;flex-direction:column;justify-content:center;padding:80px 72px;position:relative;overflow:hidden}
+.don-left::before{content:'';position:absolute;top:-200px;right:-200px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(179,230,200,.07) 0%,transparent 65%);pointer-events:none}
+.don-left-img{border-radius:16px;overflow:hidden;margin-bottom:28px}
+.don-left-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.don-left h2{font-family:var(--fv);font-size:clamp(1.9rem,3vw,2.5rem);color:#fff;letter-spacing:-.02em;line-height:1.2;margin-bottom:14px}
+.don-left h2 em{font-style:normal;color:var(--gl)}
+.don-left p{font-size:.88rem;font-weight:600;line-height:1.85;color:rgba(255,255,255,.38);max-width:360px}
+.don-right{background:var(--green);display:flex;flex-direction:column;justify-content:center;padding:64px 52px;overflow-y:auto}
+.don-h{font-family:var(--fv);font-size:1.5rem;color:#fff;letter-spacing:-.02em;margin-bottom:5px}
+.don-sub{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.66);margin-bottom:22px;line-height:1.6}
+.freq-row{display:flex;background:rgba(255,255,255,.12);border-radius:var(--rf);padding:3px;gap:3px;margin-bottom:16px}
+.freq-btn{flex:1;height:36px;font-family:var(--fn);font-size:.7rem;font-weight:800;border-radius:var(--rf);border:none;cursor:pointer;color:rgba(255,255,255,.52);background:transparent;transition:all .2s}
+.freq-btn.active{background:#fff;color:var(--green)}
+.amt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px}
+.amt-btn{height:44px;border:1.5px solid rgba(255,255,255,.27);border-radius:var(--rs);font-family:var(--fn);font-size:.88rem;font-weight:800;color:rgba(255,255,255,.68);background:transparent;cursor:pointer;transition:all .2s}
+.amt-btn:hover{border-color:#fff;color:#fff}
+.amt-btn.active{background:#fff;border-color:#fff;color:var(--green)}
+.imp-strip{background:rgba(255,255,255,.1);border-left:3px solid rgba(255,255,255,.5);border-radius:0 8px 8px 0;padding:11px 14px;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.88);line-height:1.6;margin-bottom:14px;min-height:42px;transition:all .3s}
+.imp-strip strong{color:#fff;font-weight:900}
+.nfield{display:none;margin-bottom:12px}
+.nfield.show{display:block}
+.nfield label{display:block;font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:6px}
+.nfield input{width:100%;height:42px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);border-radius:var(--rs);color:#fff;font-family:var(--fn);font-size:.85rem;font-weight:700;padding:0 14px;outline:none;transition:border-color .2s}
+.nfield input:focus{border-color:rgba(255,255,255,.65)}
+.nfield input::placeholder{color:rgba(255,255,255,.3)}
+.pay-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.pay-btn{height:46px;border:1.5px solid rgba(255,255,255,.27);border-radius:var(--rs);font-family:var(--fn);font-size:.75rem;font-weight:800;color:#fff;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all .2s}
+.pay-btn:hover{background:rgba(255,255,255,.15);border-color:#fff}
+.pay-btn svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sec-note{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.36);text-align:center;display:flex;align-items:center;justify-content:center;gap:5px}
+.sec-note svg{width:11px;height:11px;stroke:rgba(255,255,255,.36);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* BADGES */
+.badges-sec{background:var(--pale)}
+.badges-row{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-top:48px}
+.b-item{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:24px 20px;display:flex;flex-direction:column;align-items:center;gap:8px;min-width:140px;transition:all .3s}
+.b-item:hover{border-color:var(--green);transform:translateY(-3px)}
+.b-emoji{font-size:2.4rem}
+.b-name{font-family:var(--fv);font-size:.95rem;color:var(--text);text-align:center;letter-spacing:-.01em}
+.b-threshold{font-size:.68rem;font-weight:700;color:var(--muted);text-align:center}
+
+/* MENTOR */
+.mentor-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.mentor-img{border-radius:20px;overflow:hidden}
+.mentor-img img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 9s ease}
+.mentor-img:hover img{transform:scale(1.03)}
+.mentor-form{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.mf-input,.mf-select,.mf-textarea{width:100%;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--rs);padding:11px 14px;color:var(--text);font-family:var(--fn);font-size:.88rem;font-weight:600;outline:none;transition:border-color .2s}
+.mf-input:focus,.mf-select:focus,.mf-textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,156,65,.1)}
+.mf-input::placeholder,.mf-textarea::placeholder{color:var(--muted)}
+.mf-textarea{resize:vertical;min-height:80px}
+.mf-submit{height:50px;background:var(--green);color:#fff;border:none;border-radius:var(--rs);font-family:var(--fn);font-size:.9rem;font-weight:800;cursor:pointer;transition:background .2s;box-shadow:0 4px 16px rgba(0,156,65,.3)}
+.mf-submit:hover{background:var(--gd)}
+
+/* PARTNER */
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.partner-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:28px;transition:all .3s}
+.partner-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 12px 36px rgba(26,46,34,.1)}
+.pc-ico{width:44px;height:44px;border-radius:var(--rs);background:var(--pale);border:1.5px solid rgba(0,156,65,.2);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.pc-ico svg{width:20px;height:20px;stroke:var(--green);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pc-t{font-family:var(--fv);font-size:1.15rem;color:var(--text);margin-bottom:9px;letter-spacing:-.01em}
+.pc-d{font-size:.83rem;font-weight:600;line-height:1.7;color:var(--muted)}
+
+/* SUCCESS MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(10,31,18,.9);z-index:700;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(12px);padding:20px;overflow-y:auto}
+.modal-bg.open{opacity:1;pointer-events:all}
+.modal-card{background:#fff;border-radius:20px;max-width:480px;width:100%;overflow:hidden;transform:scale(.93) translateY(16px);transition:transform .3s}
+.modal-bg.open .modal-card{transform:scale(1) translateY(0)}
+.modal-top{background:var(--dark);padding:36px 36px 28px;text-align:center;position:relative}
+.modal-bar{height:4px;background:linear-gradient(to right,var(--green),var(--gl));position:absolute;top:0;left:0;right:0;transform:scaleX(0);transform-origin:left;animation:mbar .5s ease forwards}
+@keyframes mbar{to{transform:scaleX(1)}}
+.modal-x{position:absolute;top:14px;right:16px;background:none;border:none;color:rgba(255,255,255,.35);font-size:1.3rem;cursor:pointer;line-height:1;transition:color .2s;font-family:var(--fn);padding:4px}
+.modal-x:hover{color:#fff}
+.m-emoji{font-size:2.8rem;display:block;margin-bottom:10px;animation:ep .5s cubic-bezier(.36,.07,.19,.97) .12s both}
+@keyframes ep{0%{transform:scale(0) rotate(-12deg)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
+.m-badge-p{display:inline-block;padding:4px 16px;background:rgba(0,156,65,.18);border:1px solid rgba(0,156,65,.32);border-radius:var(--rf);font-size:.62rem;font-weight:800;color:var(--gl);letter-spacing:.09em;text-transform:uppercase;margin-bottom:12px}
+.m-hed{font-family:var(--fv);font-size:1.8rem;color:#fff}
+.m-body{padding:24px 36px 32px}
+.mrow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:.84rem}
+.mrow:last-of-type{border:none}
+.mrow-k{font-size:.63rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.mrow-v{font-weight:800;color:var(--text)}
+.mrow-v.hi{color:var(--green)}
+.m-impact{background:var(--pale);border:1px solid rgba(0,156,65,.18);border-radius:var(--rs);padding:14px 16px;margin:18px 0;font-size:.86rem;font-weight:700;line-height:1.7;color:var(--text)}
+.m-impact strong{color:var(--green);font-weight:900}
+.m-ss{font-size:.68rem;font-weight:700;color:var(--muted);background:var(--bg);padding:10px;text-align:center;border-radius:var(--rs);margin-bottom:16px}
+.m-share{display:flex;gap:7px;margin-bottom:12px}
+.sh-btn{flex:1;height:38px;border-radius:var(--rs);border:1.5px solid var(--border);background:#fff;font-size:.65rem;font-weight:800;cursor:pointer;font-family:var(--fn);color:var(--text);transition:all .2s}
+.sh-btn:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
+.m-close{display:block;width:100%;height:46px;background:var(--green);color:#fff;border:none;border-radius:var(--rs);font-size:.8rem;font-weight:800;letter-spacing:.04em;cursor:pointer;font-family:var(--fn);transition:background .2s}
+.m-close:hover{background:var(--gd)}
+
+@media(max-width:1024px){.how-grid{grid-template-columns:1fr 1fr}.partner-grid{grid-template-columns:1fr 1fr}.f-grid{grid-template-columns:1fr 1fr;gap:40px}}
+@media(max-width:768px){.container{padding:0 24px}nav{padding:0 24px}.mob-tog{display:flex;margin-left:auto}.nav-links{display:none}.nav-cta-btn{display:none}section{padding:64px 0}.don-split{grid-template-columns:1fr}.don-left{padding:52px 24px;display:none}.don-right{padding:44px 24px}.mentor-grid{grid-template-columns:1fr;gap:36px}.how-grid{grid-template-columns:1fr}.partner-grid{grid-template-columns:1fr}.badges-row{gap:12px}.b-item{min-width:110px;padding:18px 14px}.f-grid{grid-template-columns:1fr;gap:28px}}
+@media(max-width:520px){}
+</style>
+</head>
+<body>
+<div class="spbar" id="spbar"></div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal-card">
+    <div class="modal-top">
+      <div class="modal-bar"></div>
+      <button class="modal-x" onclick="closeModal()">✕</button>
+      <span class="m-emoji" id="mEmoji">🌱</span>
+      <div class="m-badge-p" id="mBadge">Ripple Starter</div>
+      <div class="m-hed">Thank you.</div>
+    </div>
+    <div class="m-body">
+      <div class="mrow"><span class="mrow-k">Amount</span><span class="mrow-v hi" id="mAmt"> - </span></div>
+      <div class="mrow"><span class="mrow-k">Frequency</span><span class="mrow-v" id="mFreq"> - </span></div>
+      <div class="mrow"><span class="mrow-k">Method</span><span class="mrow-v" id="mMethod"> - </span></div>
+      <div class="mrow" id="mDedRow" style="display:none"><span class="mrow-k">Dedicated to</span><span class="mrow-v" id="mDed"> - </span></div>
+      <div class="m-impact" id="mImpact"> - </div>
+      <p class="m-ss">📸 Screenshot this receipt to share your impact.</p>
+      <div class="m-share">
+        <button class="sh-btn" onclick="doShare('twitter')">Share on X</button>
+        <button class="sh-btn" onclick="doShare('facebook')">Facebook</button>
+        <button class="sh-btn" onclick="doShare('copy')">Copy link</button>
+      </div>
+      <button class="m-close" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-brand" style="text-decoration:none">
+    <span class="brand-n">Harry Maurice <em>Foundation</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="programmes.html">Programmes</a></li>
+    <li><a href="kids.html">The Kids</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="get-involved.html" class="nav-cta-btn active">Get Involved</a></li>
+  </ul>
+  <button class="mob-tog" id="mobTog" onclick="toggleMob()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-drawer" id="mobDrawer">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="programmes.html">Programmes</a></li>
+    <li><a href="kids.html">The Kids</a></li>
+    <li><a href="stories.html">Stories</a></li>
+  </ul>
+  <a href="#donate" class="mob-donate">Donate Now →</a>
+</div>
+
+<section class="page-hero">
+  <div class="ph-bg" id="hbg" style="background:linear-gradient(to top,rgba(10,31,18,.9) 0%,rgba(10,31,18,.45) 55%,rgba(10,31,18,.18) 100%),url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1800&q=88') center/cover;/* REPLACE: community action scene */"></div>
+  <div class="container ph-content">
+    <h1 class="ph-title">Your belief<br/>funds the work.</h1>
+    <p class="ph-sub">Three ways to get involved - donate, mentor, or partner. All of them matter.</p>
+  </div>
+</section>
+
+<!-- HOW TO HELP -->
+<section style="background:#fff">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:520px;margin:0 auto 0">
+      <div class="pill" style="justify-content:center"><div class="pdot"></div>Three Ways to Help</div>
+      <h2 class="sh" style="text-align:center">Choose how you<br/><em>want to show up.</em></h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-card reveal" onclick="scrollTo('#donate')"><div class="how-num">01</div><div class="how-t">Donate</div><div class="how-d">Fund mentorship sessions and health visits directly. One-time or monthly - every amount has a specific impact.</div></div>
+      <div class="how-card reveal" onclick="scrollTo('#mentor')"><div class="how-num">02</div><div class="how-t">Become a Mentor</div><div class="how-d">Give a few hours a month to a young person in the Roots &amp; Rise programme. Your experience is exactly what they need.</div></div>
+      <div class="how-card reveal" onclick="scrollTo('#partner')"><div class="how-num">03</div><div class="how-t">Partner with Us</div><div class="how-d">Organisations, schools, and businesses can support the foundation's work through formal partnerships and in-kind contributions.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<div id="donate" class="don-split">
+  <div class="don-left reveal-l">
+    <div class="don-left-img">
+      <!-- REPLACE: candid mentorship or health session photo -->
+      <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=85" alt="The work"/>
+    </div>
+    <div class="pill pill-w"><div class="pdot"></div>Your Impact</div>
+    <h2>Your money becomes<br/><em>someone's turning point.</em></h2>
+    <p>Every amount funds real, direct work - mentorship sessions, health visits, and the consistent presence that changes a life. Straight to the work.</p>
+  </div>
+  <div class="don-right reveal-r">
+    <h3 class="don-h">Make a donation</h3>
+    <p class="don-sub">Choose your amount and frequency.</p>
+    <div class="freq-row">
+      <button class="freq-btn active" onclick="setFreq('once',this)">One-time</button>
+      <button class="freq-btn" onclick="setFreq('monthly',this)">Monthly</button>
+    </div>
+    <div class="amt-grid">
+      <button class="amt-btn" onclick="pickAmt(10,this)">$10</button>
+      <button class="amt-btn" onclick="pickAmt(25,this)">$25</button>
+      <button class="amt-btn" onclick="pickAmt(50,this)">$50</button>
+      <button class="amt-btn" onclick="pickAmt(100,this)">$100</button>
+      <button class="amt-btn" onclick="pickAmt(250,this)">$250</button>
+      <button class="amt-btn" onclick="pickAmt(500,this)">$500</button>
+    </div>
+    <div class="imp-strip" id="impStrip">Select an amount to see your impact.</div>
+    <div class="nfield" id="nfield">
+      <label>Dedicate this session - <em style="font-weight:600;text-transform:none;letter-spacing:0;font-size:.6rem">optional</em></label>
+      <input type="text" id="dedIn" placeholder="In honour of someone special..."/>
+    </div>
+    <div class="pay-row">
+      <button class="pay-btn" onclick="donate('PayPal')"><svg viewBox="0 0 16 16"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M2 7h12"/></svg>PayPal</button>
+      <button class="pay-btn" onclick="donate('Stripe')"><svg viewBox="0 0 16 16"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M2 7h12"/></svg>Stripe</button>
+    </div>
+    <div class="sec-note"><svg viewBox="0 0 16 16"><path d="M8 2l5 2v4c0 3-2.5 5.5-5 6-2.5-.5-5-3-5-6V4z"/></svg>Secure payment · Integration launching soon</div>
+  </div>
+</div>
+
+<!-- DONOR BADGES -->
+<section class="badges-sec">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:520px;margin:0 auto 0">
+      <div class="pill" style="justify-content:center"><div class="pdot"></div>Donor Recognition</div>
+      <h2 class="sh" style="text-align:center">Every donation<br/>earns a <em>badge.</em></h2>
+      <p class="bd" style="text-align:center;max-width:400px;margin:0 auto">Your impact receipt arrives immediately after you give. Screenshot it, share it.</p>
+    </div>
+    <div class="badges-row">
+      <div class="b-item reveal"><div class="b-emoji">🌱</div><div class="b-name">Ripple Starter</div><div class="b-threshold">Any donation</div></div>
+      <div class="b-item reveal"><div class="b-emoji">🤝</div><div class="b-name">Community Builder</div><div class="b-threshold">$25+</div></div>
+      <div class="b-item reveal"><div class="b-emoji">🧡</div><div class="b-name">Foundation Friend</div><div class="b-threshold">$50+</div></div>
+      <div class="b-item reveal"><div class="b-emoji">⭐</div><div class="b-name">Legacy Maker</div><div class="b-threshold">$100+</div></div>
+      <div class="b-item reveal"><div class="b-emoji">🏆</div><div class="b-name">Founding Patron</div><div class="b-threshold">$250+</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENTOR -->
+<section id="mentor" style="background:#fff">
+  <div class="container">
+    <div class="mentor-grid">
+      <div class="reveal-l">
+        <div class="pill"><div class="pdot"></div>Become a Mentor</div>
+        <h2 class="sh">Share a few hours.<br/><em>Change a direction.</em></h2>
+        <p class="bd">The Roots &amp; Rise programme connects young Ugandans with mentors who commit to regular, genuine conversations. You do not need to be an expert - you need to show up and listen.</p>
+        <p class="bd" style="margin-top:14px">We match mentors to participants based on career direction and personality. The time commitment is 2–4 hours per month, for a minimum of 6 months.</p>
+        <div style="background:var(--pale);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div>
+          <div style="font-family:var(--fv);font-size:1rem;color:var(--text);margin-bottom:4px">Not sure where to start?</div>
+          <div style="font-size:.8rem;font-weight:600;color:var(--muted)">Take the 3-question Mentor Match quiz to find out which kid you'd be matched with.</div>
+        </div>
+        <button onclick="hmfOpenQuiz()" style="height:40px;padding:0 20px;background:var(--green);color:#fff;border:none;border-radius:var(--rf);font-family:var(--fn);font-size:.75rem;font-weight:800;cursor:pointer;white-space:nowrap;flex-shrink:0;box-shadow:0 2px 10px rgba(0,156,65,.3);transition:all .2s">🔮 Mentor Match Quiz</button>
+      </div>
+      <div class="mentor-form">
+          <input class="mf-input" type="text" placeholder="Your full name"/>
+          <input class="mf-input" type="email" placeholder="Email address"/>
+          <input class="mf-input" type="text" placeholder="Your professional background (e.g. Medicine, Engineering, Law)"/>
+          <textarea class="mf-textarea" placeholder="Why do you want to mentor? And where are you based?"></textarea>
+          <button class="mf-submit" onclick="alert('Thank you for your interest in mentoring!\n\nWe will review your application and be in touch within 5 working days.\n\nFor now: info@harrymauricefoundation.org');hmfAction('mentor_applied')">Apply to Mentor</button>
+        </div>
+      </div>
+      <div class="reveal-r">
+        <div class="mentor-img">
+          <!-- REPLACE: mentorship in action photo -->
+          <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=900&q=88" alt="Mentorship" width="100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER -->
+<section id="partner" style="background:var(--pale)">
+  <div class="container">
+    <div class="reveal" style="max-width:600px;margin-bottom:0">
+      <div class="pill"><div class="pdot"></div>Partner with Us</div>
+      <h2 class="sh">Organisations who<br/><em>believe in potential.</em></h2>
+      <p class="bd">If your organisation aligns with the values of the Harry Maurice Foundation, we want to explore what a partnership could look like. Formal, informal, in-kind - we are open to what makes sense.</p>
+    </div>
+    <div class="partner-grid">
+      <div class="partner-card reveal">
+        <div class="pc-ico"><svg viewBox="0 0 16 16"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1"/></svg></div>
+        <div class="pc-t">Institutional Partners</div>
+        <div class="pc-d">Universities, NGOs, and government bodies who want to formally support programme delivery and reach.</div>
+      </div>
+      <div class="partner-card reveal">
+        <div class="pc-ico"><svg viewBox="0 0 16 16"><path d="M8 2l5 2v4c0 3-2.5 5.5-5 6-2.5-.5-5-3-5-6V4z"/></svg></div>
+        <div class="pc-t">Corporate Partners</div>
+        <div class="pc-d">Businesses that provide funding, mentors, internships, or skills-based volunteering to the programme's participants.</div>
+      </div>
+      <div class="partner-card reveal">
+        <div class="pc-ico"><svg viewBox="0 0 16 16"><circle cx="6" cy="5" r="2.5"/><path d="M1 13c0-2.8 2.2-5 5-5s5 2.2 5 5"/><circle cx="12" cy="5" r="2.5"/><path d="M9 13c0-2.8 2.2-5 5-5"/></svg></div>
+        <div class="pc-t">Community Partners</div>
+        <div class="pc-d">Schools, churches, and local organisations who host Diane Health sessions or connect us with young people who need support.</div>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:36px;text-align:center">
+      <a href="mailto:info@harrymauricefoundation.org?subject=Partnership Enquiry" style="display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 32px;background:var(--green);color:#fff;border-radius:var(--rs);font-family:var(--fn);font-size:.88rem;font-weight:800;box-shadow:0 4px 16px rgba(0,156,65,.3);transition:all .2s">
+        Send a Partnership Enquiry
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="f-grid">
+      <div><div class="f-top"><span class="f-name">Harry Maurice <em>Foundation</em></span></div><p class="f-mission">A focused foundation working in Uganda through mentorship and health.</p></div>
+      <div class="f-col"><h4>Programmes</h4><ul><li><a href="programmes.html#roots">Roots &amp; Rise</a></li><li><a href="programmes.html#diane">Diane Health Programme</a></li></ul></div>
+      <div class="f-col"><h4>Foundation</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="kids.html">The Kids</a></li><li><a href="stories.html">Stories</a></li><li><a href="get-involved.html">Get Involved</a></li></ul></div>
+      <div class="f-col"><h4>Connect</h4><ul><li><a href="#donate">Donate</a></li><li><a href="#partner">Partner</a></li><li><a href="mailto:info@harrymauricefoundation.org">Contact</a></li></ul></div>
+    </div>
+    <div class="f-btm"><span class="f-copy">© 2026 Harry Maurice Foundation. Jinja, Uganda.</span><span class="f-tag">"Start with one, let it ripple."</span></div>
+  </div>
+</footer>
+
+<script>
+const spbar=document.getElementById('spbar'),navEl=document.getElementById('nav');
+window.addEventListener('scroll',()=>{spbar.style.width=(window.scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';navEl.classList.toggle('scrolled',window.scrollY>60)},{passive:true});
+window.addEventListener('load',()=>{const b=document.getElementById('hbg');if(b)b.style.transform='scale(1)'});
+function toggleMob(){const tog=document.getElementById('mobTog'),dr=document.getElementById('mobDrawer');tog.classList.toggle('open');dr.classList.toggle('open')}
+document.addEventListener('click',e=>{const dr=document.getElementById('mobDrawer'),tog=document.getElementById('mobTog');if(dr&&dr.classList.contains('open')&&!dr.contains(e.target)&&!tog.contains(e.target)){tog.classList.remove('open');dr.classList.remove('open')}});
+const ro=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),(i%3)*80);ro.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>ro.observe(el));
+function scrollTo(id){document.querySelector(id)?.scrollIntoView({behavior:'smooth'})}
+const imps={10:{once:'$10 contributes toward one mentorship session - a conversation that changes a direction.',monthly:'$10/month is 12 sessions over a year. Consistent presence changes lives.'},25:{once:'$25 funds 2 focused sessions - the kind where futures get decided.',monthly:'$25/month is 24 sessions a year. That\'s a relationship that holds.'},50:{once:'$50 covers a full week of programme activities including a health visit.',monthly:'$50/month means a young person has reliable support throughout the year.'},100:{once:'$100 supports one participant for a full month - mentorship and health both.',monthly:'$100/month funds one person\'s entire journey for a year. <strong>A life changed.</strong>'},250:{once:'$250 supports three young people for a full month of both programmes.',monthly:'$250/month funds three full journeys all year. <strong>Three futures transformed.</strong>'},500:{once:'$500 funds half a year for one dedicated participant.',monthly:'$500/month sustains an entire cohort. <strong>You are the foundation.</strong>'}};
+function getBadge(a){if(a>=250)return{e:'🏆',n:'Founding Patron'};if(a>=100)return{e:'⭐',n:'Legacy Maker'};if(a>=50)return{e:'🧡',n:'Foundation Friend'};if(a>=25)return{e:'🤝',n:'Community Builder'};return{e:'🌱',n:'Ripple Starter'}}
+let sA=0,sF='once';
+function setFreq(f,btn){sF=f;document.querySelectorAll('.freq-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(sA)updateImp()}
+function pickAmt(a,btn){sA=a;document.querySelectorAll('.amt-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');updateImp();document.getElementById('nfield').classList.toggle('show',a>=25)}
+function updateImp(){const i=imps[sA];if(i)document.getElementById('impStrip').innerHTML=i[sF]}
+function donate(method){
+  if(!sA){document.getElementById('impStrip').innerHTML='<strong style="color:#fff">Please choose an amount first.</strong>';return}
+  const b=getBadge(sA),ded=document.getElementById('dedIn')?.value.trim();
+  const i=imps[sA]||{once:`$${sA} goes directly to programme delivery.`,monthly:`$${sA}/month provides ongoing support.`};
+  document.getElementById('mEmoji').textContent=b.e;document.getElementById('mBadge').textContent=b.n;document.getElementById('mAmt').textContent='$'+sA;document.getElementById('mFreq').textContent=sF==='monthly'?'Monthly (recurring)':'One-time';document.getElementById('mMethod').textContent=method;document.getElementById('mImpact').innerHTML=i[sF];
+  const dr=document.getElementById('mDedRow');if(ded){dr.style.display='flex';document.getElementById('mDed').textContent=ded}else dr.style.display='none';
+  document.getElementById('modalBg').classList.add('open');
+  localStorage.setItem('hmf_donor',JSON.stringify({badge:b.n,amt:sA,freq:sF}));
+}
+function closeModal(){document.getElementById('modalBg').classList.remove('open')}
+document.getElementById('modalBg').addEventListener('click',e=>{if(e.target.id==='modalBg')closeModal()});
+function doShare(p){const t='I just supported the Harry Maurice Foundation - building Uganda\'s future from within.';const u='https://harrymauricefoundation.org';if(p==='twitter')window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(t)+'&url='+encodeURIComponent(u),'_blank');else if(p==='facebook')window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(u),'_blank');else navigator.clipboard.writeText(u).then(()=>alert('Copied!')).catch(()=>alert(u))}
+const pv=JSON.parse(localStorage.getItem('hmf_visited')||'[]');if(!pv.includes('get-involved')){pv.push('get-involved');localStorage.setItem('hmf_visited',JSON.stringify(pv))}
+</script>
+
+<script src="hmf-gamification.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => hmfRecordVisit('get-involved'));
+  // Hook donate and mentor
+  const origDonate = window.donate;
+  if(origDonate) window.donate = function(m){ origDonate(m); hmfAction('donated'); };
+</script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=900"/>
+<title>Programme Briefs — Harry Maurice Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Varela+Round&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--g:#009c41;--gd:#007a33;--gl:#b3e6c8;--pale:#e8f5ee;--dark:#1a2e22;--fv:'Varela Round',sans-serif;--fn:'Nunito',sans-serif}
+body{font-family:var(--fn);background:#e5e5e5;-webkit-font-smoothing:antialiased}
+.screen-ctrl{position:fixed;top:20px;right:20px;z-index:100;display:flex;gap:8px;align-items:center;flex-wrap:wrap;max-width:280px}
+.btn-print{height:40px;padding:0 20px;background:var(--g);color:#fff;border:none;border-radius:100px;font-family:var(--fn);font-size:.78rem;font-weight:800;cursor:pointer;box-shadow:0 4px 16px rgba(0,156,65,.35);transition:all .2s;display:flex;align-items:center;gap:7px}
+.btn-print:hover{background:var(--gd);transform:translateY(-1px)}
+.btn-back{height:40px;padding:0 20px;background:#fff;color:#1a2e22;border:1.5px solid #dde8e2;border-radius:100px;font-family:var(--fn);font-size:.78rem;font-weight:800;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px;text-decoration:none}
+.btn-back:hover{border-color:var(--g);color:var(--g)}
+.btn-print svg,.btn-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ctrl-tip{font-size:.6rem;font-weight:600;color:#7a9e8a;line-height:1.5;text-align:right}
+.ctrl-tip strong{color:#009c41}
+.page{width:210mm;min-height:297mm;background:#fff;margin:30px auto;box-shadow:0 4px 40px rgba(0,0,0,.18);display:flex;flex-direction:column;overflow:hidden;page-break-after:always}
+.page:last-child{page-break-after:auto}
+.ph{padding:0 36px;background:var(--dark);position:relative;overflow:hidden}
+.ph::before{content:'';position:absolute;inset:-50%;background-image:repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,.025) 20px,rgba(255,255,255,.025) 21px);pointer-events:none}
+.ph-top{display:flex;align-items:center;justify-content:space-between;padding-top:20px;margin-bottom:20px;position:relative;z-index:1}
+.ph-name{font-family:var(--fn);font-size:.88rem;font-weight:900;color:#fff;letter-spacing:-.02em}
+.ph-name em{font-style:normal;color:#009c41;font-weight:700}
+.ph-prog-badge{display:flex;align-items:center;gap:5px;background:rgba(179,230,200,.12);border:1px solid rgba(179,230,200,.22);border-radius:100px;padding:4px 11px}
+.phb-dot{width:5px;height:5px;border-radius:50%;background:var(--gl);flex-shrink:0}
+.phb-text{font-size:.58rem;font-weight:800;color:var(--gl);letter-spacing:.07em;text-transform:uppercase}
+.ph-body{position:relative;z-index:1;padding-bottom:24px;border-bottom:4px solid var(--g)}
+.ph-type{font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:8px}
+.ph-title{font-family:var(--fv);font-size:2.2rem;color:#fff;letter-spacing:-.025em;line-height:1.08;margin-bottom:6px}
+.ph-title span{color:var(--gl)}
+.ph-sub{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.52)}
+.qband{background:var(--g);padding:11px 36px;display:flex;align-items:center;gap:10px}
+.qband-dot{width:5px;height:5px;border-radius:50%;background:#fff;opacity:.8;flex-shrink:0}
+.qband p{font-size:.82rem;font-weight:700;font-style:italic;color:#fff;line-height:1.5}
+.pb-body{flex:1;padding:26px 36px 20px;display:flex;flex-direction:column;gap:20px}
+.sec{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.section-label{font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:7px}
+.para{font-size:.8rem;font-weight:600;line-height:1.75;color:#374151}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.step{border:1.5px solid #dde8e2;border-radius:10px;overflow:hidden}
+.step-num{background:var(--dark);padding:10px 14px;display:flex;align-items:center;gap:8px}
+.step-n{font-family:var(--fv);font-size:1.4rem;color:rgba(255,255,255,.25);line-height:1}
+.step-t{font-family:var(--fv);font-size:.82rem;color:#fff;letter-spacing:-.01em;line-height:1.2}
+.step-body{padding:11px 14px;background:#fff}
+.step-d{font-size:.72rem;font-weight:600;line-height:1.65;color:#374151}
+.obj-list{display:flex;flex-direction:column;gap:7px}
+.obj-item{display:flex;align-items:flex-start;gap:9px;padding:9px 13px;background:var(--pale);border:1px solid rgba(0,156,65,.14);border-radius:8px}
+.oi-ico{width:18px;height:18px;border-radius:5px;background:#fff;border:1px solid rgba(0,156,65,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.oi-ico svg{width:9px;height:9px;stroke:var(--g);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.oi-text{font-size:.76rem;font-weight:700;color:var(--dark);line-height:1.45}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.who-card{border:1.5px solid #dde8e2;border-radius:8px;padding:12px 14px}
+.wc-label{font-size:.58rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g);margin-bottom:5px}
+.wc-val{font-size:.78rem;font-weight:700;color:var(--dark);line-height:1.4}
+.apply-strip{background:var(--dark);border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.as-left strong{font-family:var(--fv);font-size:1rem;color:#fff;display:block;margin-bottom:3px}
+.as-left span{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.42)}
+.as-right{display:flex;flex-direction:column;gap:5px;align-items:flex-end;flex-shrink:0}
+.as-email{font-size:.72rem;font-weight:700;color:var(--gl)}
+.as-web{font-size:.68rem;font-weight:600;color:rgba(255,255,255,.38)}
+.dline{height:1px;background:rgba(0,156,65,.1)}
+.pb-footer{background:var(--dark);padding:12px 36px;display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.pf-l{font-size:.68rem;font-weight:700;font-style:italic;color:rgba(255,255,255,.38)}
+.pf-r{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.3)}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
+  body{background:#fff;zoom:82%}
+  .screen-ctrl{display:none!important}
+  .page{margin:0;box-shadow:none;min-height:auto}
+  @page{size:A4 portrait;margin:0}
+}
+.screen-ctrl{position:relative;top:auto;right:auto;justify-content:center;padding:16px;max-width:100%}}
+</style>
+</head>
+<body>
+
+<div class="screen-ctrl">
+  <a href="about.html" class="btn-back">
+    <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
+    Back
+  </a>
+  <button class="btn-print" onclick="window.print()">
+    <svg viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="8" rx="1"/><path d="M5 7V3h6v4"/><path d="M5 12H3a1 1 0 01-1-1V7a1 1 0 011-1h10a1 1 0 011 1v4a1 1 0 01-1 1h-2"/></svg>
+    Save as PDF (2 pages)
+  </button>
+  <span class="ctrl-tip">Set destination to <strong>Save as PDF</strong><br/>Enable <strong>Background graphics</strong></span>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PAGE 1 — ROOTS & RISE                      -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-top">
+      <span class="ph-name">Harry Maurice <em>Foundation</em></span>
+      <div class="ph-prog-badge"><div class="phb-dot"></div><span class="phb-text">Programme Brief - Roots &amp; Rise</span></div>
+    </div>
+    <div class="ph-body">
+      <div class="ph-type">Mentorship Programme</div>
+      <div class="ph-title">Roots<br/>&amp; <span>Rise.</span></div>
+      <p class="ph-sub">A structured mentorship programme for young people across Uganda - connecting potential with direction.</p>
+    </div>
+  </div>
+  <div class="qband"><div class="qband-dot"></div><p>"You cannot rise without roots. We build both."</p></div>
+  <div class="pb-body">
+    <div class="sec">
+      <div>
+        <div class="section-label">Programme Overview</div>
+        <p class="para">Roots &amp; Rise connects young Ugandans aged 15-25 across Uganda with skilled mentors who commit to regular, meaningful engagement. It is not a curriculum - it is a relationship.</p>
+        <p class="para" style="margin-top:8px">The programme runs in structured 6-month cycles. Each participant is matched individually with a mentor whose professional background aligns with their aspirations. Sessions are held weekly or bi-weekly, with both in-person and remote options.</p>
+      </div>
+      <div>
+        <div class="section-label">Programme Objectives</div>
+        <div class="obj-list">
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Help participants articulate and pursue career direction</div></div>
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Build genuine confidence in their own worth and capability</div></div>
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Provide access to professional networks and opportunities</div></div>
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Develop practical communication and planning skills</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="dline"></div>
+    <div>
+      <div class="section-label">How It Works - 3 Phases</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num"><div class="step-n">01</div><div class="step-t">Match &amp; Meet</div></div>
+          <div class="step-body"><p class="step-d">Each participant is matched with a mentor whose experience aligns with their goals. The relationship begins with a structured intake conversation to establish expectations and direction.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num"><div class="step-n">02</div><div class="step-t">Build &amp; Explore</div></div>
+          <div class="step-body"><p class="step-d">Regular sessions over 6 months - focused on real challenges, decisions, and direction. No rigid curriculum. Honest conversation and consistent attention.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num"><div class="step-n">03</div><div class="step-t">Rise &amp; Ripple</div></div>
+          <div class="step-body"><p class="step-d">Graduates are invited to give back as peer supporters and programme ambassadors - completing the ripple cycle.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="dline"></div>
+    <div class="sec">
+      <div>
+        <div class="section-label">Who It Serves</div>
+        <div class="who-grid">
+          <div class="who-card"><div class="wc-label">Age Range</div><div class="wc-val">15 - 25 years</div></div>
+          <div class="who-card"><div class="wc-label">Location</div><div class="wc-val">Across Uganda</div></div>
+          <div class="who-card"><div class="wc-label">Intake Cycle</div><div class="wc-val">6-month cohorts</div></div>
+          <div class="who-card"><div class="wc-label">Focus Areas</div><div class="wc-val">All career paths welcome</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Expected Outcomes</div>
+        <div class="obj-list">
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Clear personal and professional direction by programme end</div></div>
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Demonstrated increase in self-confidence and decision-making</div></div>
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Active progression toward education or career goals</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="apply-strip">
+      <div class="as-left">
+        <strong>Apply to join Roots &amp; Rise</strong>
+        <span>Participants and mentors can apply via email or our website. We respond within 5 working days.</span>
+      </div>
+      <div class="as-right">
+        <span class="as-email">info@harrymauricefoundation.org</span>
+        <span class="as-web">harrymauricefoundation.org/programmes</span>
+      </div>
+    </div>
+  </div>
+  <div class="pb-footer">
+    <span class="pf-l">Harry Maurice Foundation - Jinja, Uganda - Est. 2026</span>
+    <span class="pf-r">"Start with one, let it ripple."</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PAGE 2 — DIANE HEALTH PROGRAMME            -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-top">
+      <span class="ph-name">Harry Maurice <em>Foundation</em></span>
+      <div class="ph-prog-badge"><div class="phb-dot"></div><span class="phb-text">Programme Brief - Diane Health</span></div>
+    </div>
+    <div class="ph-body">
+      <div class="ph-type">Community Health Programme</div>
+      <div class="ph-title">Diane <span>Health</span><br/>Programme.</div>
+      <p class="ph-sub">Primary health education delivered directly into schools and communities across Uganda - because wellness is not a privilege.</p>
+    </div>
+  </div>
+  <div class="qband"><div class="qband-dot"></div><p>"Wellness is not a privilege. It is the ground every person stands on."</p></div>
+  <div class="pb-body">
+    <div class="sec">
+      <div>
+        <div class="section-label">Programme Overview</div>
+        <p class="para">The Diane Health Programme brings primary health education directly into communities and schools across Uganda that have limited access to formal healthcare. It is named for Diane - Harry Maurice's sister - who walked into these communities and asked how she could help.</p>
+        <p class="para" style="margin-top:8px">This is not a treatment programme. It is a primary education programme. Its goal is to equip communities with the knowledge and local champions they need to make better health decisions independently.</p>
+      </div>
+      <div>
+        <div class="section-label">Programme Objectives</div>
+        <div class="obj-list">
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Build practical health literacy in underserved communities</div></div>
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Reduce preventable illness through primary health education</div></div>
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Open conversations around mental and emotional wellbeing</div></div>
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Train local health champions for self-sustaining impact</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="dline"></div>
+    <div>
+      <div class="section-label">Delivery Model - 3 Stages</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num"><div class="step-n">01</div><div class="step-t">Community Identification</div></div>
+          <div class="step-body"><p class="step-d">We partner with local leaders and school heads to identify communities with limited health resources. Engagement starts with listening - not prescribing.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num"><div class="step-n">02</div><div class="step-t">In-Community Sessions</div></div>
+          <div class="step-body"><p class="step-d">Small, accessible sessions in halls, schools, and open spaces across Uganda - covering nutrition, hygiene, mental wellness, and first aid basics. Designed for all ages and backgrounds.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num"><div class="step-n">03</div><div class="step-t">Champion Training</div></div>
+          <div class="step-body"><p class="step-d">Community members are trained to carry health conversations forward independently - building self-sustaining local health education that outlasts the programme team's visits.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="dline"></div>
+    <div class="sec">
+      <div>
+        <div class="section-label">Who It Serves</div>
+        <div class="who-grid">
+          <div class="who-card"><div class="wc-label">Target</div><div class="wc-val">All ages, all genders</div></div>
+          <div class="who-card"><div class="wc-label">Location</div><div class="wc-val">Across Uganda</div></div>
+          <div class="who-card"><div class="wc-label">Session Length</div><div class="wc-val">2-3 hours per session</div></div>
+          <div class="who-card"><div class="wc-label">Priority Areas</div><div class="wc-val">Low clinic-access zones</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Topics Covered</div>
+        <div class="obj-list">
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Nutrition and everyday food choices</div></div>
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Hygiene practices and disease prevention</div></div>
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">Mental and emotional wellbeing</div></div>
+          <div class="obj-item"><div class="oi-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="oi-text">First aid basics and when to seek care</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="apply-strip">
+      <div class="as-left">
+        <strong>Request a Diane Health session</strong>
+        <span>Schools, community leaders, and organisations across Uganda can request a session. We work around your schedule.</span>
+      </div>
+      <div class="as-right">
+        <span class="as-email">info@harrymauricefoundation.org</span>
+        <span class="as-web">harrymauricefoundation.org/programmes</span>
+      </div>
+    </div>
+  </div>
+  <div class="pb-footer">
+    <span class="pf-l">Harry Maurice Foundation - Jinja, Uganda - Est. 2026</span>
+    <span class="pf-r">"Start with one, let it ripple."</span>
+  </div>
+</div>
+
+
+
+<script>
+function fitPage() {
+  var pages = document.querySelectorAll('.page');
+  if (!pages.length) return;
+  var first = pages[0];
+  var pageW = first.offsetWidth;
+  var scale = Math.min(window.innerWidth / pageW, 1);
+  var offsetX = scale < 1 ? (window.innerWidth - pageW * scale) / 2 : 0;
+  pages.forEach(function(page) {
+    if (scale < 1) {
+      page.style.transformOrigin = 'top left';
+      page.style.transform = 'translateX(' + offsetX + 'px) scale(' + scale + ')';
+      page.style.marginBottom = '-' + (page.offsetHeight * (1 - scale)) + 'px';
+      page.style.marginLeft = '0';
+      page.style.marginRight = '0';
+    } else {
+      page.style.transform = '';
+      page.style.marginBottom = '';
+      page.style.marginLeft = '';
+      page.style.marginRight = '';
+    }
+  });
+}
+fitPage();
+window.addEventListener('resize', fitPage);
+</script>
+
+</body>
+</html>

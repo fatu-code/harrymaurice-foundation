@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=900"/>
+<title>Foundation One-Pager — Harry Maurice Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Varela+Round&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--g:#009c41;--gd:#007a33;--gl:#b3e6c8;--pale:#e8f5ee;--dark:#1a2e22;--fv:'Varela Round',sans-serif;--fn:'Nunito',sans-serif}
+body{font-family:var(--fn);background:#e5e5e5;-webkit-font-smoothing:antialiased}
+.screen-ctrl{position:fixed;top:20px;right:20px;z-index:100;display:flex;gap:8px;align-items:center;flex-wrap:wrap;max-width:280px}
+.btn-print{height:40px;padding:0 20px;background:var(--g);color:#fff;border:none;border-radius:100px;font-family:var(--fn);font-size:.78rem;font-weight:800;cursor:pointer;box-shadow:0 4px 16px rgba(0,156,65,.35);transition:all .2s;display:flex;align-items:center;gap:7px}
+.btn-print:hover{background:var(--gd);transform:translateY(-1px)}
+.btn-back{height:40px;padding:0 20px;background:#fff;color:#1a2e22;border:1.5px solid #dde8e2;border-radius:100px;font-family:var(--fn);font-size:.78rem;font-weight:800;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px;text-decoration:none}
+.btn-back:hover{border-color:var(--g);color:var(--g)}
+.btn-print svg,.btn-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ctrl-tip{font-size:.6rem;font-weight:600;color:#7a9e8a;line-height:1.5;text-align:right}
+.ctrl-tip strong{color:#009c41}
+.page{width:210mm;min-height:297mm;background:#fff;margin:30px auto;box-shadow:0 4px 40px rgba(0,0,0,.18);display:flex;flex-direction:column;overflow:hidden}
+.doc-header{background:var(--dark);padding:22px 36px 0;position:relative;overflow:hidden}
+.doc-header::before{content:'';position:absolute;inset:-50%;background-image:repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,.025) 20px,rgba(255,255,255,.025) 21px);pointer-events:none}
+.doc-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:var(--g)}
+.dh-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;position:relative;z-index:1}
+.dh-name{font-family:var(--fn);font-size:.9rem;font-weight:900;color:#fff;letter-spacing:-.02em}
+.dh-name em{font-style:normal;color:#009c41;font-weight:700}
+.dh-badge{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:5px 13px}
+.dh-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gl);flex-shrink:0}
+.dh-badge-text{font-family:var(--fn);font-size:.62rem;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.06em;text-transform:uppercase}
+.doc-title{font-family:var(--fv);font-size:2.4rem;color:#fff;letter-spacing:-.025em;line-height:1.1;margin-bottom:6px;position:relative;z-index:1}
+.doc-title span{color:var(--gl)}
+.doc-sub{font-family:var(--fn);font-size:.82rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:22px;position:relative;z-index:1}
+.mission-band{background:var(--g);padding:14px 36px;display:flex;align-items:center;gap:12px}
+.mb-dot{width:6px;height:6px;border-radius:50%;background:#fff;flex-shrink:0;opacity:.8}
+.mission-band p{font-family:var(--fn);font-size:.88rem;font-weight:700;font-style:italic;color:#fff;line-height:1.5}
+.doc-body{flex:1;padding:28px 36px 0;display:flex;flex-direction:column;gap:22px}
+.story-row{display:grid;grid-template-columns:1.1fr 1fr;gap:24px}
+.section-label{font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+.story-text{font-size:.82rem;font-weight:600;line-height:1.75;color:#374151}
+.fact-card{background:var(--pale);border:1px solid rgba(0,156,65,.18);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.fact-row{display:flex;align-items:flex-start;gap:9px}
+.fact-dot{width:6px;height:6px;border-radius:50%;background:var(--g);margin-top:5px;flex-shrink:0}
+.fact-text{font-size:.78rem;font-weight:700;color:var(--dark);line-height:1.5}
+.fact-text em{font-style:italic;font-weight:600;color:#374151}
+.div-line{height:1px;background:rgba(0,156,65,.12)}
+.progs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.prog-doc{border:1.5px solid #dde8e2;border-radius:12px;overflow:hidden}
+.prog-doc-head{background:var(--dark);padding:14px 18px}
+.pdh-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(179,230,200,.15);border:1px solid rgba(179,230,200,.25);border-radius:100px;padding:3px 9px;font-family:var(--fn);font-size:.55rem;font-weight:800;color:var(--gl);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+.prog-doc-head h3{font-family:var(--fv);font-size:1rem;color:#fff;letter-spacing:-.01em}
+.prog-doc-body{padding:14px 18px;background:#fff}
+.prog-doc-desc{font-size:.78rem;font-weight:600;line-height:1.7;color:#374151;margin-bottom:12px}
+.prog-outcomes{display:flex;flex-direction:column;gap:5px}
+.po-item{display:flex;align-items:flex-start;gap:7px}
+.po-ico{width:14px;height:14px;border-radius:4px;background:var(--pale);border:1px solid rgba(0,156,65,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.po-ico svg{width:8px;height:8px;stroke:var(--g);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.po-text{font-size:.72rem;font-weight:700;color:var(--dark);line-height:1.45}
+.impact-bar{background:var(--dark);border-radius:12px;padding:18px 24px;display:grid;grid-template-columns:repeat(3,1fr);position:relative;overflow:hidden}
+.impact-bar::before{content:'';position:absolute;inset:-50%;background-image:repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,.025) 20px,rgba(255,255,255,.025) 21px);pointer-events:none}
+.ib-item{text-align:center;padding:0 16px;border-right:1px solid rgba(255,255,255,.08);position:relative;z-index:1}
+.ib-item:last-child{border-right:none}
+.ib-num{font-family:var(--fv);font-size:2rem;color:#fff;letter-spacing:-.025em;line-height:1;margin-bottom:4px}
+.ib-lbl{font-size:.6rem;font-weight:800;color:rgba(255,255,255,.38);letter-spacing:.1em;text-transform:uppercase}
+.bottom-row{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.support-items{display:flex;flex-direction:column;gap:8px}
+.supp{display:flex;align-items:center;gap:10px;padding:9px 14px;background:var(--pale);border-radius:8px;border:1px solid rgba(0,156,65,.14)}
+.supp-ico{width:28px;height:28px;border-radius:7px;background:#fff;border:1px solid rgba(0,156,65,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.supp-ico svg{width:13px;height:13px;stroke:var(--g);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.supp-text strong{font-size:.78rem;font-weight:800;color:var(--dark);display:block;margin-bottom:1px}
+.supp-text span{font-size:.68rem;font-weight:600;color:#6b7280}
+.contact-card{background:var(--pale);border:1px solid rgba(0,156,65,.18);border-radius:10px;padding:16px}
+.cc-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:9px}
+.cc-row:last-child{margin-bottom:0}
+.cc-lbl{font-size:.58rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g);min-width:52px;margin-top:1px}
+.cc-val{font-size:.75rem;font-weight:700;color:var(--dark);line-height:1.45}
+.doc-footer{background:var(--dark);padding:14px 36px;display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.df-tag{font-family:var(--fn);font-size:.72rem;font-weight:700;font-style:italic;color:rgba(255,255,255,.45)}
+.df-url{font-size:.68rem;font-weight:700;color:rgba(255,255,255,.38)}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
+  body{background:#fff;zoom:82%}
+  .screen-ctrl{display:none!important}
+  .page{margin:0;box-shadow:none}
+  @page{size:A4 portrait;margin:0}
+}
+.screen-ctrl{position:relative;top:auto;right:auto;justify-content:center;padding:16px;max-width:100%}}
+</style>
+</head>
+<body>
+
+<div class="screen-ctrl">
+  <a href="about.html" class="btn-back">
+    <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
+    Back
+  </a>
+  <button class="btn-print" onclick="window.print()">
+    <svg viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="8" rx="1"/><path d="M5 7V3h6v4"/><path d="M5 12H3a1 1 0 01-1-1V7a1 1 0 011-1h10a1 1 0 011 1v4a1 1 0 01-1 1h-2"/></svg>
+    Save as PDF
+  </button>
+  <span class="ctrl-tip">Set destination to <strong>Save as PDF</strong><br/>Enable <strong>Background graphics</strong></span>
+</div>
+
+<div class="page">
+  <div class="doc-header">
+    <div class="dh-top">
+      <span class="dh-name">Harry Maurice <em>Foundation</em></span>
+      <div class="dh-badge"><div class="dh-badge-dot"></div><span class="dh-badge-text">Jinja, Uganda - Est. 2026</span></div>
+    </div>
+    <div class="doc-title">Building Uganda<br/><span>from within.</span></div>
+    <p class="doc-sub">Foundation Overview - 2026 Edition</p>
+  </div>
+
+  <div class="mission-band">
+    <div class="mb-dot"></div>
+    <p>"Where you come from does not limit what you can become. With the right support, you can stand confidently alongside anyone in the world."</p>
+  </div>
+
+  <div class="doc-body">
+    <div class="story-row">
+      <div>
+        <div class="section-label">Our Story</div>
+        <p class="story-text">Harry Maurice came to Uganda for a sports camp. Between sessions, he noticed young people with real potential. He had no plan. He simply chose to show up for them, consistently.</p>
+        <p class="story-text" style="margin-top:9px">His mentorship touched 20 young people across Uganda - including two named Fatu and Samuel. They were so shaped by what his presence did for them that they built this foundation in his name. It is their tribute to him.</p>
+        <p class="story-text" style="margin-top:9px">His sister Diane also showed up - and her commitment to community health gave shape to the Diane Health Programme, named for the presence she brought.</p>
+      </div>
+      <div>
+        <div class="section-label">What We Believe</div>
+        <div class="fact-card">
+          <div class="fact-row"><div class="fact-dot"></div><div class="fact-text">Ugandans are capable of building Uganda. Outside support equips - it does not replace.</div></div>
+          <div class="fact-row"><div class="fact-dot"></div><div class="fact-text">Every young person carries something significant. Our work helps them see it.</div></div>
+          <div class="fact-row"><div class="fact-dot"></div><div class="fact-text">Consistent presence builds more than grand gestures. We show up, repeatedly.</div></div>
+          <div class="fact-row"><div class="fact-dot"></div><div class="fact-text">The ripple effect takes time. <em>We are building for the generation ahead.</em></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-line"></div>
+
+    <div>
+      <div class="section-label">Our Programmes</div>
+      <div class="progs-grid">
+        <div class="prog-doc">
+          <div class="prog-doc-head">
+            <div class="pdh-tag">Mentorship Programme</div>
+            <h3>Roots &amp; Rise</h3>
+          </div>
+          <div class="prog-doc-body">
+            <p class="prog-doc-desc">Connecting young Ugandans across Uganda with mentors who bring genuine, consistent presence - and the belief that each participant can define their own direction.</p>
+            <div class="prog-outcomes">
+              <div class="po-item"><div class="po-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="po-text">Goal-setting and career direction</div></div>
+              <div class="po-item"><div class="po-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="po-text">Professional network access</div></div>
+              <div class="po-item"><div class="po-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="po-text">Communication and life skills</div></div>
+              <div class="po-item"><div class="po-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="po-text">6-month structured mentorship cycles</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="prog-doc">
+          <div class="prog-doc-head">
+            <div class="pdh-tag">Health Programme</div>
+            <h3>Diane Health Programme</h3>
+          </div>
+          <div class="prog-doc-body">
+            <p class="prog-doc-desc">Primary health education delivered directly to schools and communities across Uganda - equipping people with the knowledge to protect their own wellbeing before illness arrives.</p>
+            <div class="prog-outcomes">
+              <div class="po-item"><div class="po-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="po-text">Primary health education sessions</div></div>
+              <div class="po-item"><div class="po-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="po-text">Nutrition and everyday wellness</div></div>
+              <div class="po-item"><div class="po-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="po-text">Mental wellbeing conversations</div></div>
+              <div class="po-item"><div class="po-ico"><svg viewBox="0 0 16 16"><path d="M3 8l4 4 6-6"/></svg></div><div class="po-text">Local health champion training</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="impact-bar">
+      <div class="ib-item"><div class="ib-num">20+</div><div class="ib-lbl">Lives Directly Reached</div></div>
+      <div class="ib-item"><div class="ib-num">2</div><div class="ib-lbl">Active Programmes</div></div>
+      <div class="ib-item"><div class="ib-num">2026</div><div class="ib-lbl">Year Founded</div></div>
+    </div>
+
+    <div class="bottom-row">
+      <div>
+        <div class="section-label">Three Ways to Support</div>
+        <div class="support-items">
+          <div class="supp">
+            <div class="supp-ico"><svg viewBox="0 0 16 16"><path d="M8 13.5S2 9.9 2 5.8a4.2 4.2 0 018 0 4.2 4.2 0 018 0c0 4.1-6 7.7-6 7.7z"/></svg></div>
+            <div class="supp-text"><strong>Donate</strong><span>Fund mentorship sessions and health visits directly</span></div>
+          </div>
+          <div class="supp">
+            <div class="supp-ico"><svg viewBox="0 0 16 16"><circle cx="6" cy="5" r="2.5"/><path d="M1 13c0-2.8 2.2-5 5-5s5 2.2 5 5"/><path d="M11 7l1.5 1.5L15 6"/></svg></div>
+            <div class="supp-text"><strong>Mentor</strong><span>Commit time to a young person in Roots &amp; Rise</span></div>
+          </div>
+
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Contact Us</div>
+        <div class="contact-card">
+          <div class="cc-row"><span class="cc-lbl">Email</span><span class="cc-val">info@harrymauricefoundation.org</span></div>
+          <div class="cc-row"><span class="cc-lbl">Website</span><span class="cc-val">harrymauricefoundation.org</span></div>
+          <div class="cc-row"><span class="cc-lbl">Location</span><span class="cc-val">Jinja, Uganda</span></div>
+          <div class="cc-row"><span class="cc-lbl">Founded</span><span class="cc-val">2026 - Republic of Uganda</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span class="df-tag">"Start with one, let it ripple."</span>
+    <span class="df-url">harrymauricefoundation.org</span>
+  </div>
+</div>
+
+
+<script>
+function fitPage() {
+  var pages = document.querySelectorAll('.page');
+  if (!pages.length) return;
+  var first = pages[0];
+  var pageW = first.offsetWidth;
+  var scale = Math.min(window.innerWidth / pageW, 1);
+  var offsetX = scale < 1 ? (window.innerWidth - pageW * scale) / 2 : 0;
+  pages.forEach(function(page) {
+    if (scale < 1) {
+      page.style.transformOrigin = 'top left';
+      page.style.transform = 'translateX(' + offsetX + 'px) scale(' + scale + ')';
+      page.style.marginBottom = '-' + (page.offsetHeight * (1 - scale)) + 'px';
+      page.style.marginLeft = '0';
+      page.style.marginRight = '0';
+    } else {
+      page.style.transform = '';
+      page.style.marginBottom = '';
+      page.style.marginLeft = '';
+      page.style.marginRight = '';
+    }
+  });
+}
+fitPage();
+window.addEventListener('resize', fitPage);
+</script>
+
+</body>
+</html>
