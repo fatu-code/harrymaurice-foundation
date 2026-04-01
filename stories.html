@@ -193,9 +193,70 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
 .nl-btn{background:var(--green);border:none}
 .nl-btn:hover{background:var(--gd)}
 .nl-note{color:var(--muted)}
+
+/* ── FLOATING HAMBURGER ── */
+#float-menu-btn{
+  position:fixed;top:14px;right:16px;z-index:9999;
+  width:40px;height:40px;border-radius:50%;
+  background:rgba(10,31,18,.75);backdrop-filter:blur(10px);
+  border:1px solid rgba(0,156,65,.35);
+  display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  cursor:pointer;padding:0;transition:background .2s
+}
+#float-menu-btn:hover{background:rgba(10,31,18,.95)}
+#float-menu-btn span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;transition:all .25s}
+#float-menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+#float-menu-btn.open span:nth-child(2){opacity:0}
+#float-menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── FULLSCREEN OVERLAY ── */
+#float-overlay{
+  position:fixed;inset:0;z-index:9998;
+  background:rgba(10,31,18,.97);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  opacity:0;pointer-events:none;transition:opacity .25s
+}
+#float-overlay.open{opacity:1;pointer-events:all}
+#float-overlay a{
+  font-family:'Nunito',sans-serif;font-size:1.6rem;font-weight:900;
+  color:rgba(255,255,255,.55);text-decoration:none;letter-spacing:-.02em;
+  transition:color .2s;padding:8px 0
+}
+#float-overlay a:hover{color:#fff}
+#float-overlay a.active{color:#009c41}
+#float-overlay .fo-divider{width:40px;height:2px;background:rgba(0,156,65,.3);border-radius:2px;margin:8px 0}
+#float-overlay .fo-cta{
+  margin-top:8px;height:52px;padding:0 36px;
+  background:#009c41;color:#fff;border:none;border-radius:100px;
+  font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;
+  cursor:pointer;transition:background .2s
+}
+#float-overlay .fo-cta:hover{background:#007a33}
+
+@media(max-width:768px){
+  #float-menu-btn{display:flex}
+  nav .mob-tog{display:none!important}
+}
+
 </style>
 </head>
 <body>
+<!-- FLOATING MENU BUTTON -->
+<button id="float-menu-btn" onclick="toggleFloatMenu()" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- FULLSCREEN OVERLAY -->
+<div id="float-overlay">
+  <a href="index.html" >Home</a>
+  <a href="about.html" >About</a>
+  <a href="programmes.html" >Programmes</a>
+  <a href="kids.html" ACTIVE_KIDS>The Kids</a>
+  <a href="stories.html" class="active">Stories</a>
+  <div class="fo-divider"></div>
+  <button class="fo-cta" onclick="location.href='get-involved.html'">Get Involved</button>
+</div>
+
 <div class="spbar" id="spbar"></div>
 <a href="get-involved.html#donate" class="fdonate" id="fd">
   <svg viewBox="0 0 16 16"><path d="M8 13.5S2 9.9 2 5.8a4.2 4.2 0 018 0 4.2 4.2 0 018 0c0 4.1-6 7.7-6 7.7z"/></svg>Donate
@@ -488,5 +549,24 @@ const pv=JSON.parse(localStorage.getItem('hmf_visited')||'[]');if(!pv.includes('
   const origDoShare = window.doShare;
   if(origDoShare) window.doShare = function(p){ origDoShare(p); hmfAction('shared'); };
 </script>
+
+<script>
+function toggleFloatMenu(){
+  var btn = document.getElementById('float-menu-btn');
+  var overlay = document.getElementById('float-overlay');
+  btn.classList.toggle('open');
+  overlay.classList.toggle('open');
+  document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
+}
+// Close on escape
+document.addEventListener('keydown', function(e){
+  if(e.key==='Escape') {
+    document.getElementById('float-menu-btn').classList.remove('open');
+    document.getElementById('float-overlay').classList.remove('open');
+    document.body.style.overflow='';
+  }
+});
+</script>
+
 </body>
 </html>
