@@ -1,431 +1,1825 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>The Kids - Harry Maurice Foundation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Varela+Round&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#009c41;--gd:#007a33;--gl:#b3e6c8;--pale:#e8f5ee;--dark:#1a2e22;--deeper:#0d1f14;--bg:#F7FAF8;--card:#fff;--border:#dde8e2;--text:#1a2e22;--muted:#7a9e8a;--fv:'Varela Round',sans-serif;--fn:'Nunito',sans-serif;--r:16px;--rs:10px;--rf:100px}
-html{scroll-behavior:smooth}
-body{font-family:var(--fn);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;object-fit:cover}
-a{text-decoration:none;color:inherit}
-.container{max-width:1200px;margin:0 auto;padding:0 48px}
-section{padding:88px 0}
-.spbar{position:fixed;top:0;left:0;height:3px;background:var(--green);z-index:300;width:0;pointer-events:none}
-.fdonate{position:fixed;bottom:28px;right:28px;z-index:150;height:46px;padding:0 22px;background:var(--green);color:#fff;border-radius:var(--rf);font-family:var(--fn);font-size:.75rem;font-weight:800;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,156,65,.4);transition:all .25s;opacity:0;transform:translateY(12px)}
-.fdonate.vis{opacity:1;transform:none}
-.fdonate:hover{background:var(--gd);transform:translateY(-2px)}
-.fdonate svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;padding:0 48px;transition:all .3s;flex-wrap:nowrap}
-nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,.04)}
-.nav-brand{display:flex;align-items:center;gap:9px;flex-shrink:0;min-width:0}
-.nav-dots{display:flex;gap:3px}
-.nav-dots span{width:8px;height:8px;border-radius:50%;display:block}
-.brand-n{font-family:var(--fn);font-size:1rem;font-weight:900;color:#fff;letter-spacing:-.03em;transition:color .3s;white-space:nowrap}
-.brand-n em{font-style:normal;color:#009c41;font-weight:700;display:inline!important}
-nav.scrolled .brand-n{color:var(--text)}
-nav.scrolled .brand-n em{color:#009c41;font-weight:700}
-.nav-links{display:flex;gap:28px;list-style:none;align-items:center;margin-left:auto;margin-right:24px}
-.nav-links a{font-size:.85rem;font-weight:700;color:rgba(255,255,255,.78);transition:color .25s;white-space:nowrap}
-.nav-links a:hover,.nav-links a.active{color:#fff}
-nav.scrolled .nav-links a{color:var(--muted)}
-nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--text)}
-.nav-cta-btn{height:38px;padding:0 20px;background:var(--green);color:#fff;border-radius:var(--rf);font-family:var(--fn);font-size:.75rem;font-weight:800;display:inline-flex;align-items:center;box-shadow:0 2px 10px rgba(0,156,65,.3);transition:all .25s;white-space:nowrap}
-.nav-cta-btn:hover{background:var(--gd);transform:translateY(-1px)}
-nav.scrolled .nav-links .nav-cta-btn{color:#fff}
-.mob-tog{display:none;flex-direction:column;justify-content:space-between;width:24px;height:17px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;margin-left:auto}
-.mob-tog span{display:block;height:2.5px;background:#fff;border-radius:2px;transition:all .25s;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
-nav.scrolled .mob-tog span{background:#1a2e22}
-.mob-tog.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
-.mob-tog.open span:nth-child(2){opacity:0}
-.mob-tog.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
-.mob-drawer{position:fixed;top:64px;left:0;right:0;background:#fff;border-bottom:1.5px solid var(--border);padding:12px 24px 20px;z-index:99;transform:translateY(-4px);opacity:0;pointer-events:none;transition:all .22s;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.mob-drawer.open{transform:none;opacity:1;pointer-events:all}
-.mob-drawer ul{list-style:none;display:flex;flex-direction:column;gap:2px;margin-bottom:14px}
-.mob-drawer ul a{display:block;padding:11px 4px;font-size:.92rem;font-weight:700;color:var(--muted);border-bottom:1px solid var(--pale);transition:color .2s}
-.mob-drawer ul a:hover,.mob-drawer ul a.mob-active{color:var(--green)}
-.mob-donate{display:block;width:100%;height:48px;background:var(--green);color:#fff;border:none;border-radius:var(--rs);font-family:var(--fn);font-size:.88rem;font-weight:800;text-align:center;line-height:48px;cursor:pointer;transition:background .2s}
-.mob-donate:hover{background:var(--gd)}
-.reveal,.reveal-l,.reveal-r{opacity:0;transition:opacity .7s ease,transform .7s ease}
-.reveal{transform:translateY(22px)}
-.reveal-l{transform:translateX(-22px)}
-.reveal-r{transform:translateX(22px)}
-.reveal.on,.reveal-l.on,.reveal-r.on{opacity:1;transform:none}
-.pill{display:inline-flex;align-items:center;gap:6px;background:var(--pale);border:1px solid rgba(0,156,65,.22);border-radius:var(--rf);padding:5px 12px;font-family:var(--fn);font-size:.65rem;font-weight:800;color:var(--green);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
-.pdot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
-.pill-w{background:rgba(179,230,200,.1);border-color:rgba(179,230,200,.22);color:var(--gl)}
-.pill-w .pdot{background:var(--gl)}
-.sh{font-family:var(--fv);font-size:clamp(1.9rem,3.4vw,2.8rem);letter-spacing:-.02em;line-height:1.15;color:var(--text);margin-bottom:20px}
-.sh em{font-style:normal;color:var(--green)}
-.sh-w{color:#fff}
-.sh-w em{color:var(--gl)}
-.bd{font-size:.95rem;line-height:1.88;font-weight:600;color:var(--muted)}
-.text-lnk{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:800;color:var(--green);transition:gap .2s}
-.text-lnk svg{width:13px;height:13px;stroke:var(--green);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s;flex-shrink:0}
-.text-lnk:hover{gap:13px}
-.text-lnk:hover svg{transform:translateX(3px)}
-footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,156,65,.22)}
-.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:56px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:32px}
-.f-top{display:flex;align-items:center;gap:8px;margin-bottom:14px}
-.f-dots{display:flex;gap:3px}
-.f-dots span{width:7px;height:7px;border-radius:50%;display:block}
-.f-name{font-family:var(--fv);font-size:1rem;color:#fff}
-.f-name em{font-style:normal;color:rgba(255,255,255,.36)}
-.f-mission{font-size:.82rem;font-weight:600;line-height:1.8;color:rgba(255,255,255,.28);max-width:260px}
-.f-col h4{font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:18px}
-.f-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.f-col a{font-size:.83rem;font-weight:600;color:rgba(255,255,255,.36);transition:color .2s}
-.f-col a:hover{color:var(--gl)}
-.f-btm{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.f-copy{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.2)}
-.f-tag{font-size:.75rem;font-weight:700;font-style:italic;color:rgba(255,255,255,.18)}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>The Kids - Harry Maurice Foundation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --green: #009c41;
+        --gd: #007a33;
+        --gl: #b3e6c8;
+        --pale: #e8f5ee;
+        --dark: #1a2e22;
+        --deeper: #0d1f14;
+        --bg: #f7faf8;
+        --card: #fff;
+        --border: #dde8e2;
+        --text: #1a2e22;
+        --muted: #7a9e8a;
+        --fv: "Varela Round", sans-serif;
+        --fn: "Nunito", sans-serif;
+        --r: 16px;
+        --rs: 10px;
+        --rf: 100px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--fn);
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img {
+        display: block;
+        object-fit: cover;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+      section {
+        padding: 88px 0;
+      }
+      .spbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: var(--green);
+        z-index: 300;
+        width: 0;
+        pointer-events: none;
+      }
+      .fdonate {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        z-index: 150;
+        height: 46px;
+        padding: 0 22px;
+        background: var(--green);
+        color: #fff;
+        border-radius: var(--rf);
+        font-family: var(--fn);
+        font-size: 0.75rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 20px rgba(0, 156, 65, 0.4);
+        transition: all 0.25s;
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      .fdonate.vis {
+        opacity: 1;
+        transform: none;
+      }
+      .fdonate:hover {
+        background: var(--gd);
+        transform: translateY(-2px);
+      }
+      .fdonate svg {
+        width: 14px;
+        height: 14px;
+        stroke: #fff;
+        fill: none;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        padding: 0 48px;
+        transition: all 0.3s;
+        flex-wrap: nowrap;
+      }
+      nav.scrolled {
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(16px);
+        border-bottom: 1.5px solid var(--border);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        flex-shrink: 0;
+        min-width: 0;
+      }
+      .nav-dots {
+        display: flex;
+        gap: 3px;
+      }
+      .nav-dots span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: block;
+      }
+      .brand-n {
+        font-family: var(--fn);
+        font-size: 1rem;
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: -0.03em;
+        transition: color 0.3s;
+        white-space: nowrap;
+      }
+      .brand-n em {
+        font-style: normal;
+        color: #009c41;
+        font-weight: 700;
+        display: inline !important;
+      }
+      nav.scrolled .brand-n {
+        color: var(--text);
+      }
+      nav.scrolled .brand-n em {
+        color: #009c41;
+        font-weight: 700;
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 24px;
+      }
+      .nav-links a {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.78);
+        transition: color 0.25s;
+        white-space: nowrap;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #fff;
+      }
+      nav.scrolled .nav-links a {
+        color: var(--muted);
+      }
+      nav.scrolled .nav-links a:hover,
+      nav.scrolled .nav-links a.active {
+        color: var(--text);
+      }
+      .nav-cta-btn {
+        height: 38px;
+        padding: 0 20px;
+        background: var(--green);
+        color: #fff;
+        border-radius: var(--rf);
+        font-family: var(--fn);
+        font-size: 0.75rem;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 156, 65, 0.3);
+        transition: all 0.25s;
+        white-space: nowrap;
+      }
+      .nav-cta-btn:hover {
+        background: var(--gd);
+        transform: translateY(-1px);
+      }
+      nav.scrolled .nav-links .nav-cta-btn {
+        color: #fff;
+      }
+      .mob-tog {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 17px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+      .mob-tog span {
+        display: block;
+        height: 2.5px;
+        background: #fff;
+        border-radius: 2px;
+        transition: all 0.25s;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+      }
+      nav.scrolled .mob-tog span {
+        background: #1a2e22;
+      }
+      .mob-tog.open span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+      }
+      .mob-tog.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .mob-tog.open span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+      }
+      .mob-drawer {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1.5px solid var(--border);
+        padding: 12px 24px 20px;
+        z-index: 99;
+        transform: translateY(-4px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.22s;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+      .mob-drawer.open {
+        transform: none;
+        opacity: 1;
+        pointer-events: all;
+      }
+      .mob-drawer ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-bottom: 14px;
+      }
+      .mob-drawer ul a {
+        display: block;
+        padding: 11px 4px;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--muted);
+        border-bottom: 1px solid var(--pale);
+        transition: color 0.2s;
+      }
+      .mob-drawer ul a:hover,
+      .mob-drawer ul a.mob-active {
+        color: var(--green);
+      }
+      .mob-donate {
+        display: block;
+        width: 100%;
+        height: 48px;
+        background: var(--green);
+        color: #fff;
+        border: none;
+        border-radius: var(--rs);
+        font-family: var(--fn);
+        font-size: 0.88rem;
+        font-weight: 800;
+        text-align: center;
+        line-height: 48px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .mob-donate:hover {
+        background: var(--gd);
+      }
+      .reveal,
+      .reveal-l,
+      .reveal-r {
+        opacity: 0;
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal {
+        transform: translateY(22px);
+      }
+      .reveal-l {
+        transform: translateX(-22px);
+      }
+      .reveal-r {
+        transform: translateX(22px);
+      }
+      .reveal.on,
+      .reveal-l.on,
+      .reveal-r.on {
+        opacity: 1;
+        transform: none;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--pale);
+        border: 1px solid rgba(0, 156, 65, 0.22);
+        border-radius: var(--rf);
+        padding: 5px 12px;
+        font-family: var(--fn);
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+      .pdot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+        flex-shrink: 0;
+      }
+      .pill-w {
+        background: rgba(179, 230, 200, 0.1);
+        border-color: rgba(179, 230, 200, 0.22);
+        color: var(--gl);
+      }
+      .pill-w .pdot {
+        background: var(--gl);
+      }
+      .sh {
+        font-family: var(--fv);
+        font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        color: var(--text);
+        margin-bottom: 20px;
+      }
+      .sh em {
+        font-style: normal;
+        color: var(--green);
+      }
+      .sh-w {
+        color: #fff;
+      }
+      .sh-w em {
+        color: var(--gl);
+      }
+      .bd {
+        font-size: 0.95rem;
+        line-height: 1.88;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .text-lnk {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: var(--green);
+        transition: gap 0.2s;
+      }
+      .text-lnk svg {
+        width: 13px;
+        height: 13px;
+        stroke: var(--green);
+        fill: none;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: transform 0.2s;
+        flex-shrink: 0;
+      }
+      .text-lnk:hover {
+        gap: 13px;
+      }
+      .text-lnk:hover svg {
+        transform: translateX(3px);
+      }
+      footer {
+        background: var(--deeper);
+        padding: 80px 0 40px;
+        border-top: 1px solid rgba(0, 156, 65, 0.22);
+      }
+      .f-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: 56px;
+        padding-bottom: 52px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        margin-bottom: 32px;
+      }
+      .f-top {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .f-dots {
+        display: flex;
+        gap: 3px;
+      }
+      .f-dots span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        display: block;
+      }
+      .f-name {
+        font-family: var(--fv);
+        font-size: 1rem;
+        color: #fff;
+      }
+      .f-name em {
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.36);
+      }
+      .f-mission {
+        font-size: 0.82rem;
+        font-weight: 600;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.28);
+        max-width: 260px;
+      }
+      .f-col h4 {
+        font-size: 0.6rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.2);
+        margin-bottom: 18px;
+      }
+      .f-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .f-col a {
+        font-size: 0.83rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.36);
+        transition: color 0.2s;
+      }
+      .f-col a:hover {
+        color: var(--gl);
+      }
+      .f-btm {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .f-copy {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .f-tag {
+        font-size: 0.75rem;
+        font-weight: 700;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.18);
+      }
 
-/* PAGE HERO */
-.page-hero{position:relative;height:56vh;min-height:400px;display:flex;align-items:flex-end;overflow:hidden}
-.ph-bg{position:absolute;inset:0;transform:scale(1.04);transition:transform 9s ease}
-.ph-bg.loaded{transform:scale(1)}
-.ph-content{position:relative;z-index:2;padding-bottom:56px}
-.ph-title{font-family:var(--fv);font-size:clamp(2.4rem,5.5vw,4.2rem);color:#fff;letter-spacing:-.025em;line-height:1.1;margin-bottom:10px}
-.ph-sub{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.55);max-width:500px}
+      /* PAGE HERO */
+      .page-hero {
+        position: relative;
+        height: 56vh;
+        min-height: 400px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+      }
+      .ph-bg {
+        position: absolute;
+        inset: 0;
+        transform: scale(1.04);
+        transition: transform 9s ease;
+      }
+      .ph-bg.loaded {
+        transform: scale(1);
+      }
+      .ph-content {
+        position: relative;
+        z-index: 2;
+        padding-bottom: 56px;
+      }
+      .ph-title {
+        font-family: var(--fv);
+        font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+        color: #fff;
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+        margin-bottom: 10px;
+      }
+      .ph-sub {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.55);
+        max-width: 500px;
+      }
 
-/* CHAMPION BANNER */
-.champ-banner{background:var(--dark)}
-.champ-inner{display:flex;align-items:stretch;flex-wrap:wrap}
-.cs{flex:1;min-width:180px;padding:24px 28px;border-right:1px solid rgba(255,255,255,.07)}
-.cs:last-child{border-right:none}
-.cs-ico{width:32px;height:32px;border-radius:8px;background:rgba(179,230,200,.12);border:1px solid rgba(179,230,200,.2);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
-.cs-ico svg{width:15px;height:15px;stroke:var(--gl);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.cs-val{font-family:var(--fv);font-size:2.2rem;color:#fff;letter-spacing:-.02em;line-height:1}
-.cs-lbl{font-size:.62rem;font-weight:800;color:rgba(255,255,255,.32);letter-spacing:.07em;text-transform:uppercase;margin-top:4px}
+      /* CHAMPION BANNER */
+      .champ-banner {
+        background: var(--dark);
+      }
+      .champ-inner {
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+      }
+      .cs {
+        flex: 1;
+        min-width: 180px;
+        padding: 24px 28px;
+        border-right: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .cs:last-child {
+        border-right: none;
+      }
+      .cs-ico {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: rgba(179, 230, 200, 0.12);
+        border: 1px solid rgba(179, 230, 200, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+      }
+      .cs-ico svg {
+        width: 15px;
+        height: 15px;
+        stroke: var(--gl);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .cs-val {
+        font-family: var(--fv);
+        font-size: 2.2rem;
+        color: #fff;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+      .cs-lbl {
+        font-size: 0.62rem;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.32);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        margin-top: 4px;
+      }
 
-/* KIDS GRID */
-.kids-section{padding:88px 0;background:var(--bg)}
-.kids-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;gap:32px;flex-wrap:wrap}
-.kids-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+      /* KIDS GRID */
+      .kids-section {
+        padding: 88px 0;
+        background: var(--bg);
+      }
+      .kids-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 40px;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+      .kids-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
 
-/* KID CARD */
-.kid-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .3s;position:relative}
-.kid-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(26,46,34,.12)}
-.kid-card.championed{border-color:var(--green)}
-.kc-photo{position:relative;aspect-ratio:1;overflow:hidden}
-.kc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.kid-card:hover .kc-photo img{transform:scale(1.05)}
-.kc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,31,18,.82) 0%,rgba(10,31,18,.08) 55%,transparent 100%)}
-.kc-name-info{position:absolute;bottom:14px;left:14px;right:14px;z-index:2}
-.kc-name{font-family:var(--fv);font-size:1.4rem;color:#fff;display:block;letter-spacing:-.01em}
-.kc-age{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.05em;text-transform:uppercase;margin-top:2px;display:block}
-.kc-champ-badge{position:absolute;top:12px;right:12px;z-index:3;background:var(--green);color:#fff;padding:4px 10px;border-radius:var(--rf);font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;display:none;align-items:center;gap:4px}
-.kid-card.championed .kc-champ-badge{display:flex}
-.kc-body{padding:18px 18px 16px}
-.kc-tag{display:inline-flex;align-items:center;gap:5px;background:var(--pale);border:1px solid rgba(0,156,65,.18);border-radius:var(--rf);padding:3px 10px;font-size:.58rem;font-weight:800;color:var(--green);letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px}
-.kc-aspiration{font-size:.84rem;font-weight:700;line-height:1.6;color:var(--text);padding-bottom:12px;border-bottom:1px solid var(--border);margin-bottom:12px}
-.kc-aspiration em{font-style:normal;color:var(--green)}
-.kc-footer{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.kc-count{font-size:.72rem;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:5px}
-.kc-count-n{font-family:var(--fv);font-size:1.1rem;font-weight:400;color:var(--text)}
-.kc-btn{height:34px;padding:0 14px;border:1.5px solid var(--green);border-radius:var(--rf);font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green);background:transparent;cursor:pointer;font-family:var(--fn);transition:all .25s}
-.kc-btn:hover{background:var(--green);color:#fff}
-.kc-btn.done{background:var(--green);color:#fff}
+      /* KID CARD */
+      .kid-card {
+        background: var(--card);
+        border: 1.5px solid var(--border);
+        border-radius: var(--r);
+        overflow: hidden;
+        transition: all 0.3s;
+        position: relative;
+      }
+      .kid-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 48px rgba(26, 46, 34, 0.12);
+      }
+      .kid-card.championed {
+        border-color: var(--green);
+      }
+      .kc-photo {
+        position: relative;
+        aspect-ratio: 1;
+        overflow: hidden;
+      }
+      .kc-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s;
+      }
+      .kid-card:hover .kc-photo img {
+        transform: scale(1.05);
+      }
+      .kc-ov {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(10, 31, 18, 0.82) 0%,
+          rgba(10, 31, 18, 0.08) 55%,
+          transparent 100%
+        );
+      }
+      .kc-name-info {
+        position: absolute;
+        bottom: 14px;
+        left: 14px;
+        right: 14px;
+        z-index: 2;
+      }
+      .kc-name {
+        font-family: var(--fv);
+        font-size: 1.4rem;
+        color: #fff;
+        display: block;
+        letter-spacing: -0.01em;
+      }
+      .kc-age {
+        font-size: 0.62rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-top: 2px;
+        display: block;
+      }
+      .kc-champ-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 3;
+        background: var(--green);
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: var(--rf);
+        font-size: 0.6rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        display: none;
+        align-items: center;
+        gap: 4px;
+      }
+      .kid-card.championed .kc-champ-badge {
+        display: flex;
+      }
+      .kc-body {
+        padding: 18px 18px 16px;
+      }
+      .kc-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: var(--pale);
+        border: 1px solid rgba(0, 156, 65, 0.18);
+        border-radius: var(--rf);
+        padding: 3px 10px;
+        font-size: 0.58rem;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .kc-aspiration {
+        font-size: 0.84rem;
+        font-weight: 700;
+        line-height: 1.6;
+        color: var(--text);
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 12px;
+      }
+      .kc-aspiration em {
+        font-style: normal;
+        color: var(--green);
+      }
+      .kc-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .kc-count {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .kc-count-n {
+        font-family: var(--fv);
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: var(--text);
+      }
+      .kc-btn {
+        height: 34px;
+        padding: 0 14px;
+        border: 1.5px solid var(--green);
+        border-radius: var(--rf);
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--green);
+        background: transparent;
+        cursor: pointer;
+        font-family: var(--fn);
+        transition: all 0.25s;
+      }
+      .kc-btn:hover {
+        background: var(--green);
+        color: #fff;
+      }
+      .kc-btn.done {
+        background: var(--green);
+        color: #fff;
+      }
 
-/* UNLOCK STORY */
-.kc-unlock{border-top:1px solid var(--border);padding-top:14px;margin-top:14px;display:none}
-.kc-unlock.open{display:block;animation:unlockIn .5s ease}
-@keyframes unlockIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.kc-lock-hint{display:flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;color:var(--muted)}
-.kc-lock-hint svg{width:13px;height:13px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.kc-story-quote{font-size:.88rem;font-weight:700;font-style:italic;line-height:1.6;color:var(--text);border-left:2px solid var(--green);padding-left:12px;margin-bottom:8px}
-.kc-story-detail{font-size:.78rem;font-weight:600;line-height:1.65;color:var(--muted)}
-.kc-story-badge{display:inline-flex;align-items:center;gap:5px;background:var(--pale);border:1px solid rgba(0,156,65,.18);border-radius:var(--rf);padding:3px 10px;font-size:.6rem;font-weight:800;color:var(--green);letter-spacing:.06em;text-transform:uppercase;margin-top:8px}
+      /* UNLOCK STORY */
+      .kc-unlock {
+        border-top: 1px solid var(--border);
+        padding-top: 14px;
+        margin-top: 14px;
+        display: none;
+      }
+      .kc-unlock.open {
+        display: block;
+        animation: unlockIn 0.5s ease;
+      }
+      @keyframes unlockIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .kc-lock-hint {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--muted);
+      }
+      .kc-lock-hint svg {
+        width: 13px;
+        height: 13px;
+        stroke: var(--muted);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .kc-story-quote {
+        font-size: 0.88rem;
+        font-weight: 700;
+        font-style: italic;
+        line-height: 1.6;
+        color: var(--text);
+        border-left: 2px solid var(--green);
+        padding-left: 12px;
+        margin-bottom: 8px;
+      }
+      .kc-story-detail {
+        font-size: 0.78rem;
+        font-weight: 600;
+        line-height: 1.65;
+        color: var(--muted);
+      }
+      .kc-story-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: var(--pale);
+        border: 1px solid rgba(0, 156, 65, 0.18);
+        border-radius: var(--rf);
+        padding: 3px 10px;
+        font-size: 0.6rem;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-top: 8px;
+      }
 
-/* CHAMPION MODAL */
-.champion-modal{position:fixed;inset:0;background:rgba(10,31,18,.88);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(10px);padding:20px}
-.champion-modal.open{opacity:1;pointer-events:all}
-.cm-card{background:#fff;border-radius:20px;padding:48px 40px;max-width:440px;width:100%;text-align:center;transform:scale(.92) translateY(18px);transition:transform .3s;position:relative;overflow:hidden}
-.champion-modal.open .cm-card{transform:scale(1) translateY(0)}
-.cm-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(to right,var(--green),var(--gl))}
-.cm-x{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--muted);line-height:1;font-family:var(--fn);transition:color .2s;padding:4px}
-.cm-x:hover{color:var(--text)}
-.cm-emoji{font-size:3rem;display:block;margin-bottom:10px;animation:ep .5s cubic-bezier(.36,.07,.19,.97) forwards}
-@keyframes ep{0%{transform:scale(0) rotate(-12deg)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
-.cm-title{font-family:var(--fv);font-size:1.8rem;color:var(--text);margin-bottom:4px}
-.cm-name{font-family:var(--fv);font-size:1.5rem;color:var(--green);margin-bottom:12px}
-.cm-msg{font-size:.88rem;font-weight:700;line-height:1.7;color:var(--muted);margin-bottom:18px}
-.cm-badge{display:inline-block;padding:5px 16px;background:var(--pale);border:1px solid rgba(0,156,65,.22);border-radius:var(--rf);font-size:.65rem;font-weight:800;color:var(--green);letter-spacing:.08em;text-transform:uppercase}
+      /* CHAMPION MODAL */
+      .champion-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 31, 18, 0.88);
+        z-index: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        backdrop-filter: blur(10px);
+        padding: 20px;
+      }
+      .champion-modal.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .cm-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 48px 40px;
+        max-width: 440px;
+        width: 100%;
+        text-align: center;
+        transform: scale(0.92) translateY(18px);
+        transition: transform 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .champion-modal.open .cm-card {
+        transform: scale(1) translateY(0);
+      }
+      .cm-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(to right, var(--green), var(--gl));
+      }
+      .cm-x {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 1.3rem;
+        cursor: pointer;
+        color: var(--muted);
+        line-height: 1;
+        font-family: var(--fn);
+        transition: color 0.2s;
+        padding: 4px;
+      }
+      .cm-x:hover {
+        color: var(--text);
+      }
+      .cm-emoji {
+        font-size: 3rem;
+        display: block;
+        margin-bottom: 10px;
+        animation: ep 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+      }
+      @keyframes ep {
+        0% {
+          transform: scale(0) rotate(-12deg);
+        }
+        60% {
+          transform: scale(1.18);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .cm-title {
+        font-family: var(--fv);
+        font-size: 1.8rem;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+      .cm-name {
+        font-family: var(--fv);
+        font-size: 1.5rem;
+        color: var(--green);
+        margin-bottom: 12px;
+      }
+      .cm-msg {
+        font-size: 0.88rem;
+        font-weight: 700;
+        line-height: 1.7;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      .cm-badge {
+        display: inline-block;
+        padding: 5px 16px;
+        background: var(--pale);
+        border: 1px solid rgba(0, 156, 65, 0.22);
+        border-radius: var(--rf);
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
 
-/* BADGE SECTION */
-.badge-sec{background:var(--dark);padding:80px 0;position:relative;overflow:hidden}
-.badge-sec::before{content:'';position:absolute;top:-200px;right:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(179,230,200,.07) 0%,transparent 70%);pointer-events:none}
-.badge-sec .container{position:relative;z-index:1;text-align:center}
-.badges-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:28px}
-.b-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 18px;border:1.5px solid rgba(255,255,255,.1);border-radius:var(--r);min-width:110px;transition:all .3s;opacity:.22}
-.b-item.earned{opacity:1;border-color:var(--gl);background:rgba(179,230,200,.07)}
-.b-item.earned .b-emoji{animation:bPop .6s cubic-bezier(.36,.07,.19,.97) forwards}
-@keyframes bPop{0%{transform:scale(0) rotate(-20deg)}60%{transform:scale(1.2) rotate(5deg)}80%{transform:scale(.95)}100%{transform:scale(1)}}
-.b-emoji{font-size:2.2rem}
-.b-name{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.32);text-align:center}
-.b-item.earned .b-name{color:var(--gl)}
-.b-progress{font-size:.82rem;font-weight:700;color:rgba(255,255,255,.38)}
-.b-progress strong{color:var(--gl)}
+      /* BADGE SECTION */
+      .badge-sec {
+        background: var(--dark);
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .badge-sec::before {
+        content: "";
+        position: absolute;
+        top: -200px;
+        right: -200px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(179, 230, 200, 0.07) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .badge-sec .container {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+      .badges-row {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-bottom: 28px;
+      }
+      .b-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 22px 18px;
+        border: 1.5px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--r);
+        min-width: 110px;
+        transition: all 0.3s;
+        opacity: 0.22;
+      }
+      .b-item.earned {
+        opacity: 1;
+        border-color: var(--gl);
+        background: rgba(179, 230, 200, 0.07);
+      }
+      .b-item.earned .b-emoji {
+        animation: bPop 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+      }
+      @keyframes bPop {
+        0% {
+          transform: scale(0) rotate(-20deg);
+        }
+        60% {
+          transform: scale(1.2) rotate(5deg);
+        }
+        80% {
+          transform: scale(0.95);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .b-emoji {
+        font-size: 2.2rem;
+      }
+      .b-name {
+        font-size: 0.62rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.32);
+        text-align: center;
+      }
+      .b-item.earned .b-name {
+        color: var(--gl);
+      }
+      .b-progress {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.38);
+      }
+      .b-progress strong {
+        color: var(--gl);
+      }
 
-/* CTA */
-.kids-cta{background:var(--green);padding:72px 0;text-align:center;position:relative;overflow:hidden}
-.kids-cta::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/svg%3E")}
-.kids-cta .container{position:relative;z-index:1}
-.btn-w{height:50px;padding:0 32px;background:#fff;color:var(--green);border:none;border-radius:var(--rs);font-family:var(--fn);font-size:.88rem;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;transition:all .2s}
-.btn-w:hover{background:var(--pale);transform:translateY(-1px)}
+      /* CTA */
+      .kids-cta {
+        background: var(--green);
+        padding: 72px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .kids-cta::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/svg%3E");
+      }
+      .kids-cta .container {
+        position: relative;
+        z-index: 1;
+      }
+      .btn-w {
+        height: 50px;
+        padding: 0 32px;
+        background: #fff;
+        color: var(--green);
+        border: none;
+        border-radius: var(--rs);
+        font-family: var(--fn);
+        font-size: 0.88rem;
+        font-weight: 800;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.2s;
+      }
+      .btn-w:hover {
+        background: var(--pale);
+        transform: translateY(-1px);
+      }
 
-@media(max-width:1024px){.kids-grid{grid-template-columns:repeat(2,1fr)}.f-grid{grid-template-columns:1fr 1fr;gap:40px}}
-@media(max-width:768px){.container{padding:0 24px}nav{padding:0 24px;background:rgba(10,31,18,.75)!important;backdrop-filter:blur(8px)}.mob-tog{display:flex}.nav-links{display:none}.nav-cta-btn{display:none}.kids-section{padding:64px 0}.kids-grid{grid-template-columns:1fr 1fr}.champ-inner{flex-direction:column}.cs{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);padding:16px 20px}.cs:last-child{border-bottom:none}.badges-row{gap:12px}.b-item{min-width:90px;padding:16px 12px}.cm-card{padding:36px 24px}.f-grid{grid-template-columns:1fr;gap:28px}.fdonate{bottom:16px;right:16px;height:42px;padding:0 18px;font-size:.7rem}}
-@media(max-width:520px){.kids-grid{grid-template-columns:1fr}}
+      @media (max-width: 1024px) {
+        .kids-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .f-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 24px;
+        }
+        nav {
+          padding: 0 24px;
+          background: rgba(10, 31, 18, 0.75) !important;
+          backdrop-filter: blur(8px);
+        }
+        .mob-tog {
+          display: flex;
+        }
+        .nav-links {
+          display: none;
+        }
+        .nav-cta-btn {
+          display: none;
+        }
+        .kids-section {
+          padding: 64px 0;
+        }
+        .kids-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .champ-inner {
+          flex-direction: column;
+        }
+        .cs {
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+          padding: 16px 20px;
+        }
+        .cs:last-child {
+          border-bottom: none;
+        }
+        .badges-row {
+          gap: 12px;
+        }
+        .b-item {
+          min-width: 90px;
+          padding: 16px 12px;
+        }
+        .cm-card {
+          padding: 36px 24px;
+        }
+        .f-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .fdonate {
+          bottom: 16px;
+          right: 16px;
+          height: 42px;
+          padding: 0 18px;
+          font-size: 0.7rem;
+        }
+      }
+      @media (max-width: 520px) {
+        .kids-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-/* ─ PRE-FOOTER: white CTA ─ */
-.kids-cta{background:#fff}
-.kids-cta::before{display:none}
-.kids-cta .pill{background:var(--pale);border-color:rgba(0,156,65,.22);color:var(--green)}
-.kids-cta .pill .pdot{background:var(--green)}
-.kids-cta .sh{color:var(--text)}
-.kids-cta .sh em{color:var(--green)}
-.kids-cta p{color:var(--muted)}
-.kids-cta .btn-w{background:var(--green);color:#fff;box-shadow:0 4px 16px rgba(0,156,65,.3)}
-.kids-cta .btn-w:hover{background:var(--gd)}
+      /* ─ PRE-FOOTER: white CTA ─ */
+      .kids-cta {
+        background: #fff;
+      }
+      .kids-cta::before {
+        display: none;
+      }
+      .kids-cta .pill {
+        background: var(--pale);
+        border-color: rgba(0, 156, 65, 0.22);
+        color: var(--green);
+      }
+      .kids-cta .pill .pdot {
+        background: var(--green);
+      }
+      .kids-cta .sh {
+        color: var(--text);
+      }
+      .kids-cta .sh em {
+        color: var(--green);
+      }
+      .kids-cta p {
+        color: var(--muted);
+      }
+      .kids-cta .btn-w {
+        background: var(--green);
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(0, 156, 65, 0.3);
+      }
+      .kids-cta .btn-w:hover {
+        background: var(--gd);
+      }
 
-/* ── FLOATING HAMBURGER ── */
-#float-menu-btn{
-  position:fixed;top:14px;right:16px;z-index:9999;
-  width:40px;height:40px;border-radius:50%;
-  background:rgba(10,31,18,.75);backdrop-filter:blur(10px);
-  border:1px solid rgba(0,156,65,.35);
-  display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;
-  cursor:pointer;padding:0;transition:background .2s
-}
-#float-menu-btn:hover{background:rgba(10,31,18,.95)}
-#float-menu-btn span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;transition:all .25s}
-#float-menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-#float-menu-btn.open span:nth-child(2){opacity:0}
-#float-menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+      /* ── FLOATING HAMBURGER ── */
+      #float-menu-btn {
+        position: fixed;
+        top: 14px;
+        right: 16px;
+        z-index: 9999;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(10, 31, 18, 0.75);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 156, 65, 0.35);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.2s;
+      }
+      #float-menu-btn:hover {
+        background: rgba(10, 31, 18, 0.95);
+      }
+      #float-menu-btn span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+        transition: all 0.25s;
+      }
+      #float-menu-btn.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      #float-menu-btn.open span:nth-child(2) {
+        opacity: 0;
+      }
+      #float-menu-btn.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
 
-/* ── FULLSCREEN OVERLAY ── */
-#float-overlay{
-  position:fixed;inset:0;z-index:9998;
-  background:rgba(10,31,18,.97);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-  opacity:0;pointer-events:none;transition:opacity .25s
-}
-#float-overlay.open{opacity:1;pointer-events:all}
-#float-overlay a{
-  font-family:'Nunito',sans-serif;font-size:1.6rem;font-weight:900;
-  color:rgba(255,255,255,.55);text-decoration:none;letter-spacing:-.02em;
-  transition:color .2s;padding:8px 0
-}
-#float-overlay a:hover{color:#fff}
-#float-overlay a.active{color:#009c41}
-#float-overlay .fo-divider{width:40px;height:2px;background:rgba(0,156,65,.3);border-radius:2px;margin:8px 0}
-#float-overlay .fo-cta{
-  margin-top:8px;height:52px;padding:0 36px;
-  background:#009c41;color:#fff;border:none;border-radius:100px;
-  font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;
-  cursor:pointer;transition:background .2s
-}
-#float-overlay .fo-cta:hover{background:#007a33}
+      /* ── FULLSCREEN OVERLAY ── */
+      #float-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9998;
+        background: rgba(10, 31, 18, 0.97);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s;
+      }
+      #float-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      #float-overlay a {
+        font-family: "Nunito", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        letter-spacing: -0.02em;
+        transition: color 0.2s;
+        padding: 8px 0;
+      }
+      #float-overlay a:hover {
+        color: #fff;
+      }
+      #float-overlay a.active {
+        color: #009c41;
+      }
+      #float-overlay .fo-divider {
+        width: 40px;
+        height: 2px;
+        background: rgba(0, 156, 65, 0.3);
+        border-radius: 2px;
+        margin: 8px 0;
+      }
+      #float-overlay .fo-cta {
+        margin-top: 8px;
+        height: 52px;
+        padding: 0 36px;
+        background: #009c41;
+        color: #fff;
+        border: none;
+        border-radius: 100px;
+        font-family: "Nunito", sans-serif;
+        font-size: 1rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      #float-overlay .fo-cta:hover {
+        background: #007a33;
+      }
 
-@media(max-width:768px){
-  #float-menu-btn{display:flex}
-  nav .mob-tog{display:none!important}
-}
+      @media (max-width: 768px) {
+        #float-menu-btn {
+          display: flex;
+        }
+        nav .mob-tog {
+          display: none !important;
+        }
+      }
+    </style>
 
-</style>
+    <style>
+      #nav {
+        background: rgba(255, 255, 255, 0.97) !important;
+        backdrop-filter: blur(16px) !important;
+        border-bottom: 1.5px solid #dde8e2 !important;
+      }
+      #nav .brand-n {
+        color: #1a2e22 !important;
+      }
+      #nav .brand-n em {
+        color: #009c41 !important;
+      }
+      #nav .nav-links a {
+        color: #374151 !important;
+      }
+      #nav .nav-links a:hover {
+        color: #009c41 !important;
+      }
+      #nav .mob-tog span {
+        background: #1a2e22 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- FLOATING MENU BUTTON -->
+    <button id="float-menu-btn" onclick="toggleFloatMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
 
-<style>
-#nav{background:rgba(255,255,255,.97)!important;backdrop-filter:blur(16px)!important;border-bottom:1.5px solid #dde8e2!important}
-#nav .brand-n{color:#1a2e22!important}
-#nav .brand-n em{color:#009c41!important}
-#nav .nav-links a{color:#374151!important}
-#nav .nav-links a:hover{color:#009c41!important}
-#nav .mob-tog span{background:#1a2e22!important}
-</style>
-</head>
-<body>
-<!-- FLOATING MENU BUTTON -->
-<button id="float-menu-btn" onclick="toggleFloatMenu()" aria-label="Menu">
-  <span></span><span></span><span></span>
-</button>
+    <!-- FULLSCREEN OVERLAY -->
+    <div id="float-overlay">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="kids.html" ACTIVE_KIDS>The Kids</a>
+      <a href="stories.html">Stories</a>
+      <div class="fo-divider"></div>
+      <button class="fo-cta" onclick="location.href = 'get-involved.html'">
+        Get Involved
+      </button>
+    </div>
 
-<!-- FULLSCREEN OVERLAY -->
-<div id="float-overlay">
-  <a href="index.html" >Home</a>
-  <a href="about.html" >About</a>
-  <a href="programmes.html" >Programmes</a>
-  <a href="kids.html" ACTIVE_KIDS>The Kids</a>
-  <a href="stories.html" >Stories</a>
-  <div class="fo-divider"></div>
-  <button class="fo-cta" onclick="location.href='get-involved.html'">Get Involved</button>
-</div>
+    <div class="spbar" id="spbar"></div>
+    <a href="get-involved.html#donate" class="fdonate" id="fd">
+      <svg viewBox="0 0 16 16">
+        <path
+          d="M8 13.5S2 9.9 2 5.8a4.2 4.2 0 018 0 4.2 4.2 0 018 0c0 4.1-6 7.7-6 7.7z"
+        /></svg
+      >Donate
+    </a>
 
-<div class="spbar" id="spbar"></div>
-<a href="get-involved.html#donate" class="fdonate" id="fd">
-  <svg viewBox="0 0 16 16"><path d="M8 13.5S2 9.9 2 5.8a4.2 4.2 0 018 0 4.2 4.2 0 018 0c0 4.1-6 7.7-6 7.7z"/></svg>Donate
-</a>
-
-<div class="champion-modal" id="champModal">
-  <div class="cm-card">
-    <button class="cm-x" onclick="closeChamp()">✕</button>
-    <span class="cm-emoji" id="cmEmoji">🌱</span>
-    <div class="cm-title">You are now championing</div>
-    <div class="cm-name" id="cmName"> - </div>
-    <p class="cm-msg" id="cmMsg"></p>
-    <div class="cm-badge" id="cmBadge"></div>
-  </div>
-</div>
-
-<nav id="nav" class="scrolled">
-  <a href="index.html" class="nav-brand" style="text-decoration:none">
-    <span class="brand-n">Harry Maurice <em>Foundation</em></span>
-  </a>
-  <button class="mob-tog" id="mobTog" onclick="toggleMob()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="programmes.html">Programmes</a></li>
-    <li><a href="kids.html" class="active">The Kids</a></li>
-    <li><a href="stories.html">Stories</a></li>
-    <li><a href="get-involved.html" class="nav-cta-btn">Get Involved</a></li>
-  </ul>
-</nav>
-<div class="mob-drawer" id="mobDrawer">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="programmes.html">Programmes</a></li>
-    <li><a href="kids.html" class="mob-active">The Kids</a></li>
-    <li><a href="stories.html">Stories</a></li>
-  </ul>
-  <a href="get-involved.html" class="mob-donate">Get Involved →</a>
-</div>
-
-<section class="page-hero">
-  <div class="ph-bg" id="hbg" style="background:linear-gradient(to top,rgba(10,31,18,.9) 0%,rgba(10,31,18,.45) 55%,rgba(10,31,18,.18) 100%),url('https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1800&q=88') center/cover;/* REPLACE: African youth group photo */"></div>
-  <div class="container ph-content">
-    <h1 class="ph-title">Every name.<br/>Every future.</h1>
-    <p class="ph-sub">30 students and growing. Real names. Real dreams. Champion them to unlock their full stories.</p>
-  </div>
-</section>
-
-<div class="champ-banner">
-  <div class="champ-inner container">
-    <div class="cs"><div class="cs-ico"><svg viewBox="0 0 16 16"><path d="M8 13.5S2 9.9 2 5.8a4.2 4.2 0 018 0 4.2 4.2 0 018 0c0 4.1-6 7.7-6 7.7z"/></svg></div><div class="cs-val" id="totalChamps">0</div><div class="cs-lbl">Total champions given</div></div>
-    <div class="cs"><div class="cs-ico"><svg viewBox="0 0 16 16"><circle cx="6" cy="5" r="2.5"/><path d="M1 13c0-2.8 2.2-5 5-5s5 2.2 5 5"/><circle cx="12" cy="5" r="2.5"/><path d="M9 13c0-2.8 2.2-5 5-5"/></svg></div><div class="cs-val">9</div><div class="cs-lbl">Young people featured</div></div>
-    <div class="cs"><div class="cs-ico"><svg viewBox="0 0 16 16"><path d="M8 2l2 4h4l-3.3 2.4 1.3 4L8 10 4 12.4 5.3 8.4 2 6h4z"/></svg></div><div class="cs-val" id="yourChamps">0</div><div class="cs-lbl">Your champions</div></div>
-    <div class="cs"><div class="cs-ico"><svg viewBox="0 0 16 16"><path d="M8 2l5 2v4c0 3-2.5 5.5-5 6-2.5-.5-5-3-5-6V4z"/></svg></div><div class="cs-val" id="storiesUnlocked">0</div><div class="cs-lbl">Stories unlocked</div></div>
-  </div>
-</div>
-
-<section class="kids-section">
-  <div class="container">
-    <div class="kids-hd">
-      <div class="reveal">
-        <div class="pill"><div class="pdot"></div>Meet Them</div>
-        <h2 class="sh" style="margin-bottom:8px">Their names. <em>Their dreams.</em></h2>
-        <p class="bd" style="max-width:460px;margin:0">Click <strong>Champion</strong> on any card to add your belief to theirs - and unlock their full story.</p>
+    <div class="champion-modal" id="champModal">
+      <div class="cm-card">
+        <button class="cm-x" onclick="closeChamp()">✕</button>
+        <span class="cm-emoji" id="cmEmoji">🌱</span>
+        <div class="cm-title">You are now championing</div>
+        <div class="cm-name" id="cmName">-</div>
+        <p class="cm-msg" id="cmMsg"></p>
+        <div class="cm-badge" id="cmBadge"></div>
       </div>
     </div>
-    <div class="kids-grid" id="kidsGrid"></div>
-  </div>
-</section>
 
-<section class="badge-sec">
-  <div class="container">
-    <div class="pill pill-w" style="justify-content:center"><div class="pdot"></div>Your Champion Badges</div>
-    <h2 class="sh sh-w" style="text-align:center;max-width:520px;margin:0 auto 44px">Every champion<br/><em>earns a badge.</em></h2>
-    <div class="badges-row">
-      <div class="b-item" id="badge-1"><div class="b-emoji">🌱</div><div class="b-name">First Champion</div></div>
-      <div class="b-item" id="badge-3"><div class="b-emoji">🤝</div><div class="b-name">Believer of 3</div></div>
-      <div class="b-item" id="badge-5"><div class="b-emoji">💚</div><div class="b-name">Community Believer</div></div>
-      <div class="b-item" id="badge-all"><div class="b-emoji">🏆</div><div class="b-name">Full Champion</div></div>
+    <nav id="nav" class="scrolled">
+      <a href="index.html" class="nav-brand" style="text-decoration: none">
+        <span class="brand-n">Harry Maurice <em>Foundation</em></span>
+      </a>
+      <button
+        class="mob-tog"
+        id="mobTog"
+        onclick="toggleMob()"
+        aria-label="Menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="kids.html" class="active">The Kids</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li>
+          <a href="get-involved.html" class="nav-cta-btn">Get Involved</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="mob-drawer" id="mobDrawer">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="kids.html" class="mob-active">The Kids</a></li>
+        <li><a href="stories.html">Stories</a></li>
+      </ul>
+      <a href="get-involved.html" class="mob-donate">Get Involved →</a>
     </div>
-    <p class="b-progress">You have championed <strong id="champNumText">0</strong> of 9 kids. <span id="nextHint">Champion your first to earn a badge.</span></p>
-  </div>
-</section>
 
-<section class="kids-cta">
-  <div class="container">
-    <div class="pill" style="justify-content:center"><div class="pdot"></div>Take it further</div>
-    <h2 class="sh" style="text-align:center;max-width:520px;margin:12px auto 14px">Championing is a click.<br/><em>Donating funds the work.</em></h2>
-    <p style="font-size:.9rem;font-weight:600;color:var(--muted);max-width:400px;margin:0 auto 32px;text-align:center">The mentorship sessions and health visits are funded by people who believe in these names.</p>
-    <button class="btn-w" onclick="location.href='get-involved.html#donate'">Donate Now</button>
-  </div>
-</section>
+    <section class="page-hero">
+      <div
+        class="ph-bg"
+        id="hbg"
+        style="
+          background:
+            linear-gradient(
+              to top,
+              rgba(10, 31, 18, 0.9) 0%,
+              rgba(10, 31, 18, 0.45) 55%,
+              rgba(10, 31, 18, 0.18) 100%
+            ),
+            url(&quot;https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1800&q=88&quot;)
+              center/cover; /* REPLACE: African youth group photo */
+        "
+      ></div>
+      <div class="container ph-content">
+        <h1 class="ph-title">Every name.<br />Every future.</h1>
+        <p class="ph-sub">
+          30 students and growing. Real names. Real dreams. Champion them to
+          unlock their full stories.
+        </p>
+      </div>
+    </section>
 
-<footer>
-  <div class="container">
-    <div class="f-grid">
-      <div><div class="f-top"><span class="f-name">Harry Maurice <em>Foundation</em></span></div><p class="f-mission">A focused foundation working in Uganda through mentorship and health.</p></div>
-      <div class="f-col"><h4>Programmes</h4><ul><li><a href="programmes.html#roots">Roots &amp; Rise</a></li><li><a href="programmes.html#diane">Diane Health Programme</a></li></ul></div>
-      <div class="f-col"><h4>Foundation</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="kids.html">The Kids</a></li><li><a href="stories.html">Stories</a></li><li><a href="get-involved.html">Get Involved</a></li></ul></div>
-      <div class="f-col"><h4>Connect</h4><ul><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#partner">Partner</a></li><li><a href="mailto:info@harrymauricefoundation.org">Contact</a></li></ul></div>
+    <div class="champ-banner">
+      <div class="champ-inner container">
+        <div class="cs">
+          <div class="cs-ico">
+            <svg viewBox="0 0 16 16">
+              <path
+                d="M8 13.5S2 9.9 2 5.8a4.2 4.2 0 018 0 4.2 4.2 0 018 0c0 4.1-6 7.7-6 7.7z"
+              />
+            </svg>
+          </div>
+          <div class="cs-val" id="totalChamps">0</div>
+          <div class="cs-lbl">Total champions given</div>
+        </div>
+        <div class="cs">
+          <div class="cs-ico">
+            <svg viewBox="0 0 16 16">
+              <circle cx="6" cy="5" r="2.5" />
+              <path d="M1 13c0-2.8 2.2-5 5-5s5 2.2 5 5" />
+              <circle cx="12" cy="5" r="2.5" />
+              <path d="M9 13c0-2.8 2.2-5 5-5" />
+            </svg>
+          </div>
+          <div class="cs-val">9</div>
+          <div class="cs-lbl">Young people featured</div>
+        </div>
+        <div class="cs">
+          <div class="cs-ico">
+            <svg viewBox="0 0 16 16">
+              <path d="M8 2l2 4h4l-3.3 2.4 1.3 4L8 10 4 12.4 5.3 8.4 2 6h4z" />
+            </svg>
+          </div>
+          <div class="cs-val" id="yourChamps">0</div>
+          <div class="cs-lbl">Your champions</div>
+        </div>
+        <div class="cs">
+          <div class="cs-ico">
+            <svg viewBox="0 0 16 16">
+              <path d="M8 2l5 2v4c0 3-2.5 5.5-5 6-2.5-.5-5-3-5-6V4z" />
+            </svg>
+          </div>
+          <div class="cs-val" id="storiesUnlocked">0</div>
+          <div class="cs-lbl">Stories unlocked</div>
+        </div>
+      </div>
     </div>
-    <div class="f-btm"><span class="f-copy">© 2026 Harry Maurice Foundation. Jinja, Uganda.</span><span class="f-tag">"Start with one, let it ripple."</span></div>
-  </div>
-</footer>
 
-<script>
-const spbar=document.getElementById('spbar'),navEl=document.getElementById('nav');
-window.addEventListener('scroll',()=>{spbar.style.width=(window.scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';navEl.classList.add('scrolled')},{passive:true});
-window.addEventListener('load',()=>{const b=document.getElementById('hbg');if(b)b.style.transform='scale(1)'});
-function toggleMob(){const tog=document.getElementById('mobTog'),dr=document.getElementById('mobDrawer');tog.classList.toggle('open');dr.classList.toggle('open')}
-document.addEventListener('click',e=>{const dr=document.getElementById('mobDrawer'),tog=document.getElementById('mobTog');if(dr&&dr.classList.contains('open')&&!dr.contains(e.target)&&!tog.contains(e.target)){tog.classList.remove('open');dr.classList.remove('open')}});
-const ro=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),(i%3)*80);ro.unobserve(e.target)}})},{threshold:.1});
+    <section class="kids-section">
+      <div class="container">
+        <div class="kids-hd">
+          <div class="reveal">
+            <div class="pill">
+              <div class="pdot"></div>
+              Meet Them
+            </div>
+            <h2 class="sh" style="margin-bottom: 8px">
+              Their names. <em>Their dreams.</em>
+            </h2>
+            <p class="bd" style="max-width: 460px; margin: 0">
+              Click <strong>Champion</strong> on any card to add your belief to
+              theirs - and unlock their full story.
+            </p>
+          </div>
+        </div>
+        <div class="kids-grid" id="kidsGrid"></div>
+      </div>
+    </section>
 
-// KIDS DATA - stock photos from Unsplash (replace with real photos)
-const kids=[
-  {id:'mariam',   name:'Mariam',    age:17,loc:'Kampala', prog:'Roots & Rise',  dream:'Architect',    aspiration:'Dreams of designing the buildings that will <em>shape Uganda\'s future skyline.</em>',
-   photo:'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&q=80',
-   quote:'"One day I will design a building that every Ugandan is proud of."',detail:'Mariam joined after Harry noticed her quietly sketching floor plans during a session. Harry told her: "I am proud of you." She has not forgotten.'},
-  {id:'emmanuel', name:'Emmanuel',  age:19,loc:'Entebbe', prog:'Roots & Rise',  dream:'Doctor',       aspiration:'Studying medicine because Uganda needs more doctors who <em>know its people from within.</em>',
-   photo:'https://images.unsplash.com/photo-1507152927626-3b1d50c76af5?w=400&q=80',
-   quote:'"I will come back and serve the communities that raised me."',detail:'Harry looked Emmanuel in the eye and said: "Uganda needs doctors like you." Emmanuel is now studying pre-medicine and volunteers at a local clinic.'},
-  {id:'aisha',  name:'Aisha',   age:16,loc:'Jinja',   prog:'Diane Health',  dream:'Nurse',        aspiration:'Wants to become a nurse after seeing her community\'s <em>lack of basic health access.</em>',
-   photo:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
-   quote:'"No one in my village should die from something that could be treated."',detail:'Aisha walked 11km to attend her first Diane Health session. She now helps run the sessions herself.'},
-  {id:'david',  name:'David',   age:18,loc:'Kampala', prog:'Roots & Rise',  dream:'Engineer',     aspiration:'Passionate about building infrastructure that <em>connects communities across Uganda.</em>',
-   photo:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',
-   quote:'"Bridges and roads are not just concrete. They are dignity."',detail:'David wants to build roads in northern Uganda. His mentor connected him to a civil engineering student in Nairobi.'},
-  {id:'grace',  name:'Grace',   age:17,loc:'Gulu',    prog:'Diane Health',  dream:'Health Worker', aspiration:'Wants to bring health education to rural communities <em>still without clinic access.</em>',
-   photo:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80',
-   quote:'"If the clinic can\'t come to us, we will go to the clinic."',detail:'Grace travelled from Gulu specifically to join the programme. She is the furthest from home - and the most determined.'},
-  {id:'ibrahim',name:'Ibrahim', age:20,loc:'Kampala', prog:'Roots & Rise',  dream:'Entrepreneur',  aspiration:'Building a business that hires within his community - proof that <em>local can be world-class.</em>',
-   photo:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
-   quote:'"I don\'t want to leave Uganda to succeed. I want to succeed here."',detail:'Ibrahim is now mentoring younger participants - making him both a recipient and a giver in the same programme.'},
-  {id:'joy',    name:'Joy',     age:15,loc:'Masaka',  prog:'Diane Health',  dream:'Teacher',       aspiration:'Believes education is the most powerful medicine - wants to <em>teach in her home village.</em>',
-   photo:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80',
-   quote:'"Every child I teach will carry something forward."',detail:'Joy is the youngest in the group. She writes down every piece of advice she receives and shares it with younger siblings.'},
-  {id:'moses',  name:'Moses',   age:19,loc:'Entebbe', prog:'Roots & Rise',  dream:'Journalist',    aspiration:'Wants to tell Uganda\'s stories to the world - <em>from the inside, with accuracy and pride.</em>',
-   photo:'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&q=80',
-   quote:'"Uganda\'s story deserves to be told by Ugandans."',detail:'Moses is already writing for a community newsletter. His mentor is helping him apply to journalism programmes in East Africa.'},
-  {id:'sarah',  name:'Sarah',   age:17,loc:'Kampala', prog:'Roots & Rise',  dream:'Lawyer',        aspiration:'Determined to work in human rights - protecting people whose voices <em>are most often ignored.</em>',
-   photo:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
-   quote:'"The law is only as strong as the people willing to use it."',detail:'Sarah has already argued a case in a mock trial. Her mentor is a Ugandan human rights advocate.'},
-];
+    <section class="badge-sec">
+      <div class="container">
+        <div class="pill pill-w" style="justify-content: center">
+          <div class="pdot"></div>
+          Your Champion Badges
+        </div>
+        <h2
+          class="sh sh-w"
+          style="text-align: center; max-width: 520px; margin: 0 auto 44px"
+        >
+          Every champion<br /><em>earns a badge.</em>
+        </h2>
+        <div class="badges-row">
+          <div class="b-item" id="badge-1">
+            <div class="b-emoji">🌱</div>
+            <div class="b-name">First Champion</div>
+          </div>
+          <div class="b-item" id="badge-3">
+            <div class="b-emoji">🤝</div>
+            <div class="b-name">Believer of 3</div>
+          </div>
+          <div class="b-item" id="badge-5">
+            <div class="b-emoji">💚</div>
+            <div class="b-name">Community Believer</div>
+          </div>
+          <div class="b-item" id="badge-all">
+            <div class="b-emoji">🏆</div>
+            <div class="b-name">Full Champion</div>
+          </div>
+        </div>
+        <p class="b-progress">
+          You have championed <strong id="champNumText">0</strong> of 9 kids.
+          <span id="nextHint">Champion your first to earn a badge.</span>
+        </p>
+      </div>
+    </section>
 
-let champState=JSON.parse(localStorage.getItem('hmf_champs')||'{}');
-let champCounts=JSON.parse(localStorage.getItem('hmf_champ_counts')||'{"mariam":14,"emmanuel":21,"aisha":9,"david":7,"grace":5,"ibrahim":12,"joy":8,"moses":4,"sarah":11}');
-function saveState(){localStorage.setItem('hmf_champs',JSON.stringify(champState));localStorage.setItem('hmf_champ_counts',JSON.stringify(champCounts))}
-function yourTotal(){return Object.keys(champState).length}
-function storiesUnlockedCount(){return Object.keys(champState).length}
+    <section class="kids-cta">
+      <div class="container">
+        <div class="pill" style="justify-content: center">
+          <div class="pdot"></div>
+          Take it further
+        </div>
+        <h2
+          class="sh"
+          style="text-align: center; max-width: 520px; margin: 12px auto 14px"
+        >
+          Championing is a click.<br /><em>Donating funds the work.</em>
+        </h2>
+        <p
+          style="
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--muted);
+            max-width: 400px;
+            margin: 0 auto 32px;
+            text-align: center;
+          "
+        >
+          The mentorship sessions and health visits are funded by people who
+          believe in these names.
+        </p>
+        <button
+          class="btn-w"
+          onclick="location.href = 'get-involved.html#donate'"
+        >
+          Donate Now
+        </button>
+      </div>
+    </section>
 
-function renderKids(){
-  const grid=document.getElementById('kidsGrid');grid.innerHTML='';
-  kids.forEach((k,i)=>{
-    const done=!!champState[k.id],count=champCounts[k.id]||0;
-    const div=document.createElement('div');
-    div.className='kid-card reveal'+(done?' championed':'');
-    div.id='kcard-'+k.id;
-    div.innerHTML=`
+    <footer>
+      <div class="container">
+        <div class="f-grid">
+          <div>
+            <div class="f-top">
+              <span class="f-name">Harry Maurice <em>Foundation</em></span>
+            </div>
+            <p class="f-mission">
+              A focused foundation working in Uganda through mentorship and
+              health.
+            </p>
+          </div>
+          <div class="f-col">
+            <h4>Programmes</h4>
+            <ul>
+              <li><a href="programmes.html#roots">Roots &amp; Rise</a></li>
+              <li>
+                <a href="programmes.html#diane">Diane Health Programme</a>
+              </li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h4>Foundation</h4>
+            <ul>
+              <li><a href="about.html">Our Story</a></li>
+              <li><a href="kids.html">The Kids</a></li>
+              <li><a href="stories.html">Stories</a></li>
+              <li><a href="get-involved.html">Get Involved</a></li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="get-involved.html#donate">Donate</a></li>
+              <li><a href="get-involved.html#partner">Partner</a></li>
+              <li>
+                <a href="mailto:info@harrymauricefoundation.org">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="f-btm">
+          <span class="f-copy"
+            >© 2026 Harry Maurice Foundation. Jinja, Uganda.</span
+          ><span class="f-tag">"Start with one, let it ripple."</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const spbar = document.getElementById("spbar"),
+        navEl = document.getElementById("nav");
+      window.addEventListener(
+        "scroll",
+        () => {
+          spbar.style.width =
+            (window.scrollY / (document.body.scrollHeight - innerHeight)) *
+              100 +
+            "%";
+          navEl.classList.add("scrolled");
+        },
+        { passive: true },
+      );
+      window.addEventListener("load", () => {
+        const b = document.getElementById("hbg");
+        if (b) b.style.transform = "scale(1)";
+      });
+      function toggleMob() {
+        const tog = document.getElementById("mobTog"),
+          dr = document.getElementById("mobDrawer");
+        tog.classList.toggle("open");
+        dr.classList.toggle("open");
+      }
+      document.addEventListener("click", (e) => {
+        const dr = document.getElementById("mobDrawer"),
+          tog = document.getElementById("mobTog");
+        if (
+          dr &&
+          dr.classList.contains("open") &&
+          !dr.contains(e.target) &&
+          !tog.contains(e.target)
+        ) {
+          tog.classList.remove("open");
+          dr.classList.remove("open");
+        }
+      });
+      const ro = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+              setTimeout(() => e.target.classList.add("on"), (i % 3) * 80);
+              ro.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      // KIDS DATA - stock photos from Unsplash (replace with real photos)
+      const kids = [
+        {
+          id: "mariam",
+          name: "Mariam",
+          age: 17,
+          loc: "Kampala",
+          prog: "Roots & Rise",
+          dream: "Architect",
+          aspiration:
+            "Dreams of designing the buildings that will <em>shape Uganda's future skyline.</em>",
+          photo:
+            "https://images.unsplash.com/photo-1530785602389-07594beb8b73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydHJhaXRzfGVufDB8fDB8fHww?w=400&q=80",
+          quote:
+            '"One day I will design a building that every Ugandan is proud of."',
+          detail:
+            'Mariam joined after Harry noticed her quietly sketching floor plans during a session. Harry told her: "I am proud of you." She has not forgotten.',
+        },
+        {
+          id: "emmanuel",
+          name: "Emmanuel",
+          age: 19,
+          loc: "Entebbe",
+          prog: "Roots & Rise",
+          dream: "Doctor",
+          aspiration:
+            "Studying medicine because Uganda needs more doctors who <em>know its people from within.</em>",
+          photo:
+            "https://images.unsplash.com/photo-1709004915887-0dec2f98c8de?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fHBvcnRyYWl0cyUyMG9mJTIwYmxhY2slMjBtZW58ZW58MHx8MHx8fDA%3D?w=400&q=80",
+          quote: '"I will come back and serve the communities that raised me."',
+          detail:
+            'Harry looked Emmanuel in the eye and said: "Uganda needs doctors like you." Emmanuel is now studying pre-medicine and volunteers at a local clinic.',
+        },
+        {
+          id: "aisha",
+          name: "Aisha",
+          age: 16,
+          loc: "Jinja",
+          prog: "Diane Health",
+          dream: "Nurse",
+          aspiration:
+            "Wants to become a nurse after seeing her community's <em>lack of basic health access.</em>",
+          photo:
+            "https://images.unsplash.com/photo-1511935039706-c2b225e45a44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTgwfHxwb3J0cmFpdHN8ZW58MHx8MHx8fDA%3D?w=400&q=80",
+          quote:
+            '"No one in my village should die from something that could be treated."',
+          detail:
+            "Aisha walked 11km to attend her first Diane Health session. She now helps run the sessions herself.",
+        },
+        {
+          id: "david",
+          name: "David",
+          age: 18,
+          loc: "Kampala",
+          prog: "Roots & Rise",
+          dream: "Engineer",
+          aspiration:
+            "Passionate about building infrastructure that <em>connects communities across Uganda.</em>",
+          photo:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
+          quote: '"Bridges and roads are not just concrete. They are dignity."',
+          detail:
+            "David wants to build roads in northern Uganda. His mentor connected him to a civil engineering student in Nairobi.",
+        },
+        {
+          id: "grace",
+          name: "Grace",
+          age: 17,
+          loc: "Gulu",
+          prog: "Diane Health",
+          dream: "Health Worker",
+          aspiration:
+            "Wants to bring health education to rural communities <em>still without clinic access.</em>",
+          photo:
+            "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
+          quote: '"If the clinic can\'t come to us, we will go to the clinic."',
+          detail:
+            "Grace travelled from Gulu specifically to join the programme. She is the furthest from home - and the most determined.",
+        },
+        {
+          id: "ibrahim",
+          name: "Ibrahim",
+          age: 20,
+          loc: "Kampala",
+          prog: "Roots & Rise",
+          dream: "Entrepreneur",
+          aspiration:
+            "Building a business that hires within his community - proof that <em>local can be world-class.</em>",
+          photo:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+          quote:
+            '"I don\'t want to leave Uganda to succeed. I want to succeed here."',
+          detail:
+            "Ibrahim is now mentoring younger participants - making him both a recipient and a giver in the same programme.",
+        },
+        {
+          id: "joy",
+          name: "Joy",
+          age: 15,
+          loc: "Masaka",
+          prog: "Diane Health",
+          dream: "Teacher",
+          aspiration:
+            "Believes education is the most powerful medicine - wants to <em>teach in her home village.</em>",
+          photo:
+            "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
+          quote: '"Every child I teach will carry something forward."',
+          detail:
+            "Joy is the youngest in the group. She writes down every piece of advice she receives and shares it with younger siblings.",
+        },
+        {
+          id: "moses",
+          name: "Moses",
+          age: 19,
+          loc: "Entebbe",
+          prog: "Roots & Rise",
+          dream: "Journalist",
+          aspiration:
+            "Wants to tell Uganda's stories to the world - <em>from the inside, with accuracy and pride.</em>",
+          photo:
+            "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&q=80",
+          quote: '"Uganda\'s story deserves to be told by Ugandans."',
+          detail:
+            "Moses is already writing for a community newsletter. His mentor is helping him apply to journalism programmes in East Africa.",
+        },
+        {
+          id: "sarah",
+          name: "Sarah",
+          age: 17,
+          loc: "Kampala",
+          prog: "Roots & Rise",
+          dream: "Lawyer",
+          aspiration:
+            "Determined to work in human rights - protecting people whose voices <em>are most often ignored.</em>",
+          photo:
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+          quote: '"The law is only as strong as the people willing to use it."',
+          detail:
+            "Sarah has already argued a case in a mock trial. Her mentor is a Ugandan human rights advocate.",
+        },
+      ];
+
+      let champState = JSON.parse(localStorage.getItem("hmf_champs") || "{}");
+      let champCounts = JSON.parse(
+        localStorage.getItem("hmf_champ_counts") ||
+          '{"mariam":14,"emmanuel":21,"aisha":9,"david":7,"grace":5,"ibrahim":12,"joy":8,"moses":4,"sarah":11}',
+      );
+      function saveState() {
+        localStorage.setItem("hmf_champs", JSON.stringify(champState));
+        localStorage.setItem("hmf_champ_counts", JSON.stringify(champCounts));
+      }
+      function yourTotal() {
+        return Object.keys(champState).length;
+      }
+      function storiesUnlockedCount() {
+        return Object.keys(champState).length;
+      }
+
+      function renderKids() {
+        const grid = document.getElementById("kidsGrid");
+        grid.innerHTML = "";
+        kids.forEach((k, i) => {
+          const done = !!champState[k.id],
+            count = champCounts[k.id] || 0;
+          const div = document.createElement("div");
+          div.className = "kid-card reveal" + (done ? " championed" : "");
+          div.id = "kcard-" + k.id;
+          div.innerHTML = `
       <div class="kc-photo">
         <img src="${k.photo}" alt="${k.name}" loading="lazy"/>
         <div class="kc-ov"></div>
@@ -437,109 +1831,164 @@ function renderKids(){
         <div class="kc-aspiration">${k.aspiration} Aspires to be a <em>${k.dream}.</em></div>
         <div class="kc-footer">
           <div class="kc-count"><span class="kc-count-n" id="cnt-${k.id}">${count}</span>&nbsp;champions</div>
-          <button class="kc-btn${done?' done':''}" id="kbtn-${k.id}" onclick="champion('${k.id}','${k.name}')">${done?'✓ Championed':'Champion '+k.name}</button>
+          <button class="kc-btn${done ? " done" : ""}" id="kbtn-${k.id}" onclick="champion('${k.id}','${k.name}')">${done ? "✓ Championed" : "Champion " + k.name}</button>
         </div>
-        <div class="kc-unlock${done?' open':''}">
-          ${!done?`<div class="kc-lock-hint"><svg viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5 7V5a3 3 0 016 0v2"/></svg> Champion to unlock full story</div>`:''}
-          <div id="story-${k.id}" style="display:${done?'block':'none'}">
+        <div class="kc-unlock${done ? " open" : ""}">
+          ${!done ? `<div class="kc-lock-hint"><svg viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5 7V5a3 3 0 016 0v2"/></svg> Champion to unlock full story</div>` : ""}
+          <div id="story-${k.id}" style="display:${done ? "block" : "none"}">
             <div class="kc-story-quote">${k.quote}</div>
             <div class="kc-story-detail">${k.detail}</div>
             <span class="kc-story-badge">📖 Story unlocked</span>
           </div>
         </div>
       </div>`;
-    grid.appendChild(div);
-  });
-  document.querySelectorAll('.kid-card').forEach(el=>ro.observe(el));
-  updateCounts();updateBadges();
-}
+          grid.appendChild(div);
+        });
+        document.querySelectorAll(".kid-card").forEach((el) => ro.observe(el));
+        updateCounts();
+        updateBadges();
+      }
 
-function champion(id,name){
-  if(champState[id]){
-    showModal(name,true);return;
-  }
-  champState[id]=true;champCounts[id]=(champCounts[id]||0)+1;saveState();
-  const card=document.getElementById('kcard-'+id);
-  const btn=document.getElementById('kbtn-'+id);
-  const cnt=document.getElementById('cnt-'+id);
-  const unlock=card?.querySelector('.kc-unlock');
-  const storyDiv=document.getElementById('story-'+id);
-  const lockHint=unlock?.querySelector('.kc-lock-hint');
-  if(card)card.classList.add('championed');
-  if(btn){btn.textContent='✓ Championed';btn.classList.add('done')}
-  if(cnt)cnt.textContent=champCounts[id];
-  if(unlock)unlock.classList.add('open');
-  if(lockHint)lockHint.remove();
-  if(storyDiv)storyDiv.style.display='block';
-  updateCounts();updateBadges();showModal(name,false);
-}
+      function champion(id, name) {
+        if (champState[id]) {
+          showModal(name, true);
+          return;
+        }
+        champState[id] = true;
+        champCounts[id] = (champCounts[id] || 0) + 1;
+        saveState();
+        const card = document.getElementById("kcard-" + id);
+        const btn = document.getElementById("kbtn-" + id);
+        const cnt = document.getElementById("cnt-" + id);
+        const unlock = card?.querySelector(".kc-unlock");
+        const storyDiv = document.getElementById("story-" + id);
+        const lockHint = unlock?.querySelector(".kc-lock-hint");
+        if (card) card.classList.add("championed");
+        if (btn) {
+          btn.textContent = "✓ Championed";
+          btn.classList.add("done");
+        }
+        if (cnt) cnt.textContent = champCounts[id];
+        if (unlock) unlock.classList.add("open");
+        if (lockHint) lockHint.remove();
+        if (storyDiv) storyDiv.style.display = "block";
+        updateCounts();
+        updateBadges();
+        showModal(name, false);
+      }
 
-function showModal(name,already){
-  const n=yourTotal();
-  document.getElementById('cmName').textContent=name;
-  if(already){
-    document.getElementById('cmEmoji').textContent='💚';
-    document.getElementById('cmMsg').textContent='You are already championing '+name+'. Your belief is there - it matters.';
-    document.getElementById('cmBadge').textContent='Keep championing others';
-  } else {
-    document.getElementById('cmEmoji').textContent='🎉';
-    document.getElementById('cmMsg').textContent='Your belief has been added to '+name+'\'s story. Their full story is now unlocked for you.';
-    const b=getBadge(n);
-    document.getElementById('cmBadge').textContent=b.e+' '+b.n+' unlocked!';
-  }
-  document.getElementById('champModal').classList.add('open');
-}
-function closeChamp(){document.getElementById('champModal').classList.remove('open')}
-document.getElementById('champModal').addEventListener('click',e=>{if(e.target.id==='champModal')closeChamp()});
-function getBadge(n){if(n>=9)return{e:'🏆',n:'Full Champion'};if(n>=5)return{e:'💚',n:'Community Believer'};if(n>=3)return{e:'🤝',n:'Believer of 3'};return{e:'🌱',n:'First Champion'}}
-function updateCounts(){
-  const total=Object.values(champCounts).reduce((a,b)=>a+b,0);
-  const el=document.getElementById('totalChamps');if(el)el.textContent=total;
-  const yc=document.getElementById('yourChamps');if(yc)yc.textContent=yourTotal();
-  const su=document.getElementById('storiesUnlocked');if(su)su.textContent=storiesUnlockedCount();
-}
-function updateBadges(){
-  const n=yourTotal();
-  document.getElementById('champNumText').textContent=n;
-  if(n>=1)document.getElementById('badge-1').classList.add('earned');
-  if(n>=3)document.getElementById('badge-3').classList.add('earned');
-  if(n>=5)document.getElementById('badge-5').classList.add('earned');
-  if(n>=9)document.getElementById('badge-all').classList.add('earned');
-  const hints=['Champion your first to earn a badge.','Champion 3 for the next badge.','Champion 5 to earn Community Believer.','Champion all 9 to earn Full Champion.','You have championed everyone. 🏆'];
-  document.getElementById('nextHint').textContent=hints[Math.min(n>=9?4:n>=5?3:n>=3?2:n>=1?1:0,4)];
-}
+      function showModal(name, already) {
+        const n = yourTotal();
+        document.getElementById("cmName").textContent = name;
+        if (already) {
+          document.getElementById("cmEmoji").textContent = "💚";
+          document.getElementById("cmMsg").textContent =
+            "You are already championing " +
+            name +
+            ". Your belief is there - it matters.";
+          document.getElementById("cmBadge").textContent =
+            "Keep championing others";
+        } else {
+          document.getElementById("cmEmoji").textContent = "🎉";
+          document.getElementById("cmMsg").textContent =
+            "Your belief has been added to " +
+            name +
+            "'s story. Their full story is now unlocked for you.";
+          const b = getBadge(n);
+          document.getElementById("cmBadge").textContent =
+            b.e + " " + b.n + " unlocked!";
+        }
+        document.getElementById("champModal").classList.add("open");
+      }
+      function closeChamp() {
+        document.getElementById("champModal").classList.remove("open");
+      }
+      document.getElementById("champModal").addEventListener("click", (e) => {
+        if (e.target.id === "champModal") closeChamp();
+      });
+      function getBadge(n) {
+        if (n >= 9) return { e: "🏆", n: "Full Champion" };
+        if (n >= 5) return { e: "💚", n: "Community Believer" };
+        if (n >= 3) return { e: "🤝", n: "Believer of 3" };
+        return { e: "🌱", n: "First Champion" };
+      }
+      function updateCounts() {
+        const total = Object.values(champCounts).reduce((a, b) => a + b, 0);
+        const el = document.getElementById("totalChamps");
+        if (el) el.textContent = total;
+        const yc = document.getElementById("yourChamps");
+        if (yc) yc.textContent = yourTotal();
+        const su = document.getElementById("storiesUnlocked");
+        if (su) su.textContent = storiesUnlockedCount();
+      }
+      function updateBadges() {
+        const n = yourTotal();
+        document.getElementById("champNumText").textContent = n;
+        if (n >= 1) document.getElementById("badge-1").classList.add("earned");
+        if (n >= 3) document.getElementById("badge-3").classList.add("earned");
+        if (n >= 5) document.getElementById("badge-5").classList.add("earned");
+        if (n >= 9)
+          document.getElementById("badge-all").classList.add("earned");
+        const hints = [
+          "Champion your first to earn a badge.",
+          "Champion 3 for the next badge.",
+          "Champion 5 to earn Community Believer.",
+          "Champion all 9 to earn Full Champion.",
+          "You have championed everyone. 🏆",
+        ];
+        document.getElementById("nextHint").textContent =
+          hints[
+            Math.min(n >= 9 ? 4 : n >= 5 ? 3 : n >= 3 ? 2 : n >= 1 ? 1 : 0, 4)
+          ];
+      }
 
-renderKids();
-document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>ro.observe(el));
-setTimeout(()=>document.getElementById('fd').classList.add('vis'),2000);
-const pv=JSON.parse(localStorage.getItem('hmf_visited')||'[]');if(!pv.includes('kids')){pv.push('kids');localStorage.setItem('hmf_visited',JSON.stringify(pv))}
-</script>
+      renderKids();
+      document
+        .querySelectorAll(".reveal,.reveal-l,.reveal-r")
+        .forEach((el) => ro.observe(el));
+      setTimeout(
+        () => document.getElementById("fd").classList.add("vis"),
+        2000,
+      );
+      const pv = JSON.parse(localStorage.getItem("hmf_visited") || "[]");
+      if (!pv.includes("kids")) {
+        pv.push("kids");
+        localStorage.setItem("hmf_visited", JSON.stringify(pv));
+      }
+    </script>
 
-<script src="hmf-gamification.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => hmfRecordVisit('kids'));
-  // Hook champion action
-  const origChampion = window.champion;
-  if(origChampion) window.champion = function(id, name){ origChampion(id, name); hmfAction('champ'); };
-</script>
+    <script src="hmf-gamification.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () =>
+        hmfRecordVisit("kids"),
+      );
+      // Hook champion action
+      const origChampion = window.champion;
+      if (origChampion)
+        window.champion = function (id, name) {
+          origChampion(id, name);
+          hmfAction("champ");
+        };
+    </script>
 
-<script>
-function toggleFloatMenu(){
-  var btn = document.getElementById('float-menu-btn');
-  var overlay = document.getElementById('float-overlay');
-  btn.classList.toggle('open');
-  overlay.classList.toggle('open');
-  document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
-}
-// Close on escape
-document.addEventListener('keydown', function(e){
-  if(e.key==='Escape') {
-    document.getElementById('float-menu-btn').classList.remove('open');
-    document.getElementById('float-overlay').classList.remove('open');
-    document.body.style.overflow='';
-  }
-});
-</script>
-
-</body>
+    <script>
+      function toggleFloatMenu() {
+        var btn = document.getElementById("float-menu-btn");
+        var overlay = document.getElementById("float-overlay");
+        btn.classList.toggle("open");
+        overlay.classList.toggle("open");
+        document.body.style.overflow = overlay.classList.contains("open")
+          ? "hidden"
+          : "";
+      }
+      // Close on escape
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          document.getElementById("float-menu-btn").classList.remove("open");
+          document.getElementById("float-overlay").classList.remove("open");
+          document.body.style.overflow = "";
+        }
+      });
+    </script>
+  </body>
 </html>

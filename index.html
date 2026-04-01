@@ -1,850 +1,2847 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Harry Maurice Foundation - Building Uganda from Within</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Varela+Round&display=swap" rel="stylesheet"/>
-<style>
-/* ─── SHARED BASE ─────────────────────────────────────────────── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --green:#009c41;--gd:#007a33;--gl:#b3e6c8;
-  --pale:#e8f5ee;--mid-g:rgba(0,156,65,.15);
-  --dark:#1a2e22;--deeper:#0d1f14;
-  --bg:#F7FAF8;--card:#fff;
-  --border:#dde8e2;--text:#1a2e22;--muted:#7a9e8a;
-  --fv:'Varela Round',sans-serif;--fn:'Nunito',sans-serif;
-  --r:16px;--rs:10px;--rf:100px
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--fn);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;object-fit:cover}
-a{text-decoration:none;color:inherit}
-.container{max-width:1200px;margin:0 auto;padding:0 48px}
-section{padding:88px 0}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Harry Maurice Foundation - Building Uganda from Within</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ─── SHARED BASE ─────────────────────────────────────────────── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --green: #009c41;
+        --gd: #007a33;
+        --gl: #b3e6c8;
+        --pale: #e8f5ee;
+        --mid-g: rgba(0, 156, 65, 0.15);
+        --dark: #1a2e22;
+        --deeper: #0d1f14;
+        --bg: #f7faf8;
+        --card: #fff;
+        --border: #dde8e2;
+        --text: #1a2e22;
+        --muted: #7a9e8a;
+        --fv: "Varela Round", sans-serif;
+        --fn: "Nunito", sans-serif;
+        --r: 16px;
+        --rs: 10px;
+        --rf: 100px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--fn);
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img {
+        display: block;
+        object-fit: cover;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+      section {
+        padding: 88px 0;
+      }
 
-/* ─── SCROLL BAR ────────────────────────────────────────────── */
-.spbar{position:fixed;top:0;left:0;height:3px;background:var(--green);z-index:300;width:0;pointer-events:none;transition:width .1s}
+      /* ─── SCROLL BAR ────────────────────────────────────────────── */
+      .spbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: var(--green);
+        z-index: 300;
+        width: 0;
+        pointer-events: none;
+        transition: width 0.1s;
+      }
 
-/* ─── FLOAT DONATE ──────────────────────────────────────────── */
-.fdonate{position:fixed;bottom:28px;right:28px;z-index:150;height:46px;padding:0 22px;background:var(--green);color:#fff;border-radius:var(--rf);font-family:var(--fn);font-size:.75rem;font-weight:800;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,156,65,.4);transition:all .25s;opacity:0;transform:translateY(12px)}
-.fdonate.vis{opacity:1;transform:none}
-.fdonate:hover{background:var(--gd);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,156,65,.5)}
-.fdonate svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+      /* ─── FLOAT DONATE ──────────────────────────────────────────── */
+      .fdonate {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        z-index: 150;
+        height: 46px;
+        padding: 0 22px;
+        background: var(--green);
+        color: #fff;
+        border-radius: var(--rf);
+        font-family: var(--fn);
+        font-size: 0.75rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 20px rgba(0, 156, 65, 0.4);
+        transition: all 0.25s;
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      .fdonate.vis {
+        opacity: 1;
+        transform: none;
+      }
+      .fdonate:hover {
+        background: var(--gd);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(0, 156, 65, 0.5);
+      }
+      .fdonate svg {
+        width: 14px;
+        height: 14px;
+        stroke: #fff;
+        fill: none;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
 
-/* ─── NAV ───────────────────────────────────────────────────── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;padding:0 48px;transition:all .3s;flex-wrap:nowrap}
-nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,.04)}
-.nav-brand{display:flex;align-items:center;gap:9px;flex-shrink:0;min-width:0}
-.nav-dots{display:flex;gap:3px}
-.nav-dots span{width:8px;height:8px;border-radius:50%;display:block}
-.brand-n{font-family:var(--fn);font-size:1rem;font-weight:900;color:#fff;letter-spacing:-.03em;transition:color .3s;white-space:nowrap}
-.brand-n em{font-style:normal;color:#009c41;font-weight:700;display:inline!important}
-nav.scrolled .brand-n{color:var(--text)}
-nav.scrolled .brand-n em{color:#009c41;font-weight:700}
-.nav-links{display:flex;gap:28px;list-style:none;align-items:center;margin-left:auto;margin-right:24px}
-.nav-links a{font-size:.85rem;font-weight:700;color:rgba(255,255,255,.78);transition:color .25s;white-space:nowrap}
-.nav-links a:hover,.nav-links a.active{color:#fff}
-nav.scrolled .nav-links a{color:var(--muted)}
-nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--text)}
-.nav-cta-btn{height:38px;padding:0 20px;background:var(--green);color:#fff;border-radius:var(--rf);font-family:var(--fn);font-size:.75rem;font-weight:800;display:inline-flex;align-items:center;box-shadow:0 2px 10px rgba(0,156,65,.3);transition:all .25s;white-space:nowrap}
-.nav-cta-btn:hover{background:var(--gd);transform:translateY(-1px)}
-nav.scrolled .nav-links .nav-cta-btn{color:#fff}
-/* Hamburger */
-.mob-tog{display:none;flex-direction:column;justify-content:space-between;width:24px;height:17px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;margin-left:auto}
-.mob-tog span{display:block;height:2.5px;background:#fff;border-radius:2px;transition:all .25s;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
-nav.scrolled .mob-tog span{background:#1a2e22}
-.mob-tog.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
-.mob-tog.open span:nth-child(2){opacity:0}
-.mob-tog.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+      /* ─── NAV ───────────────────────────────────────────────────── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        padding: 0 48px;
+        transition: all 0.3s;
+        flex-wrap: nowrap;
+      }
+      nav.scrolled {
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(16px);
+        border-bottom: 1.5px solid var(--border);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        flex-shrink: 0;
+        min-width: 0;
+      }
+      .nav-dots {
+        display: flex;
+        gap: 3px;
+      }
+      .nav-dots span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: block;
+      }
+      .brand-n {
+        font-family: var(--fn);
+        font-size: 1rem;
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: -0.03em;
+        transition: color 0.3s;
+        white-space: nowrap;
+      }
+      .brand-n em {
+        font-style: normal;
+        color: #009c41;
+        font-weight: 700;
+        display: inline !important;
+      }
+      nav.scrolled .brand-n {
+        color: var(--text);
+      }
+      nav.scrolled .brand-n em {
+        color: #009c41;
+        font-weight: 700;
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 24px;
+      }
+      .nav-links a {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.78);
+        transition: color 0.25s;
+        white-space: nowrap;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #fff;
+      }
+      nav.scrolled .nav-links a {
+        color: var(--muted);
+      }
+      nav.scrolled .nav-links a:hover,
+      nav.scrolled .nav-links a.active {
+        color: var(--text);
+      }
+      .nav-cta-btn {
+        height: 38px;
+        padding: 0 20px;
+        background: var(--green);
+        color: #fff;
+        border-radius: var(--rf);
+        font-family: var(--fn);
+        font-size: 0.75rem;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 156, 65, 0.3);
+        transition: all 0.25s;
+        white-space: nowrap;
+      }
+      .nav-cta-btn:hover {
+        background: var(--gd);
+        transform: translateY(-1px);
+      }
+      nav.scrolled .nav-links .nav-cta-btn {
+        color: #fff;
+      }
+      /* Hamburger */
+      .mob-tog {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 17px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+      .mob-tog span {
+        display: block;
+        height: 2.5px;
+        background: #fff;
+        border-radius: 2px;
+        transition: all 0.25s;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+      }
+      nav.scrolled .mob-tog span {
+        background: #1a2e22;
+      }
+      .mob-tog.open span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+      }
+      .mob-tog.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .mob-tog.open span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+      }
 
-/* Mobile drawer */
-.mob-drawer{position:fixed;top:64px;left:0;right:0;background:#fff;border-bottom:1.5px solid var(--border);padding:12px 24px 20px;z-index:99;transform:translateY(-4px);opacity:0;pointer-events:none;transition:all .22s;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.mob-drawer.open{transform:none;opacity:1;pointer-events:all}
-.mob-drawer ul{list-style:none;display:flex;flex-direction:column;gap:2px;margin-bottom:14px}
-.mob-drawer ul a{display:block;padding:11px 4px;font-size:.92rem;font-weight:700;color:var(--muted);border-bottom:1px solid var(--pale);transition:color .2s}
-.mob-drawer ul a:hover,.mob-drawer ul a.mob-active{color:var(--green)}
-.mob-donate{display:block;width:100%;height:48px;background:var(--green);color:#fff;border:none;border-radius:var(--rs);font-family:var(--fn);font-size:.88rem;font-weight:800;text-align:center;line-height:48px;cursor:pointer;box-shadow:0 3px 12px rgba(0,156,65,.3);transition:background .2s}
-.mob-donate:hover{background:var(--gd)}
+      /* Mobile drawer */
+      .mob-drawer {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1.5px solid var(--border);
+        padding: 12px 24px 20px;
+        z-index: 99;
+        transform: translateY(-4px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.22s;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+      .mob-drawer.open {
+        transform: none;
+        opacity: 1;
+        pointer-events: all;
+      }
+      .mob-drawer ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-bottom: 14px;
+      }
+      .mob-drawer ul a {
+        display: block;
+        padding: 11px 4px;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--muted);
+        border-bottom: 1px solid var(--pale);
+        transition: color 0.2s;
+      }
+      .mob-drawer ul a:hover,
+      .mob-drawer ul a.mob-active {
+        color: var(--green);
+      }
+      .mob-donate {
+        display: block;
+        width: 100%;
+        height: 48px;
+        background: var(--green);
+        color: #fff;
+        border: none;
+        border-radius: var(--rs);
+        font-family: var(--fn);
+        font-size: 0.88rem;
+        font-weight: 800;
+        text-align: center;
+        line-height: 48px;
+        cursor: pointer;
+        box-shadow: 0 3px 12px rgba(0, 156, 65, 0.3);
+        transition: background 0.2s;
+      }
+      .mob-donate:hover {
+        background: var(--gd);
+      }
 
-/* ─── REVEALS ───────────────────────────────────────────────── */
-.reveal,.reveal-l,.reveal-r{opacity:0;transition:opacity .7s ease,transform .7s ease}
-.reveal{transform:translateY(22px)}
-.reveal-l{transform:translateX(-22px)}
-.reveal-r{transform:translateX(22px)}
-.reveal.on,.reveal-l.on,.reveal-r.on{opacity:1;transform:none}
+      /* ─── REVEALS ───────────────────────────────────────────────── */
+      .reveal,
+      .reveal-l,
+      .reveal-r {
+        opacity: 0;
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal {
+        transform: translateY(22px);
+      }
+      .reveal-l {
+        transform: translateX(-22px);
+      }
+      .reveal-r {
+        transform: translateX(22px);
+      }
+      .reveal.on,
+      .reveal-l.on,
+      .reveal-r.on {
+        opacity: 1;
+        transform: none;
+      }
 
-/* ─── TYPOGRAPHY ────────────────────────────────────────────── */
-.pill{display:inline-flex;align-items:center;gap:6px;background:var(--pale);border:1px solid rgba(0,156,65,.22);border-radius:var(--rf);padding:5px 12px;font-family:var(--fn);font-size:.65rem;font-weight:800;color:var(--green);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
-.pdot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
-.pill-w{background:rgba(179,230,200,.1);border-color:rgba(179,230,200,.22);color:var(--gl)}
-.pill-w .pdot{background:var(--gl)}
-.sh{font-family:var(--fv);font-size:clamp(1.9rem,3.4vw,2.8rem);letter-spacing:-.02em;line-height:1.15;color:var(--text);margin-bottom:20px}
-.sh em{font-style:normal;color:var(--green)}
-.sh-w{color:#fff}
-.sh-w em{color:var(--gl)}
-.body{font-size:.95rem;line-height:1.88;font-weight:600;color:var(--muted)}
-.text-lnk{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:800;color:var(--green);transition:gap .2s}
-.text-lnk svg{width:13px;height:13px;stroke:var(--green);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s;flex-shrink:0}
-.text-lnk:hover{gap:13px}
-.text-lnk:hover svg{transform:translateX(3px)}
+      /* ─── TYPOGRAPHY ────────────────────────────────────────────── */
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--pale);
+        border: 1px solid rgba(0, 156, 65, 0.22);
+        border-radius: var(--rf);
+        padding: 5px 12px;
+        font-family: var(--fn);
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+      .pdot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+        flex-shrink: 0;
+      }
+      .pill-w {
+        background: rgba(179, 230, 200, 0.1);
+        border-color: rgba(179, 230, 200, 0.22);
+        color: var(--gl);
+      }
+      .pill-w .pdot {
+        background: var(--gl);
+      }
+      .sh {
+        font-family: var(--fv);
+        font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        color: var(--text);
+        margin-bottom: 20px;
+      }
+      .sh em {
+        font-style: normal;
+        color: var(--green);
+      }
+      .sh-w {
+        color: #fff;
+      }
+      .sh-w em {
+        color: var(--gl);
+      }
+      .body {
+        font-size: 0.95rem;
+        line-height: 1.88;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .text-lnk {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: var(--green);
+        transition: gap 0.2s;
+      }
+      .text-lnk svg {
+        width: 13px;
+        height: 13px;
+        stroke: var(--green);
+        fill: none;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: transform 0.2s;
+        flex-shrink: 0;
+      }
+      .text-lnk:hover {
+        gap: 13px;
+      }
+      .text-lnk:hover svg {
+        transform: translateX(3px);
+      }
 
-/* ─── BUTTONS ───────────────────────────────────────────────── */
-.btn-p{height:50px;padding:0 28px;background:var(--green);color:#fff;border:none;border-radius:var(--rs);font-family:var(--fn);font-size:.9rem;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 18px rgba(0,156,65,.35);transition:all .2s;letter-spacing:-.01em}
-.btn-p:hover{background:var(--gd);transform:translateY(-1px);box-shadow:0 6px 22px rgba(0,156,65,.44)}
-.btn-p svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.btn-ghost{height:50px;padding:0 28px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.32);border-radius:var(--rs);font-family:var(--fn);font-size:.9rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
-.btn-ghost:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.65)}
+      /* ─── BUTTONS ───────────────────────────────────────────────── */
+      .btn-p {
+        height: 50px;
+        padding: 0 28px;
+        background: var(--green);
+        color: #fff;
+        border: none;
+        border-radius: var(--rs);
+        font-family: var(--fn);
+        font-size: 0.9rem;
+        font-weight: 800;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 18px rgba(0, 156, 65, 0.35);
+        transition: all 0.2s;
+        letter-spacing: -0.01em;
+      }
+      .btn-p:hover {
+        background: var(--gd);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 22px rgba(0, 156, 65, 0.44);
+      }
+      .btn-p svg {
+        width: 16px;
+        height: 16px;
+        stroke: #fff;
+        fill: none;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .btn-ghost {
+        height: 50px;
+        padding: 0 28px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border: 1.5px solid rgba(255, 255, 255, 0.32);
+        border-radius: var(--rs);
+        font-family: var(--fn);
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+      }
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.18);
+        border-color: rgba(255, 255, 255, 0.65);
+      }
 
-/* ─── HERO ──────────────────────────────────────────────────── */
-.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:64px;overflow:hidden}
-.hero-bg{
-  position:absolute;inset:0;
-  /* REPLACE: African community/youth scene */
-  background:linear-gradient(to bottom,rgba(10,31,18,.62) 0%,rgba(10,31,18,.28) 44%,rgba(10,31,18,.86) 100%),url('https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1800&q=90') center/cover no-repeat;
-  transform:scale(1.05);transition:transform 10s ease
-}
-.hero-bg.loaded{transform:scale(1)}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--green);z-index:3}
-.hero-content{position:relative;z-index:2;padding:60px 48px 80px;max-width:820px}
-.hero-tag{opacity:0;animation:fU .6s ease .15s forwards}
-.hero h1{font-family:var(--fv);font-size:clamp(2.8rem,5.8vw,5rem);color:#fff;line-height:1.06;letter-spacing:-.025em;margin-bottom:18px;opacity:0;animation:fU .7s ease .35s forwards}.hero h1 span{color:#b3e6c8}
-.hero h1 span{color:#b3e6c8}
-.hero-sub{font-family:var(--fn);font-size:1rem;font-weight:600;font-style:italic;color:rgba(255,255,255,.58);max-width:420px;margin-bottom:40px;opacity:0;animation:fU .7s ease .54s forwards}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fU .7s ease .7s forwards}
-.hero-bottom{position:absolute;bottom:20px;left:48px;right:48px;z-index:3;display:flex;align-items:center;justify-content:space-between;opacity:0;animation:fU .7s ease 1.1s forwards}
-.scroll-h{display:flex;align-items:center;gap:12px}
-.scroll-h span{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35)}
-.scroll-tr{width:44px;height:1px;background:rgba(255,255,255,.18);position:relative;overflow:hidden}
-.scroll-tr::after{content:'';position:absolute;left:-100%;top:0;height:100%;width:100%;background:rgba(255,255,255,.6);animation:stA 2.5s ease infinite}
-@keyframes stA{0%{left:-100%}100%{left:100%}}
-.hero-badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:10px 16px}
-.hb-n{font-family:var(--fv);font-size:1.5rem;color:rgba(255,255,255,.9);line-height:1}
-.hb-l{font-size:.62rem;font-weight:800;color:rgba(255,255,255,.38);letter-spacing:.06em;text-transform:uppercase;max-width:82px;line-height:1.35}
-@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+      /* ─── HERO ──────────────────────────────────────────────────── */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 64px;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        /* REPLACE: African community/youth scene */
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(10, 31, 18, 0.62) 0%,
+            rgba(10, 31, 18, 0.28) 44%,
+            rgba(10, 31, 18, 0.86) 100%
+          ),
+          url("https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1800&q=90")
+            center/cover no-repeat;
+        transform: scale(1.05);
+        transition: transform 10s ease;
+      }
+      .hero-bg.loaded {
+        transform: scale(1);
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--green);
+        z-index: 3;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 60px 48px 80px;
+        max-width: 820px;
+      }
+      .hero-tag {
+        opacity: 0;
+        animation: fU 0.6s ease 0.15s forwards;
+      }
+      .hero h1 {
+        font-family: var(--fv);
+        font-size: clamp(2.8rem, 5.8vw, 5rem);
+        color: #fff;
+        line-height: 1.06;
+        letter-spacing: -0.025em;
+        margin-bottom: 18px;
+        opacity: 0;
+        animation: fU 0.7s ease 0.35s forwards;
+      }
+      .hero h1 span {
+        color: #b3e6c8;
+      }
+      .hero h1 span {
+        color: #b3e6c8;
+      }
+      .hero-sub {
+        font-family: var(--fn);
+        font-size: 1rem;
+        font-weight: 600;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.58);
+        max-width: 420px;
+        margin-bottom: 40px;
+        opacity: 0;
+        animation: fU 0.7s ease 0.54s forwards;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fU 0.7s ease 0.7s forwards;
+      }
+      .hero-bottom {
+        position: absolute;
+        bottom: 20px;
+        left: 48px;
+        right: 48px;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        opacity: 0;
+        animation: fU 0.7s ease 1.1s forwards;
+      }
+      .scroll-h {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .scroll-h span {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+      }
+      .scroll-tr {
+        width: 44px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.18);
+        position: relative;
+        overflow: hidden;
+      }
+      .scroll-tr::after {
+        content: "";
+        position: absolute;
+        left: -100%;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.6);
+        animation: stA 2.5s ease infinite;
+      }
+      @keyframes stA {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      .hero-badge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--r);
+        padding: 10px 16px;
+      }
+      .hb-n {
+        font-family: var(--fv);
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1;
+      }
+      .hb-l {
+        font-size: 0.62rem;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.38);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        max-width: 82px;
+        line-height: 1.35;
+      }
+      @keyframes fU {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
 
-/* ─── METRICS ───────────────────────────────────────────────── */
-.metrics{background:var(--dark)}
-.metrics .container{display:flex;align-items:stretch;flex-wrap:wrap}
-.mc{flex:1;min-width:200px;padding:28px 32px;border-right:1px solid rgba(255,255,255,.07)}
-.mc:last-child{border-right:none}
-.mc-ico{width:36px;height:36px;border-radius:9px;background:rgba(179,230,200,.12);border:1px solid rgba(179,230,200,.22);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.mc-ico svg{width:17px;height:17px;stroke:var(--gl);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.mc-val{font-family:var(--fv);font-size:2.4rem;color:#fff;letter-spacing:-.025em;line-height:1;margin-bottom:5px}
-.mc-lbl{font-size:.65rem;font-weight:800;color:rgba(255,255,255,.35);letter-spacing:.07em;text-transform:uppercase}
+      /* ─── METRICS ───────────────────────────────────────────────── */
+      .metrics {
+        background: var(--dark);
+      }
+      .metrics .container {
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+      }
+      .mc {
+        flex: 1;
+        min-width: 200px;
+        padding: 28px 32px;
+        border-right: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .mc:last-child {
+        border-right: none;
+      }
+      .mc-ico {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        background: rgba(179, 230, 200, 0.12);
+        border: 1px solid rgba(179, 230, 200, 0.22);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+      }
+      .mc-ico svg {
+        width: 17px;
+        height: 17px;
+        stroke: var(--gl);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .mc-val {
+        font-family: var(--fv);
+        font-size: 2.4rem;
+        color: #fff;
+        letter-spacing: -0.025em;
+        line-height: 1;
+        margin-bottom: 5px;
+      }
+      .mc-lbl {
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.35);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
 
-/* ─── STORY ─────────────────────────────────────────────────── */
-.story-sec{background:#fff}
-.story-sec .container{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.story-img{border-radius:20px;overflow:hidden;position:relative;flex-shrink:0}
-.story-img img{width:100%;aspect-ratio:4/5;transition:transform 9s ease}
-.story-img:hover img{transform:scale(1.03)}
-.simg-caption{position:absolute;bottom:14px;left:14px;display:flex;align-items:center;gap:6px;background:rgba(10,31,18,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:var(--rf);padding:5px 12px;font-size:.6rem;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.06em;text-transform:uppercase}
-.simg-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
-.body{font-size:.95rem;line-height:1.88;font-weight:600;color:var(--muted)}
-.story-q{border-left:3px solid var(--green);padding:16px 20px;background:var(--pale);border-radius:0 var(--rs) var(--rs) 0;margin:24px 0}
-.story-q p{font-size:.95rem;font-weight:700;font-style:italic;line-height:1.65;color:var(--text)}
-.story-q cite{display:block;margin-top:8px;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+      /* ─── STORY ─────────────────────────────────────────────────── */
+      .story-sec {
+        background: #fff;
+      }
+      .story-sec .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+      }
+      .story-img {
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .story-img img {
+        width: 100%;
+        aspect-ratio: 4/5;
+        transition: transform 9s ease;
+      }
+      .story-img:hover img {
+        transform: scale(1.03);
+      }
+      .simg-caption {
+        position: absolute;
+        bottom: 14px;
+        left: 14px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(10, 31, 18, 0.72);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--rf);
+        padding: 5px 12px;
+        font-size: 0.6rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .simg-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+      }
+      .body {
+        font-size: 0.95rem;
+        line-height: 1.88;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .story-q {
+        border-left: 3px solid var(--green);
+        padding: 16px 20px;
+        background: var(--pale);
+        border-radius: 0 var(--rs) var(--rs) 0;
+        margin: 24px 0;
+      }
+      .story-q p {
+        font-size: 0.95rem;
+        font-weight: 700;
+        font-style: italic;
+        line-height: 1.65;
+        color: var(--text);
+      }
+      .story-q cite {
+        display: block;
+        margin-top: 8px;
+        font-size: 0.62rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
 
-/* ─── KIDS TEASER ───────────────────────────────────────────── */
-.kids-sec{background:var(--pale)}
-.kids-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;gap:16px;flex-wrap:wrap}
-.kids-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.kid{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .3s}
-.kid:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(26,46,34,.1)}
-.kid-photo{position:relative;overflow:hidden;aspect-ratio:1}
-.kid-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.kid:hover .kid-photo img{transform:scale(1.06)}
-.kid-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,31,18,.8) 0%,rgba(10,31,18,.08) 55%,transparent 100%)}
-.kid-info{position:absolute;bottom:14px;left:14px;right:14px;z-index:2}
-.kid-name{font-family:var(--fv);font-size:1.4rem;color:#fff;display:block;letter-spacing:-.01em}
-.kid-age{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.05em;text-transform:uppercase;margin-top:2px}
-.kid-body{padding:14px 16px}
-.kid-tag{display:inline-flex;align-items:center;gap:5px;background:var(--pale);border:1px solid rgba(0,156,65,.18);border-radius:var(--rf);padding:3px 10px;font-size:.58rem;font-weight:800;color:var(--green);letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px}
-.kid-dream{font-size:.84rem;font-weight:700;line-height:1.6;color:var(--text)}
-.kid-dream em{font-style:normal;color:var(--green)}
+      /* ─── KIDS TEASER ───────────────────────────────────────────── */
+      .kids-sec {
+        background: var(--pale);
+      }
+      .kids-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 28px;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .kids-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .kid {
+        background: var(--card);
+        border: 1.5px solid var(--border);
+        border-radius: var(--r);
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+      .kid:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 40px rgba(26, 46, 34, 0.1);
+      }
+      .kid-photo {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 1;
+      }
+      .kid-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+      .kid:hover .kid-photo img {
+        transform: scale(1.06);
+      }
+      .kid-ov {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(10, 31, 18, 0.8) 0%,
+          rgba(10, 31, 18, 0.08) 55%,
+          transparent 100%
+        );
+      }
+      .kid-info {
+        position: absolute;
+        bottom: 14px;
+        left: 14px;
+        right: 14px;
+        z-index: 2;
+      }
+      .kid-name {
+        font-family: var(--fv);
+        font-size: 1.4rem;
+        color: #fff;
+        display: block;
+        letter-spacing: -0.01em;
+      }
+      .kid-age {
+        font-size: 0.62rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+      .kid-body {
+        padding: 14px 16px;
+      }
+      .kid-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: var(--pale);
+        border: 1px solid rgba(0, 156, 65, 0.18);
+        border-radius: var(--rf);
+        padding: 3px 10px;
+        font-size: 0.58rem;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .kid-dream {
+        font-size: 0.84rem;
+        font-weight: 700;
+        line-height: 1.6;
+        color: var(--text);
+      }
+      .kid-dream em {
+        font-style: normal;
+        color: var(--green);
+      }
 
-/* ─── PROGRAMMES ────────────────────────────────────────────── */
-.progs-sec{background:#fff}
-.progs-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:36px;flex-wrap:wrap}
-.progs-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.pc{background:var(--card);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;transition:all .3s}
-.pc:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(26,46,34,.1)}
-.pc-img{aspect-ratio:16/9;overflow:hidden}
-.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
-.pc:hover .pc-img img{transform:scale(1.04)}
-.pc-body{padding:24px}
-.pc-pill{display:inline-flex;align-items:center;gap:5px;background:var(--pale);border:1px solid rgba(0,156,65,.2);border-radius:var(--rf);padding:4px 11px;font-size:.6rem;font-weight:800;color:var(--green);letter-spacing:.07em;text-transform:uppercase;margin-bottom:12px}
-.pc-name{font-family:var(--fv);font-size:1.4rem;color:var(--text);letter-spacing:-.02em;margin-bottom:10px}
-.pc-desc{font-size:.84rem;line-height:1.75;font-weight:600;color:var(--muted);margin-bottom:18px}
+      /* ─── PROGRAMMES ────────────────────────────────────────────── */
+      .progs-sec {
+        background: #fff;
+      }
+      .progs-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 32px;
+        margin-bottom: 36px;
+        flex-wrap: wrap;
+      }
+      .progs-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .pc {
+        background: var(--card);
+        border: 1.5px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+      .pc:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(26, 46, 34, 0.1);
+      }
+      .pc-img {
+        aspect-ratio: 16/9;
+        overflow: hidden;
+      }
+      .pc-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s;
+      }
+      .pc:hover .pc-img img {
+        transform: scale(1.04);
+      }
+      .pc-body {
+        padding: 24px;
+      }
+      .pc-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: var(--pale);
+        border: 1px solid rgba(0, 156, 65, 0.2);
+        border-radius: var(--rf);
+        padding: 4px 11px;
+        font-size: 0.6rem;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .pc-name {
+        font-family: var(--fv);
+        font-size: 1.4rem;
+        color: var(--text);
+        letter-spacing: -0.02em;
+        margin-bottom: 10px;
+      }
+      .pc-desc {
+        font-size: 0.84rem;
+        line-height: 1.75;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
 
-/* ─── CALCULATOR ────────────────────────────────────────────── */
-.calc-sec{background:var(--pale)}
-.calc-sec .container{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.calc-card{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:32px}
-.calc-circles{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:22px}
-.cc{width:21px;height:21px;border-radius:50%;background:var(--border);transition:background .3s,transform .28s}
-.cc.on{background:var(--green);transform:scale(1.12)}
-.cc.pop{animation:dp .4s ease forwards}
-@keyframes dp{0%{transform:scale(.5);opacity:0}65%{transform:scale(1.3)}100%{transform:scale(1.12)}}
-.calc-big{font-family:var(--fv);font-size:4.5rem;color:var(--green);line-height:.9;letter-spacing:-.03em}
-.calc-lbl-s{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
-input[type=range]{width:100%;-webkit-appearance:none;height:4px;border-radius:var(--rf);background:var(--border);outline:none;cursor:pointer}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--green);border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,156,65,.4);cursor:pointer}
-.range-meta{display:flex;justify-content:space-between;font-size:.7rem;font-weight:700;color:var(--muted);margin-bottom:10px}
-.calc-note{background:var(--pale);border:1px solid rgba(0,156,65,.2);border-radius:var(--rs);padding:14px 18px;margin-top:18px;font-size:.85rem;font-weight:700;line-height:1.7;color:var(--text)}
-.calc-note strong{color:var(--green);font-weight:900}
+      /* ─── CALCULATOR ────────────────────────────────────────────── */
+      .calc-sec {
+        background: var(--pale);
+      }
+      .calc-sec .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .calc-card {
+        background: #fff;
+        border: 1.5px solid var(--border);
+        border-radius: 20px;
+        padding: 32px;
+      }
+      .calc-circles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-bottom: 22px;
+      }
+      .cc {
+        width: 21px;
+        height: 21px;
+        border-radius: 50%;
+        background: var(--border);
+        transition:
+          background 0.3s,
+          transform 0.28s;
+      }
+      .cc.on {
+        background: var(--green);
+        transform: scale(1.12);
+      }
+      .cc.pop {
+        animation: dp 0.4s ease forwards;
+      }
+      @keyframes dp {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        65% {
+          transform: scale(1.3);
+        }
+        100% {
+          transform: scale(1.12);
+        }
+      }
+      .calc-big {
+        font-family: var(--fv);
+        font-size: 4.5rem;
+        color: var(--green);
+        line-height: 0.9;
+        letter-spacing: -0.03em;
+      }
+      .calc-lbl-s {
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 8px;
+      }
+      input[type="range"] {
+        width: 100%;
+        -webkit-appearance: none;
+        height: 4px;
+        border-radius: var(--rf);
+        background: var(--border);
+        outline: none;
+        cursor: pointer;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--green);
+        border: 2.5px solid #fff;
+        box-shadow: 0 2px 8px rgba(0, 156, 65, 0.4);
+        cursor: pointer;
+      }
+      .range-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+      .calc-note {
+        background: var(--pale);
+        border: 1px solid rgba(0, 156, 65, 0.2);
+        border-radius: var(--rs);
+        padding: 14px 18px;
+        margin-top: 18px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        line-height: 1.7;
+        color: var(--text);
+      }
+      .calc-note strong {
+        color: var(--green);
+        font-weight: 900;
+      }
 
-/* ─── DONATE SPLIT ──────────────────────────────────────────── */
-.don-split{display:grid;grid-template-columns:55% 45%;min-height:540px}
-.don-left{background:var(--dark);display:flex;flex-direction:column;justify-content:center;padding:80px 72px;position:relative;overflow:hidden}
-.don-left::before{content:'';position:absolute;top:-200px;right:-200px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(179,230,200,.07) 0%,transparent 65%);pointer-events:none}
-.don-left h2{font-family:var(--fv);font-size:clamp(1.9rem,3.2vw,2.7rem);color:#fff;letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
-.don-left h2 em{font-style:normal;color:var(--gl)}
-.don-left p{font-size:.9rem;font-weight:600;line-height:1.85;color:rgba(255,255,255,.38);max-width:360px}
-.don-right{background:var(--gd);display:flex;flex-direction:column;justify-content:center;padding:64px 56px}
-.don-right h3{font-family:var(--fv);font-size:1.55rem;color:#fff;letter-spacing:-.02em;margin-bottom:5px}
-.don-sub{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.68);margin-bottom:24px;line-height:1.6}
-.freq-row{display:flex;background:rgba(255,255,255,.12);border-radius:var(--rf);padding:3px;gap:3px;margin-bottom:18px}
-.freq-btn{flex:1;height:36px;font-family:var(--fn);font-size:.7rem;font-weight:800;border-radius:var(--rf);border:none;cursor:pointer;color:rgba(255,255,255,.52);background:transparent;transition:all .2s}
-.freq-btn.active{background:#fff;color:var(--green)}
-.amt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px}
-.amt-btn{height:44px;border:1.5px solid rgba(255,255,255,.27);border-radius:var(--rs);font-family:var(--fn);font-size:.88rem;font-weight:800;color:rgba(255,255,255,.68);background:transparent;cursor:pointer;transition:all .2s}
-.amt-btn:hover{border-color:#fff;color:#fff}
-.amt-btn.active{background:#fff;border-color:#fff;color:var(--green)}
-.imp-strip{background:rgba(255,255,255,.1);border-left:3px solid rgba(255,255,255,.5);border-radius:0 8px 8px 0;padding:11px 14px;font-size:.81rem;font-weight:700;color:rgba(255,255,255,.88);line-height:1.6;margin-bottom:16px;min-height:42px;transition:all .3s}
-.imp-strip strong{color:#fff;font-weight:900}
-.nfield{display:none;margin-bottom:14px}
-.nfield.show{display:block}
-.nfield label{display:block;font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:6px}
-.nfield input{width:100%;height:42px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);border-radius:var(--rs);color:#fff;font-family:var(--fn);font-size:.85rem;font-weight:700;padding:0 14px;outline:none;transition:border-color .2s}
-.nfield input:focus{border-color:rgba(255,255,255,.65)}
-.nfield input::placeholder{color:rgba(255,255,255,.3)}
-.pay-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.pay-btn{height:46px;border:1.5px solid rgba(255,255,255,.27);border-radius:var(--rs);font-family:var(--fn);font-size:.75rem;font-weight:800;color:#fff;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all .2s}
-.pay-btn:hover{background:rgba(255,255,255,.15);border-color:#fff}
-.pay-btn svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.sec-note{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.36);text-align:center;display:flex;align-items:center;justify-content:center;gap:5px}
-.sec-note svg{width:11px;height:11px;stroke:rgba(255,255,255,.36);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+      /* ─── DONATE SPLIT ──────────────────────────────────────────── */
+      .don-split {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        min-height: 540px;
+      }
+      .don-left {
+        background: var(--dark);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 80px 72px;
+        position: relative;
+        overflow: hidden;
+      }
+      .don-left::before {
+        content: "";
+        position: absolute;
+        top: -200px;
+        right: -200px;
+        width: 480px;
+        height: 480px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(179, 230, 200, 0.07) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .don-left h2 {
+        font-family: var(--fv);
+        font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+        color: #fff;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin-bottom: 16px;
+      }
+      .don-left h2 em {
+        font-style: normal;
+        color: var(--gl);
+      }
+      .don-left p {
+        font-size: 0.9rem;
+        font-weight: 600;
+        line-height: 1.85;
+        color: rgba(255, 255, 255, 0.38);
+        max-width: 360px;
+      }
+      .don-right {
+        background: var(--gd);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 64px 56px;
+      }
+      .don-right h3 {
+        font-family: var(--fv);
+        font-size: 1.55rem;
+        color: #fff;
+        letter-spacing: -0.02em;
+        margin-bottom: 5px;
+      }
+      .don-sub {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.68);
+        margin-bottom: 24px;
+        line-height: 1.6;
+      }
+      .freq-row {
+        display: flex;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: var(--rf);
+        padding: 3px;
+        gap: 3px;
+        margin-bottom: 18px;
+      }
+      .freq-btn {
+        flex: 1;
+        height: 36px;
+        font-family: var(--fn);
+        font-size: 0.7rem;
+        font-weight: 800;
+        border-radius: var(--rf);
+        border: none;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.52);
+        background: transparent;
+        transition: all 0.2s;
+      }
+      .freq-btn.active {
+        background: #fff;
+        color: var(--green);
+      }
+      .amt-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+        margin-bottom: 12px;
+      }
+      .amt-btn {
+        height: 44px;
+        border: 1.5px solid rgba(255, 255, 255, 0.27);
+        border-radius: var(--rs);
+        font-family: var(--fn);
+        font-size: 0.88rem;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.68);
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .amt-btn:hover {
+        border-color: #fff;
+        color: #fff;
+      }
+      .amt-btn.active {
+        background: #fff;
+        border-color: #fff;
+        color: var(--green);
+      }
+      .imp-strip {
+        background: rgba(255, 255, 255, 0.1);
+        border-left: 3px solid rgba(255, 255, 255, 0.5);
+        border-radius: 0 8px 8px 0;
+        padding: 11px 14px;
+        font-size: 0.81rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.88);
+        line-height: 1.6;
+        margin-bottom: 16px;
+        min-height: 42px;
+        transition: all 0.3s;
+      }
+      .imp-strip strong {
+        color: #fff;
+        font-weight: 900;
+      }
+      .nfield {
+        display: none;
+        margin-bottom: 14px;
+      }
+      .nfield.show {
+        display: block;
+      }
+      .nfield label {
+        display: block;
+        font-size: 0.6rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.48);
+        margin-bottom: 6px;
+      }
+      .nfield input {
+        width: 100%;
+        height: 42px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1.5px solid rgba(255, 255, 255, 0.2);
+        border-radius: var(--rs);
+        color: #fff;
+        font-family: var(--fn);
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 0 14px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .nfield input:focus {
+        border-color: rgba(255, 255, 255, 0.65);
+      }
+      .nfield input::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .pay-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .pay-btn {
+        height: 46px;
+        border: 1.5px solid rgba(255, 255, 255, 0.27);
+        border-radius: var(--rs);
+        font-family: var(--fn);
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: #fff;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        transition: all 0.2s;
+      }
+      .pay-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #fff;
+      }
+      .pay-btn svg {
+        width: 14px;
+        height: 14px;
+        stroke: #fff;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .sec-note {
+        font-size: 0.62rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.36);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+      .sec-note svg {
+        width: 11px;
+        height: 11px;
+        stroke: rgba(255, 255, 255, 0.36);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
 
-/* ─── SUCCESS MODAL ─────────────────────────────────────────── */
-.modal-bg{position:fixed;inset:0;background:rgba(10,31,18,.9);z-index:700;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(12px);padding:20px;overflow-y:auto}
-.modal-bg.open{opacity:1;pointer-events:all}
-.modal-card{background:#fff;border-radius:20px;max-width:480px;width:100%;overflow:hidden;transform:scale(.93) translateY(16px);transition:transform .3s}
-.modal-bg.open .modal-card{transform:scale(1) translateY(0)}
-.modal-top{background:var(--dark);padding:36px 36px 28px;text-align:center;position:relative}
-.modal-bar{height:4px;background:linear-gradient(to right,var(--green),var(--gl));position:absolute;top:0;left:0;right:0;transform:scaleX(0);transform-origin:left;animation:mbar .5s ease forwards}
-@keyframes mbar{to{transform:scaleX(1)}}
-.modal-x{position:absolute;top:14px;right:16px;background:none;border:none;color:rgba(255,255,255,.35);font-size:1.3rem;cursor:pointer;line-height:1;transition:color .2s;font-family:var(--fn);padding:4px}
-.modal-x:hover{color:#fff}
-.m-emoji{font-size:2.8rem;display:block;margin-bottom:10px;animation:ep .5s cubic-bezier(.36,.07,.19,.97) .12s both}
-@keyframes ep{0%{transform:scale(0) rotate(-12deg)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
-.m-badge-p{display:inline-block;padding:4px 16px;background:rgba(0,156,65,.18);border:1px solid rgba(0,156,65,.32);border-radius:var(--rf);font-size:.62rem;font-weight:800;color:var(--gl);letter-spacing:.09em;text-transform:uppercase;margin-bottom:12px}
-.m-hed{font-family:var(--fv);font-size:1.8rem;color:#fff}
-.m-body{padding:24px 36px 32px}
-.mrow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:.84rem}
-.mrow:last-of-type{border:none}
-.mrow-k{font-size:.63rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
-.mrow-v{font-weight:800;color:var(--text)}
-.mrow-v.hi{color:var(--green)}
-.m-impact{background:var(--pale);border:1px solid rgba(0,156,65,.18);border-radius:var(--rs);padding:14px 16px;margin:18px 0;font-size:.86rem;font-weight:700;line-height:1.7;color:var(--text)}
-.m-impact strong{color:var(--green);font-weight:900}
-.m-ss{font-size:.68rem;font-weight:700;color:var(--muted);background:var(--bg);padding:10px;text-align:center;border-radius:var(--rs);margin-bottom:16px}
-.m-share{display:flex;gap:7px;margin-bottom:12px}
-.sh-btn{flex:1;height:38px;border-radius:var(--rs);border:1.5px solid var(--border);background:#fff;font-size:.65rem;font-weight:800;cursor:pointer;font-family:var(--fn);color:var(--text);transition:all .2s}
-.sh-btn:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
-.m-close{display:block;width:100%;height:46px;background:var(--green);color:#fff;border:none;border-radius:var(--rs);font-size:.8rem;font-weight:800;letter-spacing:.04em;cursor:pointer;font-family:var(--fn);transition:background .2s}
-.m-close:hover{background:var(--gd)}
+      /* ─── SUCCESS MODAL ─────────────────────────────────────────── */
+      .modal-bg {
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 31, 18, 0.9);
+        z-index: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        backdrop-filter: blur(12px);
+        padding: 20px;
+        overflow-y: auto;
+      }
+      .modal-bg.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .modal-card {
+        background: #fff;
+        border-radius: 20px;
+        max-width: 480px;
+        width: 100%;
+        overflow: hidden;
+        transform: scale(0.93) translateY(16px);
+        transition: transform 0.3s;
+      }
+      .modal-bg.open .modal-card {
+        transform: scale(1) translateY(0);
+      }
+      .modal-top {
+        background: var(--dark);
+        padding: 36px 36px 28px;
+        text-align: center;
+        position: relative;
+      }
+      .modal-bar {
+        height: 4px;
+        background: linear-gradient(to right, var(--green), var(--gl));
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: mbar 0.5s ease forwards;
+      }
+      @keyframes mbar {
+        to {
+          transform: scaleX(1);
+        }
+      }
+      .modal-x {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 1.3rem;
+        cursor: pointer;
+        line-height: 1;
+        transition: color 0.2s;
+        font-family: var(--fn);
+        padding: 4px;
+      }
+      .modal-x:hover {
+        color: #fff;
+      }
+      .m-emoji {
+        font-size: 2.8rem;
+        display: block;
+        margin-bottom: 10px;
+        animation: ep 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.12s both;
+      }
+      @keyframes ep {
+        0% {
+          transform: scale(0) rotate(-12deg);
+        }
+        60% {
+          transform: scale(1.18);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .m-badge-p {
+        display: inline-block;
+        padding: 4px 16px;
+        background: rgba(0, 156, 65, 0.18);
+        border: 1px solid rgba(0, 156, 65, 0.32);
+        border-radius: var(--rf);
+        font-size: 0.62rem;
+        font-weight: 800;
+        color: var(--gl);
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .m-hed {
+        font-family: var(--fv);
+        font-size: 1.8rem;
+        color: #fff;
+      }
+      .m-body {
+        padding: 24px 36px 32px;
+      }
+      .mrow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.84rem;
+      }
+      .mrow:last-of-type {
+        border: none;
+      }
+      .mrow-k {
+        font-size: 0.63rem;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .mrow-v {
+        font-weight: 800;
+        color: var(--text);
+      }
+      .mrow-v.hi {
+        color: var(--green);
+      }
+      .m-impact {
+        background: var(--pale);
+        border: 1px solid rgba(0, 156, 65, 0.18);
+        border-radius: var(--rs);
+        padding: 14px 16px;
+        margin: 18px 0;
+        font-size: 0.86rem;
+        font-weight: 700;
+        line-height: 1.7;
+        color: var(--text);
+      }
+      .m-impact strong {
+        color: var(--green);
+        font-weight: 900;
+      }
+      .m-ss {
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: var(--muted);
+        background: var(--bg);
+        padding: 10px;
+        text-align: center;
+        border-radius: var(--rs);
+        margin-bottom: 16px;
+      }
+      .m-share {
+        display: flex;
+        gap: 7px;
+        margin-bottom: 12px;
+      }
+      .sh-btn {
+        flex: 1;
+        height: 38px;
+        border-radius: var(--rs);
+        border: 1.5px solid var(--border);
+        background: #fff;
+        font-size: 0.65rem;
+        font-weight: 800;
+        cursor: pointer;
+        font-family: var(--fn);
+        color: var(--text);
+        transition: all 0.2s;
+      }
+      .sh-btn:hover {
+        background: var(--dark);
+        color: #fff;
+        border-color: var(--dark);
+      }
+      .m-close {
+        display: block;
+        width: 100%;
+        height: 46px;
+        background: var(--green);
+        color: #fff;
+        border: none;
+        border-radius: var(--rs);
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        font-family: var(--fn);
+        transition: background 0.2s;
+      }
+      .m-close:hover {
+        background: var(--gd);
+      }
 
-/* ─── FOOTER ────────────────────────────────────────────────── */
-footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,156,65,.22)}
-.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:56px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:32px}
-.f-top{display:flex;align-items:center;gap:8px;margin-bottom:14px}
-.f-dots{display:flex;gap:3px}
-.f-dots span{width:7px;height:7px;border-radius:50%;display:block}
-.f-name{font-family:var(--fv);font-size:1rem;color:#fff}
-.f-name em{font-style:normal;color:rgba(255,255,255,.36)}
-.f-mission{font-size:.82rem;font-weight:600;line-height:1.8;color:rgba(255,255,255,.28);max-width:260px}
-.f-col h4{font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:18px}
-.f-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.f-col a{font-size:.83rem;font-weight:600;color:rgba(255,255,255,.36);transition:color .2s}
-.f-col a:hover{color:var(--gl)}
-.f-btm{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.f-copy{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.2)}
-.f-tag{font-size:.75rem;font-weight:700;font-style:italic;color:rgba(255,255,255,.18)}
+      /* ─── FOOTER ────────────────────────────────────────────────── */
+      footer {
+        background: var(--deeper);
+        padding: 80px 0 40px;
+        border-top: 1px solid rgba(0, 156, 65, 0.22);
+      }
+      .f-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: 56px;
+        padding-bottom: 52px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        margin-bottom: 32px;
+      }
+      .f-top {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .f-dots {
+        display: flex;
+        gap: 3px;
+      }
+      .f-dots span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        display: block;
+      }
+      .f-name {
+        font-family: var(--fv);
+        font-size: 1rem;
+        color: #fff;
+      }
+      .f-name em {
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.36);
+      }
+      .f-mission {
+        font-size: 0.82rem;
+        font-weight: 600;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.28);
+        max-width: 260px;
+      }
+      .f-col h4 {
+        font-size: 0.6rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.2);
+        margin-bottom: 18px;
+      }
+      .f-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .f-col a {
+        font-size: 0.83rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.36);
+        transition: color 0.2s;
+      }
+      .f-col a:hover {
+        color: var(--gl);
+      }
+      .f-btm {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .f-copy {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .f-tag {
+        font-size: 0.75rem;
+        font-weight: 700;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.18);
+      }
 
-/* ─── RESPONSIVE ────────────────────────────────────────────── */
-@media(max-width:900px){
-  nav{padding:0 32px}
-  .nav-links{gap:20px}
-  .hero-content{padding:48px 32px 80px}
-  .hero-bottom{left:32px;right:32px}
-  .story-sec .container{grid-template-columns:1fr;gap:36px}
-  .story-img img{aspect-ratio:3/2}
-  .progs-grid{grid-template-columns:1fr;gap:16px}
-  .calc-sec .container{grid-template-columns:1fr;gap:32px;display:flex;flex-direction:column}.calc-card{order:2}.calc-sec .reveal-r{order:1}
-  .don-split{grid-template-columns:1fr}
-  .don-left{padding:48px 28px;min-height:auto}
-  .don-right{padding:40px 28px;border-left:none;border-top:1px solid var(--border)}
-  .f-grid{grid-template-columns:1fr 1fr;gap:40px}
-}
-@media(max-width:768px){
-  .calc-sec .container{display:flex;flex-direction:column}
-  .calc-card{order:2}
-  .calc-sec .reveal-r{order:1}
-  .container{padding:0 24px}
-  nav{padding:0 24px;justify-content:space-between}
-  .mob-tog{display:flex}
-  .nav-links{display:none}
-  .nav-cta-btn{display:none}
-  section{padding:64px 0}
-  .hero-content{padding:40px 24px 72px}
-  .hero-bottom{left:24px;right:24px}
-  .kids-grid{grid-template-columns:1fr 1fr}
-  .metrics .container{flex-direction:column}
-  .mc{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);padding:20px 24px}
-  .mc:last-child{border-bottom:none}
-  .f-grid{grid-template-columns:1fr;gap:28px}
-  .fdonate{bottom:16px;right:16px;height:42px;padding:0 18px;font-size:.7rem}
-}
-@media(max-width:520px){
-  .don-split{grid-template-columns:1fr!important}
-  .don-left{padding:40px 20px!important;min-height:auto!important}
-  .don-right{padding:32px 20px!important;border-top:1px solid var(--border)!important;border-left:none!important}
-  .pay-row{grid-template-columns:1fr!important}
-  .freq-row{flex-wrap:wrap}
-  .amt-grid{grid-template-columns:repeat(3,1fr)!important}
-  
-  .kids-grid{grid-template-columns:1fr}
-  .hero h1{font-size:2.5rem}
-  .story-sec .container{gap:24px}
-  .progs-grid{gap:12px}
-  section{padding:52px 0}
-}
+      /* ─── RESPONSIVE ────────────────────────────────────────────── */
+      @media (max-width: 900px) {
+        nav {
+          padding: 0 32px;
+        }
+        .nav-links {
+          gap: 20px;
+        }
+        .hero-content {
+          padding: 48px 32px 80px;
+        }
+        .hero-bottom {
+          left: 32px;
+          right: 32px;
+        }
+        .story-sec .container {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .story-img img {
+          aspect-ratio: 3/2;
+        }
+        .progs-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .calc-sec .container {
+          grid-template-columns: 1fr;
+          gap: 32px;
+          display: flex;
+          flex-direction: column;
+        }
+        .calc-card {
+          order: 2;
+        }
+        .calc-sec .reveal-r {
+          order: 1;
+        }
+        .don-split {
+          grid-template-columns: 1fr;
+        }
+        .don-left {
+          padding: 48px 28px;
+          min-height: auto;
+        }
+        .don-right {
+          padding: 40px 28px;
+          border-left: none;
+          border-top: 1px solid var(--border);
+        }
+        .f-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+      }
+      @media (max-width: 768px) {
+        .calc-sec .container {
+          display: flex;
+          flex-direction: column;
+        }
+        .calc-card {
+          order: 2;
+        }
+        .calc-sec .reveal-r {
+          order: 1;
+        }
+        .container {
+          padding: 0 24px;
+        }
+        nav {
+          padding: 0 24px;
+          justify-content: space-between;
+        }
+        .mob-tog {
+          display: flex;
+        }
+        .nav-links {
+          display: none;
+        }
+        .nav-cta-btn {
+          display: none;
+        }
+        section {
+          padding: 64px 0;
+        }
+        .hero-content {
+          padding: 40px 24px 72px;
+        }
+        .hero-bottom {
+          left: 24px;
+          right: 24px;
+        }
+        .kids-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .metrics .container {
+          flex-direction: column;
+        }
+        .mc {
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+          padding: 20px 24px;
+        }
+        .mc:last-child {
+          border-bottom: none;
+        }
+        .f-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .fdonate {
+          bottom: 16px;
+          right: 16px;
+          height: 42px;
+          padding: 0 18px;
+          font-size: 0.7rem;
+        }
+      }
+      @media (max-width: 520px) {
+        .don-split {
+          grid-template-columns: 1fr !important;
+        }
+        .don-left {
+          padding: 40px 20px !important;
+          min-height: auto !important;
+        }
+        .don-right {
+          padding: 32px 20px !important;
+          border-top: 1px solid var(--border) !important;
+          border-left: none !important;
+        }
+        .pay-row {
+          grid-template-columns: 1fr !important;
+        }
+        .freq-row {
+          flex-wrap: wrap;
+        }
+        .amt-grid {
+          grid-template-columns: repeat(3, 1fr) !important;
+        }
 
-/* ─ PRE-FOOTER: white donate split ─ */
-.don-split{background:#fff;border-top:1px solid var(--border)}
-.don-left{background:#fff;padding:72px 56px}
-.don-left h2{color:var(--text)}
-.don-left h2 em{color:var(--green)}
-.don-left p{color:var(--muted)}
-.don-right{background:#fff;border-radius:0}
-.don-right h3{color:var(--text)}
-.don-sub{color:var(--muted)}
-.freq-row{background:rgba(0,156,65,.1)}
-.freq-btn{color:var(--muted)}
-.freq-btn.active{background:var(--green);color:#fff}
-.amt-btn{border-color:var(--border);color:var(--muted)}
-.amt-btn:hover{border-color:var(--green);color:var(--green)}
-.amt-btn.active{background:var(--green);border-color:var(--green);color:#fff}
-.imp-strip{background:var(--pale);border-left:3px solid var(--green);color:var(--text)}
-.imp-strip strong{color:var(--green)}
-.nfield label{color:var(--muted)}
-.nfield input{background:#fff;border-color:var(--border);color:var(--text)}
-.nfield input:focus{border-color:var(--green)}
-.nfield input::placeholder{color:var(--muted)}
-.pay-btn{border-color:var(--border);color:var(--text)}
-.pay-btn:hover{background:var(--pale);border-color:var(--green);color:var(--green)}
-.pay-btn svg{stroke:var(--text)}
-.pay-btn:hover svg{stroke:var(--green)}
-.sec-note{color:var(--muted)}
-.sec-note svg{stroke:var(--muted)}
+        .kids-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .story-sec .container {
+          gap: 24px;
+        }
+        .progs-grid {
+          gap: 12px;
+        }
+        section {
+          padding: 52px 0;
+        }
+      }
 
-/* ─ Metrics progress bars ─ */
-.mc-bar{height:3px;background:rgba(179,230,200,.18);border-radius:100px;overflow:hidden;margin-top:10px}
-.mc-bar-fill{height:100%;background:var(--gl);border-radius:100px;width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
-.mc-bar-meta{font-size:.58rem;font-weight:700;color:rgba(255,255,255,.28);letter-spacing:.04em;text-transform:uppercase;margin-top:5px}
+      /* ─ PRE-FOOTER: white donate split ─ */
+      .don-split {
+        background: #fff;
+        border-top: 1px solid var(--border);
+      }
+      .don-left {
+        background: #fff;
+        padding: 72px 56px;
+      }
+      .don-left h2 {
+        color: var(--text);
+      }
+      .don-left h2 em {
+        color: var(--green);
+      }
+      .don-left p {
+        color: var(--muted);
+      }
+      .don-right {
+        background: #fff;
+        border-radius: 0;
+      }
+      .don-right h3 {
+        color: var(--text);
+      }
+      .don-sub {
+        color: var(--muted);
+      }
+      .freq-row {
+        background: rgba(0, 156, 65, 0.1);
+      }
+      .freq-btn {
+        color: var(--muted);
+      }
+      .freq-btn.active {
+        background: var(--green);
+        color: #fff;
+      }
+      .amt-btn {
+        border-color: var(--border);
+        color: var(--muted);
+      }
+      .amt-btn:hover {
+        border-color: var(--green);
+        color: var(--green);
+      }
+      .amt-btn.active {
+        background: var(--green);
+        border-color: var(--green);
+        color: #fff;
+      }
+      .imp-strip {
+        background: var(--pale);
+        border-left: 3px solid var(--green);
+        color: var(--text);
+      }
+      .imp-strip strong {
+        color: var(--green);
+      }
+      .nfield label {
+        color: var(--muted);
+      }
+      .nfield input {
+        background: #fff;
+        border-color: var(--border);
+        color: var(--text);
+      }
+      .nfield input:focus {
+        border-color: var(--green);
+      }
+      .nfield input::placeholder {
+        color: var(--muted);
+      }
+      .pay-btn {
+        border-color: var(--border);
+        color: var(--text);
+      }
+      .pay-btn:hover {
+        background: var(--pale);
+        border-color: var(--green);
+        color: var(--green);
+      }
+      .pay-btn svg {
+        stroke: var(--text);
+      }
+      .pay-btn:hover svg {
+        stroke: var(--green);
+      }
+      .sec-note {
+        color: var(--muted);
+      }
+      .sec-note svg {
+        stroke: var(--muted);
+      }
 
-/* ── FLOATING HAMBURGER ── */
-#float-menu-btn{
-  position:fixed;top:14px;right:16px;z-index:9999;
-  width:40px;height:40px;border-radius:50%;
-  background:rgba(10,31,18,.75);backdrop-filter:blur(10px);
-  border:1px solid rgba(0,156,65,.35);
-  display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;
-  cursor:pointer;padding:0;transition:background .2s
-}
-#float-menu-btn:hover{background:rgba(10,31,18,.95)}
-#float-menu-btn span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;transition:all .25s}
-#float-menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-#float-menu-btn.open span:nth-child(2){opacity:0}
-#float-menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+      /* ─ Metrics progress bars ─ */
+      .mc-bar {
+        height: 3px;
+        background: rgba(179, 230, 200, 0.18);
+        border-radius: 100px;
+        overflow: hidden;
+        margin-top: 10px;
+      }
+      .mc-bar-fill {
+        height: 100%;
+        background: var(--gl);
+        border-radius: 100px;
+        width: 0;
+        transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .mc-bar-meta {
+        font-size: 0.58rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.28);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-top: 5px;
+      }
 
-/* ── FULLSCREEN OVERLAY ── */
-#float-overlay{
-  position:fixed;inset:0;z-index:9998;
-  background:rgba(10,31,18,.97);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-  opacity:0;pointer-events:none;transition:opacity .25s
-}
-#float-overlay.open{opacity:1;pointer-events:all}
-#float-overlay a{
-  font-family:'Nunito',sans-serif;font-size:1.6rem;font-weight:900;
-  color:rgba(255,255,255,.55);text-decoration:none;letter-spacing:-.02em;
-  transition:color .2s;padding:8px 0
-}
-#float-overlay a:hover{color:#fff}
-#float-overlay a.active{color:#009c41}
-#float-overlay .fo-divider{width:40px;height:2px;background:rgba(0,156,65,.3);border-radius:2px;margin:8px 0}
-#float-overlay .fo-cta{
-  margin-top:8px;height:52px;padding:0 36px;
-  background:#009c41;color:#fff;border:none;border-radius:100px;
-  font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;
-  cursor:pointer;transition:background .2s
-}
-#float-overlay .fo-cta:hover{background:#007a33}
+      /* ── FLOATING HAMBURGER ── */
+      #float-menu-btn {
+        position: fixed;
+        top: 14px;
+        right: 16px;
+        z-index: 9999;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(10, 31, 18, 0.75);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 156, 65, 0.35);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.2s;
+      }
+      #float-menu-btn:hover {
+        background: rgba(10, 31, 18, 0.95);
+      }
+      #float-menu-btn span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+        transition: all 0.25s;
+      }
+      #float-menu-btn.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      #float-menu-btn.open span:nth-child(2) {
+        opacity: 0;
+      }
+      #float-menu-btn.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
 
-@media(max-width:768px){
-  #float-menu-btn{display:flex}
-  nav .mob-tog{display:none!important}
-}
+      /* ── FULLSCREEN OVERLAY ── */
+      #float-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9998;
+        background: rgba(10, 31, 18, 0.97);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s;
+      }
+      #float-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      #float-overlay a {
+        font-family: "Nunito", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        letter-spacing: -0.02em;
+        transition: color 0.2s;
+        padding: 8px 0;
+      }
+      #float-overlay a:hover {
+        color: #fff;
+      }
+      #float-overlay a.active {
+        color: #009c41;
+      }
+      #float-overlay .fo-divider {
+        width: 40px;
+        height: 2px;
+        background: rgba(0, 156, 65, 0.3);
+        border-radius: 2px;
+        margin: 8px 0;
+      }
+      #float-overlay .fo-cta {
+        margin-top: 8px;
+        height: 52px;
+        padding: 0 36px;
+        background: #009c41;
+        color: #fff;
+        border: none;
+        border-radius: 100px;
+        font-family: "Nunito", sans-serif;
+        font-size: 1rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      #float-overlay .fo-cta:hover {
+        background: #007a33;
+      }
 
-</style>
-</head>
-<body>
-<!-- FLOATING MENU BUTTON -->
-<button id="float-menu-btn" onclick="toggleFloatMenu()" aria-label="Menu">
-  <span></span><span></span><span></span>
-</button>
+      @media (max-width: 768px) {
+        #float-menu-btn {
+          display: flex;
+        }
+        nav .mob-tog {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- FLOATING MENU BUTTON -->
+    <button id="float-menu-btn" onclick="toggleFloatMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
 
-<!-- FULLSCREEN OVERLAY -->
-<div id="float-overlay">
-  <a href="index.html" class="active">Home</a>
-  <a href="about.html" >About</a>
-  <a href="programmes.html" >Programmes</a>
-  <a href="kids.html" ACTIVE_KIDS>The Kids</a>
-  <a href="stories.html" >Stories</a>
-  <div class="fo-divider"></div>
-  <button class="fo-cta" onclick="location.href='get-involved.html'">Get Involved</button>
-</div>
-
-
-<div class="spbar" id="spbar"></div>
-<a href="get-involved.html#donate" class="fdonate" id="fd">
-  <svg viewBox="0 0 16 16"><path d="M8 13.5S2 9.9 2 5.8a4.2 4.2 0 018 0 4.2 4.2 0 018 0c0 4.1-6 7.7-6 7.7z"/></svg>
-  Donate
-</a>
-
-<!-- SUCCESS MODAL -->
-<div class="modal-bg" id="modalBg">
-  <div class="modal-card">
-    <div class="modal-top">
-      <div class="modal-bar"></div>
-      <button class="modal-x" onclick="closeModal()">✕</button>
-      <span class="m-emoji" id="mEmoji">🌱</span>
-      <div class="m-badge-p" id="mBadge">Ripple Starter</div>
-      <div class="m-hed">Thank you.</div>
-    </div>
-    <div class="m-body">
-      <div class="mrow"><span class="mrow-k">Amount</span><span class="mrow-v hi" id="mAmt"> - </span></div>
-      <div class="mrow"><span class="mrow-k">Frequency</span><span class="mrow-v" id="mFreq"> - </span></div>
-      <div class="mrow"><span class="mrow-k">Method</span><span class="mrow-v" id="mMethod"> - </span></div>
-      <div class="mrow" id="mDedRow" style="display:none"><span class="mrow-k">Dedicated to</span><span class="mrow-v" id="mDed"> - </span></div>
-      <div class="m-impact" id="mImpact"> - </div>
-      <p class="m-ss">📸 Screenshot this receipt to share your impact.</p>
-      <div class="m-share">
-        <button class="sh-btn" onclick="doShare('twitter')">Share on X</button>
-        <button class="sh-btn" onclick="doShare('facebook')">Facebook</button>
-        <button class="sh-btn" onclick="doShare('copy')">Copy link</button>
-      </div>
-      <button class="m-close" onclick="closeModal()">Close</button>
-    </div>
-  </div>
-</div>
-
-<!-- NAV -->
-<nav id="nav">
-  <a href="index.html" class="nav-brand" style="text-decoration:none">
-    <span class="brand-n">Harry Maurice <em>Foundation</em></span>
-  </a>
-  <button class="mob-tog" id="mobTog" onclick="toggleMob()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="programmes.html">Programmes</a></li>
-    <li><a href="kids.html">The Kids</a></li>
-    <li><a href="stories.html">Stories</a></li>
-    <li><a href="get-involved.html" class="nav-cta-btn">Get Involved</a></li>
-  </ul>
-</nav>
-
-<!-- MOBILE DRAWER -->
-<div class="mob-drawer" id="mobDrawer">
-  <ul>
-    <li><a href="index.html" class="mob-active">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="programmes.html">Programmes</a></li>
-    <li><a href="kids.html">The Kids</a></li>
-    <li><a href="stories.html">Stories</a></li>
-  </ul>
-  <a href="get-involved.html" class="mob-donate">Get Involved →</a>
-</div>
-
-<!-- ─── HERO ────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-bg" id="hbg"></div>
-  <div class="hero-content">
-    <div class="pill pill-w hero-tag"><div class="pdot" style="background:var(--gl)"></div>Jinja · Uganda · Est. 2026</div>
-    <h1>Belief is the <span>first</span><br/>investment.</h1>
-    <p class="hero-sub">"Start with one, let it ripple."</p>
-    <div class="hero-btns">
-      <button class="btn-p" onclick="location.href='programmes.html'">
-        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        Our Programmes
+    <!-- FULLSCREEN OVERLAY -->
+    <div id="float-overlay">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="kids.html" ACTIVE_KIDS>The Kids</a>
+      <a href="stories.html">Stories</a>
+      <div class="fo-divider"></div>
+      <button class="fo-cta" onclick="location.href = 'get-involved.html'">
+        Get Involved
       </button>
-      <button class="btn-ghost" onclick="location.href='about.html'">Our Story</button>
     </div>
-  </div>
-  <div class="hero-bottom">
-    <div class="scroll-h"><span>Scroll to explore</span><div class="scroll-tr"></div></div>
-    <div class="hero-badge">
-      <div class="hb-n">30</div>
-      <div class="hb-l">Students reached by the foundation</div>
-    </div>
-  </div>
-</section>
 
-<!-- ─── METRICS ──────────────────────────────────────── -->
-<div class="metrics">
-  <div class="container">
-    <div class="mc">
-      <div class="mc-ico"><svg viewBox="0 0 16 16"><circle cx="6" cy="5" r="2.5"/><path d="M1 13c0-2.8 2.2-5 5-5s5 2.2 5 5"/><path d="M11 7l1.5 1.5L15 6"/></svg></div>
-      <div class="mc-val" data-count="30">0</div><div class="mc-lbl">Students mentored by the foundation</div>
-      <div class="mc-bar"><div class="mc-bar-fill" data-w="60"></div></div>
-      <div class="mc-bar-meta">30 students and growing</div>
-    </div>
-    <div class="mc">
-      <div class="mc-ico"><svg viewBox="0 0 16 16"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1"/></svg></div>
-      <div class="mc-val">2</div><div class="mc-lbl">Active programmes</div>
-      <div class="mc-bar"><div class="mc-bar-fill" data-w="100"></div></div>
-      <div class="mc-bar-meta">Both fully operational</div>
-    </div>
-    <div class="mc">
-      <div class="mc-ico"><svg viewBox="0 0 16 16"><path d="M2 12V4l6-2 6 2v8l-6 2-6-2z"/><path d="M8 2v12"/></svg></div>
-      <div class="mc-val">12</div><div class="mc-lbl">Mentorship sessions</div>
-      <div class="mc-bar"><div class="mc-bar-fill" data-w="60"></div></div>
-      <div class="mc-bar-meta">12 / 20 this cohort</div>
-    </div>
-    <div class="mc">
-      <div class="mc-ico"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1.5"/></svg></div>
-      <div class="mc-val">2026</div><div class="mc-lbl">Year founded</div>
-      <div class="mc-bar"><div class="mc-bar-fill" data-w="100"></div></div>
-      <div class="mc-bar-meta">First cohort in progress</div>
-    </div>
-  </div>
-</div>
+    <div class="spbar" id="spbar"></div>
+    <a href="get-involved.html#donate" class="fdonate" id="fd">
+      <svg viewBox="0 0 16 16">
+        <path
+          d="M8 13.5S2 9.9 2 5.8a4.2 4.2 0 018 0 4.2 4.2 0 018 0c0 4.1-6 7.7-6 7.7z"
+        />
+      </svg>
+      Donate
+    </a>
 
-<!-- ─── STORY ────────────────────────────────────────── -->
-<section class="story-sec">
-  <div class="container">
-    <div class="story-img reveal-l">
-      <!-- REPLACE: real community/group photo from Uganda -->
-      <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=900&q=88" alt="The foundation story" width="100%"/>
-      <div class="simg-caption"><div class="simg-dot"></div>Uganda · Where it all began</div>
-    </div>
-    <div class="reveal-r">
-      <div class="pill"><div class="pdot"></div>Our Story</div>
-      <h2 class="sh">It started with<br/><em>a baseball camp.</em></h2>
-      <p class="body">Harry Maurice came to Uganda for a baseball camp. He was not there to build anything. Between sessions, he simply noticed young people with potential, and he showed up for them - again and again, without agenda.</p>
-      <p class="body" style="margin-top:14px">His mentorship touched 20 young people - including two named Fatu and Samuel. What happened next was entirely their idea. They built this foundation.</p>
-      <div class="story-q">
-        <p>"Where you come from does not limit what you can become. With the right support, you can stand confidently alongside anyone in the world."</p>
-        <cite> -  The philosophy behind Harry Maurice Foundation</cite>
+    <!-- SUCCESS MODAL -->
+    <div class="modal-bg" id="modalBg">
+      <div class="modal-card">
+        <div class="modal-top">
+          <div class="modal-bar"></div>
+          <button class="modal-x" onclick="closeModal()">✕</button>
+          <span class="m-emoji" id="mEmoji">🌱</span>
+          <div class="m-badge-p" id="mBadge">Ripple Starter</div>
+          <div class="m-hed">Thank you.</div>
+        </div>
+        <div class="m-body">
+          <div class="mrow">
+            <span class="mrow-k">Amount</span
+            ><span class="mrow-v hi" id="mAmt"> - </span>
+          </div>
+          <div class="mrow">
+            <span class="mrow-k">Frequency</span
+            ><span class="mrow-v" id="mFreq"> - </span>
+          </div>
+          <div class="mrow">
+            <span class="mrow-k">Method</span
+            ><span class="mrow-v" id="mMethod"> - </span>
+          </div>
+          <div class="mrow" id="mDedRow" style="display: none">
+            <span class="mrow-k">Dedicated to</span
+            ><span class="mrow-v" id="mDed"> - </span>
+          </div>
+          <div class="m-impact" id="mImpact">-</div>
+          <p class="m-ss">📸 Screenshot this receipt to share your impact.</p>
+          <div class="m-share">
+            <button class="sh-btn" onclick="doShare('twitter')">
+              Share on X
+            </button>
+            <button class="sh-btn" onclick="doShare('facebook')">
+              Facebook
+            </button>
+            <button class="sh-btn" onclick="doShare('copy')">Copy link</button>
+          </div>
+          <button class="m-close" onclick="closeModal()">Close</button>
+        </div>
       </div>
-      <a href="about.html" class="text-lnk">Read the full story <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </div>
-  </div>
-</section>
 
-<!-- ─── KIDS TEASER ───────────────────────────────────── -->
-<section class="kids-sec">
-  <div class="container">
-    <div class="kids-hd">
-      <div class="reveal">
-        <div class="pill"><div class="pdot"></div>The People Behind the Mission</div>
-        <h2 class="sh" style="margin-bottom:0">Every name.<br/><em>Every future.</em></h2>
-      </div>
-      <a href="kids.html" class="text-lnk reveal" style="margin-top:0;flex-shrink:0">
-        Meet all 9 of them <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    <!-- NAV -->
+    <nav id="nav">
+      <a href="index.html" class="nav-brand" style="text-decoration: none">
+        <span class="brand-n">Harry Maurice <em>Foundation</em></span>
       </a>
-    </div>
-    <div class="kids-grid">
-      <div class="kid reveal">
-        <div class="kid-photo">
-          <!-- REPLACE: real photo of Mariam -->
-          <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&q=80" alt="Mariam"/>
-          <div class="kid-ov"></div>
-          <div class="kid-info"><span class="kid-name">Mariam</span><span class="kid-age">Age 17 · Kampala</span></div>
-        </div>
-        <div class="kid-body">
-          <div class="kid-tag">Roots &amp; Rise</div>
-          <p class="kid-dream">Aspires to become an <em>architect</em> - designing a future built by Ugandans.</p>
-        </div>
-      </div>
-      <div class="kid reveal">
-        <div class="kid-photo">
-          <!-- REPLACE: real photo of Emmanuel -->
-          <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&q=80" alt="Emmanuel"/>
-          <div class="kid-ov"></div>
-          <div class="kid-info"><span class="kid-name">Emmanuel</span><span class="kid-age">Age 19 · Entebbe</span></div>
-        </div>
-        <div class="kid-body">
-          <div class="kid-tag">Roots &amp; Rise</div>
-          <p class="kid-dream">Wants to be a <em>doctor</em> - building on his family's tradition of community service.</p>
-        </div>
-      </div>
-      <div class="kid reveal">
-        <div class="kid-photo">
-          <!-- REPLACE: real photo of Aisha -->
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Aisha"/>
-          <div class="kid-ov"></div>
-          <div class="kid-info"><span class="kid-name">Aisha</span><span class="kid-age">Age 16 · Jinja</span></div>
-        </div>
-        <div class="kid-body">
-          <div class="kid-tag">Diane Health</div>
-          <p class="kid-dream">Training to be a <em>nurse</em> - her community's health crisis drives her.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── PROGRAMMES ────────────────────────────────────── -->
-<section class="progs-sec">
-  <div class="container">
-    <div class="progs-hd">
-      <div class="reveal">
-        <div class="pill"><div class="pdot"></div>Our Programmes</div>
-        <h2 class="sh" style="margin-bottom:0">Two focused <em>commitments.</em></h2>
-      </div>
-      <p class="body reveal" style="max-width:300px;text-align:right;margin:0">We do two things with full attention - and we do them well.</p>
-    </div>
-    <div class="progs-grid">
-      <div class="pc reveal-l">
-        <div class="pc-img">
-          <!-- REPLACE: African mentorship/learning scene -->
-          <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=85" alt="Roots and Rise" width="100%" height="100%"/>
-        </div>
-        <div class="pc-body">
-          <div class="pc-pill">Mentorship</div>
-          <div class="pc-name">Roots &amp; Rise</div>
-          <p class="pc-desc">Connecting young Ugandans with mentors who offer genuine presence and direction that lasts a lifetime.</p>
-          <a href="programmes.html#roots" class="text-lnk">Explore programme <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        </div>
-      </div>
-      <div class="pc reveal-r">
-        <div class="pc-img">
-          <!-- REPLACE: African health community scene -->
-          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=85" alt="Diane Health Programme" width="100%" height="100%"/>
-        </div>
-        <div class="pc-body">
-          <div class="pc-pill">Health</div>
-          <div class="pc-name">Diane Health Programme</div>
-          <p class="pc-desc">Delivering primary health education into communities - because a person cannot rise if they are not well.</p>
-          <a href="programmes.html#diane" class="text-lnk">Explore programme <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CALCULATOR ────────────────────────────────────── -->
-<section class="calc-sec">
-  <div class="container">
-    <div class="calc-card reveal-l">
-      <div class="pill" style="margin-bottom:12px"><div class="pdot"></div>Interactive</div>
-      <div class="calc-circles" id="calcCircles"></div>
-      <div class="calc-big" id="calcNum">1</div>
-      <p class="calc-lbl-s">people impacted</p>
-    </div>
-    <div class="reveal-r">
-      <div class="pill"><div class="pdot"></div>Ripple Calculator</div>
-      <h2 class="sh">See the ripple<br/><em>happen live.</em></h2>
-      <p class="body">If one person is supported and they support two others, and each of those supports two more - watch what happens. This is the mathematics of belief.</p>
-      <div style="margin-top:28px">
-        <div class="range-meta"><span>Generations of impact</span><span id="genNum">1</span></div>
-        <input type="range" min="1" max="7" value="1" id="calcSlider"/>
-        <div class="calc-note" id="calcNote">Starting with <strong>1 person</strong> - this is where every ripple begins.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── DONATE ────────────────────────────────────────── -->
-<section class="don-split" style="padding:0">
-  <div class="don-left reveal-l">
-    <div class="pill" style="margin-bottom:22px"><div class="pdot"></div>Support the Work</div>
-    <h2>Your money becomes<br/><em>someone's turning point.</em></h2>
-    <p>Every amount funds real, direct work - mentorship sessions, health visits, and the consistent presence that changes a life. Straight to the work.</p>
-  </div>
-  <div class="don-right reveal-r">
-    <h3>Make a donation</h3>
-    <p class="don-sub">Choose your amount and frequency.</p>
-    <div class="freq-row">
-      <button class="freq-btn active" onclick="setFreq('once',this)">One-time</button>
-      <button class="freq-btn" onclick="setFreq('monthly',this)">Monthly</button>
-    </div>
-    <div class="amt-grid">
-      <button class="amt-btn" onclick="pickAmt(10,this)">$10</button>
-      <button class="amt-btn" onclick="pickAmt(25,this)">$25</button>
-      <button class="amt-btn" onclick="pickAmt(50,this)">$50</button>
-      <button class="amt-btn" onclick="pickAmt(100,this)">$100</button>
-      <button class="amt-btn" onclick="pickAmt(250,this)">$250</button>
-      <button class="amt-btn" onclick="pickAmt(500,this)">$500</button>
-    </div>
-    <div class="imp-strip" id="impStrip">Select an amount to see your impact.</div>
-    <div class="nfield" id="nfield">
-      <label>Dedicate this session - <em style="font-weight:600;text-transform:none;letter-spacing:0;font-size:.6rem">optional</em></label>
-      <input type="text" id="dedIn" placeholder="In honour of someone special..."/>
-    </div>
-    <div class="pay-row">
-      <button class="pay-btn" onclick="donate('PayPal')">
-        <svg viewBox="0 0 16 16"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M2 7h12"/></svg>PayPal
+      <button
+        class="mob-tog"
+        id="mobTog"
+        onclick="toggleMob()"
+        aria-label="Menu"
+      >
+        <span></span><span></span><span></span>
       </button>
-      <button class="pay-btn" onclick="donate('Stripe')">
-        <svg viewBox="0 0 16 16"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M2 7h12"/></svg>Stripe
-      </button>
-    </div>
-    <div class="sec-note"><svg viewBox="0 0 16 16"><path d="M8 2l5 2v4c0 3-2.5 5.5-5 6-2.5-.5-5-3-5-6V4z"/></svg>Secure payment · Integration launching soon</div>
-  </div>
-</section>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="kids.html">The Kids</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li>
+          <a href="get-involved.html" class="nav-cta-btn">Get Involved</a>
+        </li>
+      </ul>
+    </nav>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="f-grid">
-      <div>
-        <div class="f-top">
-          <span class="f-name">Harry Maurice <em>Foundation</em></span>
+    <!-- MOBILE DRAWER -->
+    <div class="mob-drawer" id="mobDrawer">
+      <ul>
+        <li><a href="index.html" class="mob-active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="kids.html">The Kids</a></li>
+        <li><a href="stories.html">Stories</a></li>
+      </ul>
+      <a href="get-involved.html" class="mob-donate">Get Involved →</a>
+    </div>
+
+    <!-- ─── HERO ────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-bg" id="hbg"></div>
+      <div class="hero-content">
+        <div class="pill pill-w hero-tag">
+          <div class="pdot" style="background: var(--gl)"></div>
+          Jinja · Uganda · Est. 2026
         </div>
-        <p class="f-mission">A focused foundation working in Jinja, Uganda through mentorship and health - because every person deserves someone who believes in them.</p>
+        <h1>Belief is the <span>first</span><br />investment.</h1>
+        <p class="hero-sub">"Start with one, let it ripple."</p>
+        <div class="hero-btns">
+          <button class="btn-p" onclick="location.href = 'programmes.html'">
+            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+            Our Programmes
+          </button>
+          <button class="btn-ghost" onclick="location.href = 'about.html'">
+            Our Story
+          </button>
+        </div>
       </div>
-      <div class="f-col"><h4>Programmes</h4><ul><li><a href="programmes.html#roots">Roots &amp; Rise</a></li><li><a href="programmes.html#diane">Diane Health Programme</a></li></ul></div>
-      <div class="f-col"><h4>Foundation</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="kids.html">The Kids</a></li><li><a href="stories.html">Stories</a></li><li><a href="get-involved.html">Get Involved</a></li></ul></div>
-      <div class="f-col"><h4>Connect</h4><ul><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#partner">Partner</a></li><li><a href="mailto:info@harrymauricefoundation.org">Contact</a></li></ul></div>
+      <div class="hero-bottom">
+        <div class="scroll-h">
+          <span>Scroll to explore</span>
+          <div class="scroll-tr"></div>
+        </div>
+        <div class="hero-badge">
+          <div class="hb-n">30</div>
+          <div class="hb-l">Students reached by the foundation</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── METRICS ──────────────────────────────────────── -->
+    <div class="metrics">
+      <div class="container">
+        <div class="mc">
+          <div class="mc-ico">
+            <svg viewBox="0 0 16 16">
+              <circle cx="6" cy="5" r="2.5" />
+              <path d="M1 13c0-2.8 2.2-5 5-5s5 2.2 5 5" />
+              <path d="M11 7l1.5 1.5L15 6" />
+            </svg>
+          </div>
+          <div class="mc-val" data-count="30">0</div>
+          <div class="mc-lbl">Students mentored by the foundation</div>
+          <div class="mc-bar"><div class="mc-bar-fill" data-w="60"></div></div>
+          <div class="mc-bar-meta">30 students and growing</div>
+        </div>
+        <div class="mc">
+          <div class="mc-ico">
+            <svg viewBox="0 0 16 16">
+              <rect x="2" y="4" width="12" height="9" rx="1.5" />
+              <path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" />
+            </svg>
+          </div>
+          <div class="mc-val">2</div>
+          <div class="mc-lbl">Active programmes</div>
+          <div class="mc-bar"><div class="mc-bar-fill" data-w="100"></div></div>
+          <div class="mc-bar-meta">Both fully operational</div>
+        </div>
+        <div class="mc">
+          <div class="mc-ico">
+            <svg viewBox="0 0 16 16">
+              <path d="M2 12V4l6-2 6 2v8l-6 2-6-2z" />
+              <path d="M8 2v12" />
+            </svg>
+          </div>
+          <div class="mc-val">12</div>
+          <div class="mc-lbl">Mentorship sessions</div>
+          <div class="mc-bar"><div class="mc-bar-fill" data-w="60"></div></div>
+          <div class="mc-bar-meta">12 / 20 this cohort</div>
+        </div>
+        <div class="mc">
+          <div class="mc-ico">
+            <svg viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="6" />
+              <path d="M8 5v3l2 1.5" />
+            </svg>
+          </div>
+          <div class="mc-val">2026</div>
+          <div class="mc-lbl">Year founded</div>
+          <div class="mc-bar"><div class="mc-bar-fill" data-w="100"></div></div>
+          <div class="mc-bar-meta">First cohort in progress</div>
+        </div>
+      </div>
     </div>
-    <div class="f-btm">
-      <span class="f-copy">© 2026 Harry Maurice Foundation. Jinja, Uganda.</span>
-      <span class="f-tag">"Start with one, let it ripple."</span>
-    </div>
-  </div>
-</footer>
 
-<script>
-// ─ Scroll + nav
-const spbar=document.getElementById('spbar'),navEl=document.getElementById('nav');
-window.addEventListener('scroll',()=>{spbar.style.width=(window.scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';navEl.classList.toggle('scrolled',window.scrollY>60)},{passive:true});
-window.addEventListener('load',()=>document.getElementById('hbg').classList.add('loaded'));
+    <!-- ─── STORY ────────────────────────────────────────── -->
+    <section class="story-sec">
+      <div class="container">
+        <div class="story-img reveal-l">
+          <!-- REPLACE: real community/group photo from Uganda -->
+          <img
+            src="https://plus.unsplash.com/premium_photo-1664536968173-77fdf84069c4?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YmFzZWJhbGx8ZW58MHx8MHx8fDA%?w=900&q=88"
+            alt="The foundation story"
+            width="100%"
+          />
+          <div class="simg-caption">
+            <div class="simg-dot"></div>
+            Uganda · Where it all began
+          </div>
+        </div>
+        <div class="reveal-r">
+          <div class="pill">
+            <div class="pdot"></div>
+            Our Story
+          </div>
+          <h2 class="sh">It started with<br /><em>a baseball camp.</em></h2>
+          <p class="body">
+            Harry Maurice came to Uganda for a baseball camp. He was not there
+            to build anything. Between sessions, he sim3Dply noticed young
+            people with potential, and he showed up for them - again and again,
+            without agenda.
+          </p>
+          <p class="body" style="margin-top: 14px">
+            His mentorship touched 20 young people - including two named Fatu
+            and Samuel. What happened next was entirely their idea. They built
+            this foundation.
+          </p>
+          <div class="story-q">
+            <p>
+              "Where you come from does not limit what you can become. With the
+              right support, you can stand confidently alongside anyone in the
+              world."
+            </p>
+            <cite> - The philosophy behind Harry Maurice Foundation</cite>
+          </div>
+          <a href="about.html" class="text-lnk"
+            >Read the full story
+            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" /></svg
+          ></a>
+        </div>
+      </div>
+    </section>
 
-// ─ Mobile menu
-function toggleMob(){
-  const tog=document.getElementById('mobTog'),dr=document.getElementById('mobDrawer');
-  tog.classList.toggle('open');dr.classList.toggle('open');
-}
-document.addEventListener('click',e=>{
-  const dr=document.getElementById('mobDrawer'),tog=document.getElementById('mobTog');
-  if(dr.classList.contains('open')&&!dr.contains(e.target)&&!tog.contains(e.target)){tog.classList.remove('open');dr.classList.remove('open')}
-});
+    <!-- ─── KIDS TEASER ───────────────────────────────────── -->
+    <section class="kids-sec">
+      <div class="container">
+        <div class="kids-hd">
+          <div class="reveal">
+            <div class="pill">
+              <div class="pdot"></div>
+              The People Behind the Mission
+            </div>
+            <h2 class="sh" style="margin-bottom: 0">
+              Every name.<br /><em>Every future.</em>
+            </h2>
+          </div>
+          <a
+            href="kids.html"
+            class="text-lnk reveal"
+            style="margin-top: 0; flex-shrink: 0"
+          >
+            Meet all 9 of them
+            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+          </a>
+        </div>
+        <div class="kids-grid">
+          <div class="kid reveal">
+            <div class="kid-photo">
+              <!-- REPLACE: real photo of Mariam -->
+              <img
+                src="https://images.unsplash.com/photo-1530785602389-07594beb8b73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydHJhaXRzfGVufDB8fDB8fHww?w=400&q=80"
+                alt="Mariam"
+              />
+              <div class="kid-ov"></div>
+              <div class="kid-info">
+                <span class="kid-name">Mariam</span
+                ><span class="kid-age">Age 17 · Kampala</span>
+              </div>
+            </div>
+            <div class="kid-body">
+              <div class="kid-tag">Roots &amp; Rise</div>
+              <p class="kid-dream">
+                Aspires to become an <em>architect</em> - designing a future
+                built by Ugandans.
+              </p>
+            </div>
+          </div>
+          <div class="kid reveal">
+            <div class="kid-photo">
+              <!-- REPLACE: real photo of Emmanuel -->
+              <img
+                src="https://images.unsplash.com/photo-1709004915887-0dec2f98c8de?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fHBvcnRyYWl0cyUyMG9mJTIwYmxhY2slMjBtZW58ZW58MHx8MHx8fDA%3D?w=400&q=80"
+                alt="Emmanuel"
+              />
+              <div class="kid-ov"></div>
+              <div class="kid-info">
+                <span class="kid-name">Emmanuel</span
+                ><span class="kid-age">Age 19 · Entebbe</span>
+              </div>
+            </div>
+            <div class="kid-body">
+              <div class="kid-tag">Roots &amp; Rise</div>
+              <p class="kid-dream">
+                Wants to be a <em>doctor</em> - building on his family's
+                tradition of community service.
+              </p>
+            </div>
+          </div>
+          <div class="kid reveal">
+            <div class="kid-photo">
+              <!-- REPLACE: real photo of Aisha -->
+              <img
+                src="https://images.unsplash.com/photo-1511935039706-c2b225e45a44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTgwfHxwb3J0cmFpdHN8ZW58MHx8MHx8fDA%3D?w=400&q=80"
+                alt="Aisha"
+              />
+              <div class="kid-ov"></div>
+              <div class="kid-info">
+                <span class="kid-name">Aisha</span
+                ><span class="kid-age">Age 16 · Jinja</span>
+              </div>
+            </div>
+            <div class="kid-body">
+              <div class="kid-tag">Diane Health</div>
+              <p class="kid-dream">
+                Training to be a <em>nurse</em> - her community's health crisis
+                drives her.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-// ─ Reveal
-const ro=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),(i%3)*80);ro.unobserve(e.target)}})},{threshold:.1});
-document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>ro.observe(el));
+    <!-- ─── PROGRAMMES ────────────────────────────────────── -->
+    <section class="progs-sec">
+      <div class="container">
+        <div class="progs-hd">
+          <div class="reveal">
+            <div class="pill">
+              <div class="pdot"></div>
+              Our Programmes
+            </div>
+            <h2 class="sh" style="margin-bottom: 0">
+              Two focused <em>commitments.</em>
+            </h2>
+          </div>
+          <p
+            class="body reveal"
+            style="max-width: 300px; text-align: right; margin: 0"
+          >
+            We do two things with full attention - and we do them well.
+          </p>
+        </div>
+        <div class="progs-grid">
+          <div class="pc reveal-l">
+            <div class="pc-img">
+              <!-- REPLACE: African mentorship/learning scene -->
+              <img
+                src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=85"
+                alt="Roots and Rise"
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <div class="pc-body">
+              <div class="pc-pill">Mentorship</div>
+              <div class="pc-name">Roots &amp; Rise</div>
+              <p class="pc-desc">
+                Connecting young Ugandans with mentors who offer genuine
+                presence and direction that lasts a lifetime.
+              </p>
+              <a href="programmes.html#roots" class="text-lnk"
+                >Explore programme
+                <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="pc reveal-r">
+            <div class="pc-img">
+              <!-- REPLACE: African health community scene -->
+              <img
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=85"
+                alt="Diane Health Programme"
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <div class="pc-body">
+              <div class="pc-pill">Health</div>
+              <div class="pc-name">Diane Health Programme</div>
+              <p class="pc-desc">
+                Delivering primary health education into communities - because a
+                person cannot rise if they are not well.
+              </p>
+              <a href="programmes.html#diane" class="text-lnk"
+                >Explore programme
+                <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-// ─ Count-up
-document.querySelectorAll('[data-count]').forEach(el=>{
-  const ob=new IntersectionObserver(([e])=>{if(e.isIntersecting){const t=parseInt(el.dataset.count);let c=0;const s=setInterval(()=>{c=Math.min(c+1,t);el.textContent=c;if(c>=t)clearInterval(s)},55);ob.unobserve(el)}},{threshold:.5});ob.observe(el);
-});
+    <!-- ─── CALCULATOR ────────────────────────────────────── -->
+    <section class="calc-sec">
+      <div class="container">
+        <div class="calc-card reveal-l">
+          <div class="pill" style="margin-bottom: 12px">
+            <div class="pdot"></div>
+            Interactive
+          </div>
+          <div class="calc-circles" id="calcCircles"></div>
+          <div class="calc-big" id="calcNum">1</div>
+          <p class="calc-lbl-s">people impacted</p>
+        </div>
+        <div class="reveal-r">
+          <div class="pill">
+            <div class="pdot"></div>
+            Ripple Calculator
+          </div>
+          <h2 class="sh">See the ripple<br /><em>happen live.</em></h2>
+          <p class="body">
+            If one person is supported and they support two others, and each of
+            those supports two more - watch what happens. This is the
+            mathematics of belief.
+          </p>
+          <div style="margin-top: 28px">
+            <div class="range-meta">
+              <span>Generations of impact</span><span id="genNum">1</span>
+            </div>
+            <input type="range" min="1" max="7" value="1" id="calcSlider" />
+            <div class="calc-note" id="calcNote">
+              Starting with <strong>1 person</strong> - this is where every
+              ripple begins.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-// ─ Calculator
+    <!-- ─── DONATE ────────────────────────────────────────── -->
+    <section class="don-split" style="padding: 0">
+      <div class="don-left reveal-l">
+        <div class="pill" style="margin-bottom: 22px">
+          <div class="pdot"></div>
+          Support the Work
+        </div>
+        <h2>Your money becomes<br /><em>someone's turning point.</em></h2>
+        <p>
+          Every amount funds real, direct work - mentorship sessions, health
+          visits, and the consistent presence that changes a life. Straight to
+          the work.
+        </p>
+      </div>
+      <div class="don-right reveal-r">
+        <h3>Make a donation</h3>
+        <p class="don-sub">Choose your amount and frequency.</p>
+        <div class="freq-row">
+          <button class="freq-btn active" onclick="setFreq('once', this)">
+            One-time
+          </button>
+          <button class="freq-btn" onclick="setFreq('monthly', this)">
+            Monthly
+          </button>
+        </div>
+        <div class="amt-grid">
+          <button class="amt-btn" onclick="pickAmt(10, this)">$10</button>
+          <button class="amt-btn" onclick="pickAmt(25, this)">$25</button>
+          <button class="amt-btn" onclick="pickAmt(50, this)">$50</button>
+          <button class="amt-btn" onclick="pickAmt(100, this)">$100</button>
+          <button class="amt-btn" onclick="pickAmt(250, this)">$250</button>
+          <button class="amt-btn" onclick="pickAmt(500, this)">$500</button>
+        </div>
+        <div class="imp-strip" id="impStrip">
+          Select an amount to see your impact.
+        </div>
+        <div class="nfield" id="nfield">
+          <label
+            >Dedicate this session -
+            <em
+              style="
+                font-weight: 600;
+                text-transform: none;
+                letter-spacing: 0;
+                font-size: 0.6rem;
+              "
+              >optional</em
+            ></label
+          >
+          <input
+            type="text"
+            id="dedIn"
+            placeholder="In honour of someone special..."
+          />
+        </div>
+        <div class="pay-row">
+          <button class="pay-btn" onclick="donate('PayPal')">
+            <svg viewBox="0 0 16 16">
+              <rect x="2" y="4" width="12" height="9" rx="1.5" />
+              <path d="M2 7h12" /></svg
+            >PayPal
+          </button>
+          <button class="pay-btn" onclick="donate('Stripe')">
+            <svg viewBox="0 0 16 16">
+              <rect x="2" y="4" width="12" height="9" rx="1.5" />
+              <path d="M2 7h12" /></svg
+            >Stripe
+          </button>
+        </div>
+        <div class="sec-note">
+          <svg viewBox="0 0 16 16">
+            <path d="M8 2l5 2v4c0 3-2.5 5.5-5 6-2.5-.5-5-3-5-6V4z" /></svg
+          >Secure payment · Integration launching soon
+        </div>
+      </div>
+    </section>
 
-function buildCalc(v){
-  const n=Math.pow(2,v-1), prev=v>1?Math.pow(2,v-2):0;
-  document.getElementById('genNum').textContent=v;
-  document.getElementById('calcNum').textContent=n;
-  const notes=['Starting with <strong>1 person</strong> - this is where every ripple begins.',
-    'That person reaches <strong>2 others</strong>. The belief is spreading.',
-    '<strong>4 people</strong>. The ripple is real.',
-    '<strong>8 people</strong>. The group is now visible.',
-    '<strong>16 people</strong>. This started with one person.',
-    '<strong>32 people</strong>. One session. Five generations of impact.',
-    '<strong>64 people</strong>. One visit to a baseball camp started all of this.'];
-  document.getElementById('calcNote').innerHTML=notes[Math.min(v-1,6)];
-  const w=document.getElementById('calcCircles');w.innerHTML='';
-  for(let i=0;i<64;i++){
-    const d=document.createElement('div');
-    d.className='cc'+(i<n?' on':'')+(i>=prev&&i<n?' pop':'');
-    w.appendChild(d);
-  }
-}
-buildCalc(1);document.getElementById('calcSlider').addEventListener('input',e=>buildCalc(parseInt(e.target.value)));
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="f-grid">
+          <div>
+            <div class="f-top">
+              <span class="f-name">Harry Maurice <em>Foundation</em></span>
+            </div>
+            <p class="f-mission">
+              A focused foundation working in Jinja, Uganda through mentorship
+              and health - because every person deserves someone who believes in
+              them.
+            </p>
+          </div>
+          <div class="f-col">
+            <h4>Programmes</h4>
+            <ul>
+              <li><a href="programmes.html#roots">Roots &amp; Rise</a></li>
+              <li>
+                <a href="programmes.html#diane">Diane Health Programme</a>
+              </li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h4>Foundation</h4>
+            <ul>
+              <li><a href="about.html">Our Story</a></li>
+              <li><a href="kids.html">The Kids</a></li>
+              <li><a href="stories.html">Stories</a></li>
+              <li><a href="get-involved.html">Get Involved</a></li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="get-involved.html#donate">Donate</a></li>
+              <li><a href="get-involved.html#partner">Partner</a></li>
+              <li>
+                <a href="mailto:info@harrymauricefoundation.org">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="f-btm">
+          <span class="f-copy"
+            >© 2026 Harry Maurice Foundation. Jinja, Uganda.</span
+          >
+          <span class="f-tag">"Start with one, let it ripple."</span>
+        </div>
+      </div>
+    </footer>
 
-// ─ Donation
-const imps={10:{once:'$10 contributes toward one hour of mentorship - a conversation that changes a direction.',monthly:'$10/month is 12 mentorship hours over a year. Consistent presence changes lives.'},25:{once:'$25 funds 2 focused sessions - the kind where futures get decided.',monthly:'$25/month is 24 sessions a year. That\'s a relationship that holds.'},50:{once:'$50 covers a full week of programme activities including a health visit.',monthly:'$50/month means a young person has reliable support throughout the year.'},100:{once:'$100 supports one participant for a full month - mentorship and health both.',monthly:'$100/month funds one person\'s entire journey for a year. <strong>A life changed.</strong>'},250:{once:'$250 supports three young people for a full month of both programmes.',monthly:'$250/month funds three full journeys all year. <strong>Three futures transformed.</strong>'},500:{once:'$500 funds half a year for one dedicated participant.',monthly:'$500/month sustains an entire cohort. <strong>You are the foundation.</strong>'}};
-function getBadge(a){if(a>=250)return{e:'🏆',n:'Founding Patron'};if(a>=100)return{e:'⭐',n:'Legacy Maker'};if(a>=50)return{e:'🧡',n:'Foundation Friend'};if(a>=25)return{e:'🤝',n:'Community Builder'};return{e:'🌱',n:'Ripple Starter'}}
-let sA=0,sF='once';
-function setFreq(f,btn){sF=f;document.querySelectorAll('.freq-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(sA)updateImp()}
-function pickAmt(a,btn){sA=a;document.querySelectorAll('.amt-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');updateImp();document.getElementById('nfield').classList.toggle('show',a>=25)}
-function updateImp(){const i=imps[sA];if(i)document.getElementById('impStrip').innerHTML=i[sF]}
-function donate(method){
-  if(!sA){document.getElementById('impStrip').innerHTML='<strong style="color:#fff">Please choose an amount first.</strong>';return}
-  const b=getBadge(sA),ded=document.getElementById('dedIn')?.value.trim();
-  const i=imps[sA]||{once:`$${sA} goes directly to programme delivery.`,monthly:`$${sA}/month provides ongoing support.`};
-  document.getElementById('mEmoji').textContent=b.e;document.getElementById('mBadge').textContent=b.n;document.getElementById('mAmt').textContent='$'+sA;document.getElementById('mFreq').textContent=sF==='monthly'?'Monthly (recurring)':'One-time';document.getElementById('mMethod').textContent=method;document.getElementById('mImpact').innerHTML=i[sF];
-  const dr=document.getElementById('mDedRow');if(ded){dr.style.display='flex';document.getElementById('mDed').textContent=ded}else dr.style.display='none';
-  document.getElementById('modalBg').classList.add('open');localStorage.setItem('hmf_donor',JSON.stringify({badge:b.n,amt:sA,freq:sF}));
-}
-function closeModal(){document.getElementById('modalBg').classList.remove('open')}
-document.getElementById('modalBg').addEventListener('click',e=>{if(e.target.id==='modalBg')closeModal()});
-function doShare(p){const t='I just supported the Harry Maurice Foundation - building Uganda\'s future from within.';const u='https://harrymauricefoundation.org';if(p==='twitter')window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(t)+'&url='+encodeURIComponent(u),'_blank');else if(p==='facebook')window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(u),'_blank');else navigator.clipboard.writeText(u).then(()=>alert('Copied!')).catch(()=>alert(u))}
-setTimeout(()=>document.getElementById('fd').classList.add('vis'),2000);
-// Animate metric progress bars
-new IntersectionObserver(([e])=>{
-  if(e.isIntersecting){
-    document.querySelectorAll('.mc-bar-fill').forEach(el=>{
-      setTimeout(()=>el.style.width=el.dataset.w+'%',200);
-    });
-  }
-},{threshold:.4}).observe(document.querySelector('.metrics'));
-const pv=JSON.parse(localStorage.getItem('hmf_visited')||'[]');if(!pv.includes('home')){pv.push('home');localStorage.setItem('hmf_visited',JSON.stringify(pv))}
-</script>
+    <script>
+      // ─ Scroll + nav
+      const spbar = document.getElementById("spbar"),
+        navEl = document.getElementById("nav");
+      window.addEventListener(
+        "scroll",
+        () => {
+          spbar.style.width =
+            (window.scrollY / (document.body.scrollHeight - innerHeight)) *
+              100 +
+            "%";
+          navEl.classList.toggle("scrolled", window.scrollY > 60);
+        },
+        { passive: true },
+      );
+      window.addEventListener("load", () =>
+        document.getElementById("hbg").classList.add("loaded"),
+      );
 
-<script src="hmf-gamification.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => hmfRecordVisit('home'));
-  // Hook calculator
-  const origSlider = document.getElementById('calcSlider');
-  if(origSlider) {
-    origSlider.addEventListener('input', e => {
-      hmfAction('calc_used');
-      if(parseInt(e.target.value) >= 6) hmfAction('calc_maxed');
-    });
-  }
-  // Hook donate
-  const origDonate = window.donate;
-  if(origDonate) window.donate = function(m){ origDonate(m); hmfAction('donated'); };
-</script>
+      // ─ Mobile menu
+      function toggleMob() {
+        const tog = document.getElementById("mobTog"),
+          dr = document.getElementById("mobDrawer");
+        tog.classList.toggle("open");
+        dr.classList.toggle("open");
+      }
+      document.addEventListener("click", (e) => {
+        const dr = document.getElementById("mobDrawer"),
+          tog = document.getElementById("mobTog");
+        if (
+          dr.classList.contains("open") &&
+          !dr.contains(e.target) &&
+          !tog.contains(e.target)
+        ) {
+          tog.classList.remove("open");
+          dr.classList.remove("open");
+        }
+      });
 
-<script>
-function toggleFloatMenu(){
-  var btn = document.getElementById('float-menu-btn');
-  var overlay = document.getElementById('float-overlay');
-  btn.classList.toggle('open');
-  overlay.classList.toggle('open');
-  document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
-}
-// Close on escape
-document.addEventListener('keydown', function(e){
-  if(e.key==='Escape') {
-    document.getElementById('float-menu-btn').classList.remove('open');
-    document.getElementById('float-overlay').classList.remove('open');
-    document.body.style.overflow='';
-  }
-});
-</script>
+      // ─ Reveal
+      const ro = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+              setTimeout(() => e.target.classList.add("on"), (i % 3) * 80);
+              ro.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document
+        .querySelectorAll(".reveal,.reveal-l,.reveal-r")
+        .forEach((el) => ro.observe(el));
 
-</body>
+      // ─ Count-up
+      document.querySelectorAll("[data-count]").forEach((el) => {
+        const ob = new IntersectionObserver(
+          ([e]) => {
+            if (e.isIntersecting) {
+              const t = parseInt(el.dataset.count);
+              let c = 0;
+              const s = setInterval(() => {
+                c = Math.min(c + 1, t);
+                el.textContent = c;
+                if (c >= t) clearInterval(s);
+              }, 55);
+              ob.unobserve(el);
+            }
+          },
+          { threshold: 0.5 },
+        );
+        ob.observe(el);
+      });
+
+      // ─ Calculator
+
+      function buildCalc(v) {
+        const n = Math.pow(2, v - 1),
+          prev = v > 1 ? Math.pow(2, v - 2) : 0;
+        document.getElementById("genNum").textContent = v;
+        document.getElementById("calcNum").textContent = n;
+        const notes = [
+          "Starting with <strong>1 person</strong> - this is where every ripple begins.",
+          "That person reaches <strong>2 others</strong>. The belief is spreading.",
+          "<strong>4 people</strong>. The ripple is real.",
+          "<strong>8 people</strong>. The group is now visible.",
+          "<strong>16 people</strong>. This started with one person.",
+          "<strong>32 people</strong>. One session. Five generations of impact.",
+          "<strong>64 people</strong>. One visit to a baseball camp started all of this.",
+        ];
+        document.getElementById("calcNote").innerHTML =
+          notes[Math.min(v - 1, 6)];
+        const w = document.getElementById("calcCircles");
+        w.innerHTML = "";
+        for (let i = 0; i < 64; i++) {
+          const d = document.createElement("div");
+          d.className =
+            "cc" + (i < n ? " on" : "") + (i >= prev && i < n ? " pop" : "");
+          w.appendChild(d);
+        }
+      }
+      buildCalc(1);
+      document
+        .getElementById("calcSlider")
+        .addEventListener("input", (e) => buildCalc(parseInt(e.target.value)));
+
+      // ─ Donation
+      const imps = {
+        10: {
+          once: "$10 contributes toward one hour of mentorship - a conversation that changes a direction.",
+          monthly:
+            "$10/month is 12 mentorship hours over a year. Consistent presence changes lives.",
+        },
+        25: {
+          once: "$25 funds 2 focused sessions - the kind where futures get decided.",
+          monthly:
+            "$25/month is 24 sessions a year. That's a relationship that holds.",
+        },
+        50: {
+          once: "$50 covers a full week of programme activities including a health visit.",
+          monthly:
+            "$50/month means a young person has reliable support throughout the year.",
+        },
+        100: {
+          once: "$100 supports one participant for a full month - mentorship and health both.",
+          monthly:
+            "$100/month funds one person's entire journey for a year. <strong>A life changed.</strong>",
+        },
+        250: {
+          once: "$250 supports three young people for a full month of both programmes.",
+          monthly:
+            "$250/month funds three full journeys all year. <strong>Three futures transformed.</strong>",
+        },
+        500: {
+          once: "$500 funds half a year for one dedicated participant.",
+          monthly:
+            "$500/month sustains an entire cohort. <strong>You are the foundation.</strong>",
+        },
+      };
+      function getBadge(a) {
+        if (a >= 250) return { e: "🏆", n: "Founding Patron" };
+        if (a >= 100) return { e: "⭐", n: "Legacy Maker" };
+        if (a >= 50) return { e: "🧡", n: "Foundation Friend" };
+        if (a >= 25) return { e: "🤝", n: "Community Builder" };
+        return { e: "🌱", n: "Ripple Starter" };
+      }
+      let sA = 0,
+        sF = "once";
+      function setFreq(f, btn) {
+        sF = f;
+        document
+          .querySelectorAll(".freq-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        if (sA) updateImp();
+      }
+      function pickAmt(a, btn) {
+        sA = a;
+        document
+          .querySelectorAll(".amt-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        updateImp();
+        document.getElementById("nfield").classList.toggle("show", a >= 25);
+      }
+      function updateImp() {
+        const i = imps[sA];
+        if (i) document.getElementById("impStrip").innerHTML = i[sF];
+      }
+      function donate(method) {
+        if (!sA) {
+          document.getElementById("impStrip").innerHTML =
+            '<strong style="color:#fff">Please choose an amount first.</strong>';
+          return;
+        }
+        const b = getBadge(sA),
+          ded = document.getElementById("dedIn")?.value.trim();
+        const i = imps[sA] || {
+          once: `$${sA} goes directly to programme delivery.`,
+          monthly: `$${sA}/month provides ongoing support.`,
+        };
+        document.getElementById("mEmoji").textContent = b.e;
+        document.getElementById("mBadge").textContent = b.n;
+        document.getElementById("mAmt").textContent = "$" + sA;
+        document.getElementById("mFreq").textContent =
+          sF === "monthly" ? "Monthly (recurring)" : "One-time";
+        document.getElementById("mMethod").textContent = method;
+        document.getElementById("mImpact").innerHTML = i[sF];
+        const dr = document.getElementById("mDedRow");
+        if (ded) {
+          dr.style.display = "flex";
+          document.getElementById("mDed").textContent = ded;
+        } else dr.style.display = "none";
+        document.getElementById("modalBg").classList.add("open");
+        localStorage.setItem(
+          "hmf_donor",
+          JSON.stringify({ badge: b.n, amt: sA, freq: sF }),
+        );
+      }
+      function closeModal() {
+        document.getElementById("modalBg").classList.remove("open");
+      }
+      document.getElementById("modalBg").addEventListener("click", (e) => {
+        if (e.target.id === "modalBg") closeModal();
+      });
+      function doShare(p) {
+        const t =
+          "I just supported the Harry Maurice Foundation - building Uganda's future from within.";
+        const u = "https://harrymauricefoundation.org";
+        if (p === "twitter")
+          window.open(
+            "https://twitter.com/intent/tweet?text=" +
+              encodeURIComponent(t) +
+              "&url=" +
+              encodeURIComponent(u),
+            "_blank",
+          );
+        else if (p === "facebook")
+          window.open(
+            "https://www.facebook.com/sharer/sharer.php?u=" +
+              encodeURIComponent(u),
+            "_blank",
+          );
+        else
+          navigator.clipboard
+            .writeText(u)
+            .then(() => alert("Copied!"))
+            .catch(() => alert(u));
+      }
+      setTimeout(
+        () => document.getElementById("fd").classList.add("vis"),
+        2000,
+      );
+      // Animate metric progress bars
+      new IntersectionObserver(
+        ([e]) => {
+          if (e.isIntersecting) {
+            document.querySelectorAll(".mc-bar-fill").forEach((el) => {
+              setTimeout(() => (el.style.width = el.dataset.w + "%"), 200);
+            });
+          }
+        },
+        { threshold: 0.4 },
+      ).observe(document.querySelector(".metrics"));
+      const pv = JSON.parse(localStorage.getItem("hmf_visited") || "[]");
+      if (!pv.includes("home")) {
+        pv.push("home");
+        localStorage.setItem("hmf_visited", JSON.stringify(pv));
+      }
+    </script>
+
+    <script src="hmf-gamification.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () =>
+        hmfRecordVisit("home"),
+      );
+      // Hook calculator
+      const origSlider = document.getElementById("calcSlider");
+      if (origSlider) {
+        origSlider.addEventListener("input", (e) => {
+          hmfAction("calc_used");
+          if (parseInt(e.target.value) >= 6) hmfAction("calc_maxed");
+        });
+      }
+      // Hook donate
+      const origDonate = window.donate;
+      if (origDonate)
+        window.donate = function (m) {
+          origDonate(m);
+          hmfAction("donated");
+        };
+    </script>
+
+    <script>
+      function toggleFloatMenu() {
+        var btn = document.getElementById("float-menu-btn");
+        var overlay = document.getElementById("float-overlay");
+        btn.classList.toggle("open");
+        overlay.classList.toggle("open");
+        document.body.style.overflow = overlay.classList.contains("open")
+          ? "hidden"
+          : "";
+      }
+      // Close on escape
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          document.getElementById("float-menu-btn").classList.remove("open");
+          document.getElementById("float-overlay").classList.remove("open");
+          document.body.style.overflow = "";
+        }
+      });
+    </script>
+  </body>
 </html>
