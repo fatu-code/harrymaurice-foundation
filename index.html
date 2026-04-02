@@ -135,7 +135,6 @@
       }
       nav.scrolled {
         background: rgba(255, 255, 255, 0.97);
-        backdrop-filter: blur(16px);
         border-bottom: 1.5px solid var(--border);
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
       }
@@ -738,7 +737,6 @@
         align-items: center;
         gap: 6px;
         background: rgba(10, 31, 18, 0.72);
-        backdrop-filter: blur(8px);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: var(--rf);
         padding: 5px 12px;
@@ -1313,7 +1311,6 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s;
-        backdrop-filter: blur(12px);
         padding: 20px;
         overflow-y: auto;
       }
@@ -1873,8 +1870,8 @@
         top: 14px;
         right: 16px;
         z-index: 9999;
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
         background: #1a2e22;
         border: 1px solid rgba(0, 156, 65, 0.35);
@@ -1970,7 +1967,7 @@
 
       @media (max-width: 768px) {
         #float-menu-btn {
-          display: flex;
+          display: flex !important;
         }
         nav .mob-tog {
           display: none !important;
@@ -1989,7 +1986,7 @@
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="programmes.html">Programmes</a>
-      <a href="kids.html" ACTIVE_KIDS>The Kids</a>
+      <a href="kids.html">The Kids</a>
       <a href="stories.html">Stories</a>
       <div class="fo-divider"></div>
       <button class="fo-cta" onclick="location.href = 'get-involved.html'">
@@ -2452,14 +2449,14 @@
           <button class="amt-btn" onclick="pickAmt(100, this)">$100</button>
           <button class="amt-btn" onclick="pickAmt(250, this)">$250</button>
           <button class="amt-btn" onclick="pickAmt(500, this)">$500</button>
-          <button class="amt-btn" id="customAmtBtn" onclick="pickCustom(this)">Other</button>
+          <button class="amt-btn" onclick="pickCustom(this)">Other</button>
         </div>
         <div id="customAmtWrap" style="display:none;margin-bottom:14px">
-          <div style="display:flex;align-items:center;background:#fff;border:1.5px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s" id="customAmtBox">
+          <div style="display:flex;align-items:center;background:#fff;border:1.5px solid var(--border);border-radius:10px;overflow:hidden" id="customAmtBox">
             <span style="padding:0 12px;font-size:1rem;font-weight:800;color:var(--green);border-right:1.5px solid var(--border)">$</span>
             <input type="number" id="customAmtInput" placeholder="Enter your amount" min="1"
               style="flex:1;height:44px;border:none;outline:none;padding:0 14px;font-family:'Nunito',sans-serif;font-size:.92rem;font-weight:700;color:var(--text);background:transparent"
-              oninput="applyCustomAmt()" onfocus="document.getElementById('customAmtBox').style.borderColor='var(--green)'" onblur="document.getElementById('customAmtBox').style.borderColor=''"/>
+              oninput="applyCustomAmt()"/>
             <span style="padding:0 12px;font-size:.7rem;font-weight:800;color:var(--muted)">USD</span>
           </div>
         </div>
@@ -2716,30 +2713,27 @@
         btn.classList.add("active");
         if (sA) updateImp();
       }
-      function pickCustom(btn) {
-        document.querySelectorAll('.amt-btn').forEach(b => b.classList.remove('active'));
+      function pickCustom(btn){
+        document.querySelectorAll('.amt-btn').forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
-        document.getElementById('customAmtWrap').style.display = 'block';
+        document.getElementById('customAmtWrap').style.display='block';
         document.getElementById('customAmtInput').focus();
-        sA = 0;
-        document.getElementById('impStrip').innerHTML = 'Enter your amount above.';
+        sA=0;
+        document.getElementById('impStrip').innerHTML='Enter your amount above.';
         document.getElementById('nfield').classList.remove('show');
       }
-      function applyCustomAmt() {
-        const val = parseInt(document.getElementById('customAmtInput').value);
-        if (val && val > 0) {
-          sA = val;
-          const freq = sF === 'monthly' ? '/month' : ' one-time';
-          document.getElementById('impStrip').innerHTML = '$' + val + freq + ' goes directly to mentorship sessions and health programme delivery across Uganda.';
-          document.getElementById('nfield').classList.toggle('show', val >= 25);
-        } else {
-          sA = 0;
-          document.getElementById('impStrip').innerHTML = 'Enter your amount above.';
-        }
+      function applyCustomAmt(){
+        const val=parseInt(document.getElementById('customAmtInput').value);
+        if(val&&val>0){
+          sA=val;
+          const freq=sF==='monthly'?'/month':' one-time';
+          document.getElementById('impStrip').innerHTML='$'+val+freq+' goes directly to mentorship sessions and health programme delivery across Uganda.';
+          document.getElementById('nfield').classList.toggle('show',val>=25);
+        }else{sA=0;document.getElementById('impStrip').innerHTML='Enter your amount above.';}
       }
       function pickAmt(a, btn) {
-        document.getElementById('customAmtWrap').style.display = 'none';
-        document.getElementById('customAmtInput').value = '';
+        document.getElementById('customAmtWrap').style.display='none';
+        document.getElementById('customAmtInput').value='';
         sA = a;
         document
           .querySelectorAll(".amt-btn")
