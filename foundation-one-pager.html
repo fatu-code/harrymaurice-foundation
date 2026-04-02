@@ -78,10 +78,10 @@ body{font-family:var(--fn);background:#e5e5e5;-webkit-font-smoothing:antialiased
 .df-url{font-size:.68rem;font-weight:700;color:rgba(255,255,255,.38)}
 @media print{
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
-  body{background:#fff;zoom:82%}
+  body{background:#fff}
   .screen-ctrl{display:none!important}
-  .page{margin:0;box-shadow:none}
-  @page{size:A4 portrait;margin:0}
+  .page{margin:0 auto;box-shadow:none;width:100%!important}
+  @page{size:A4 portrait;margin:8mm}
 }
 .screen-ctrl{position:relative;top:auto;right:auto;justify-content:center;padding:16px;max-width:100%}}
 </style>
@@ -196,7 +196,7 @@ body{font-family:var(--fn);background:#e5e5e5;-webkit-font-smoothing:antialiased
       <div>
         <div class="section-label">Contact Us</div>
         <div class="contact-card">
-          <div class="cc-row"><span class="cc-lbl">Email</span><span class="cc-val">info@harrymauricefoundation.org</span></div>
+          <div class="cc-row"><span class="cc-lbl">Email</span><span class="cc-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b22252d240b232a393932262a3e3922282e2d243e252f2a3f2224256524392c">[email&#160;protected]</a></span></div>
           <div class="cc-row"><span class="cc-lbl">Website</span><span class="cc-val">harrymauricefoundation.org</span></div>
           <div class="cc-row"><span class="cc-lbl">Location</span><span class="cc-val">Jinja, Uganda</span></div>
           <div class="cc-row"><span class="cc-lbl">Founded</span><span class="cc-val">2026 - Republic of Uganda</span></div>
@@ -212,7 +212,7 @@ body{font-family:var(--fn);background:#e5e5e5;-webkit-font-smoothing:antialiased
 </div>
 
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function fitPage() {
   var pages = document.querySelectorAll('.page');
   if (!pages.length) return;
@@ -227,17 +227,4 @@ function fitPage() {
       page.style.marginBottom = '-' + (page.offsetHeight * (1 - scale)) + 'px';
       page.style.marginLeft = '0';
       page.style.marginRight = '0';
-    } else {
-      page.style.transform = '';
-      page.style.marginBottom = '';
-      page.style.marginLeft = '';
-      page.style.marginRight = '';
     }
-  });
-}
-fitPage();
-window.addEventListener('resize', fitPage);
-</script>
-
-</body>
-</html>
