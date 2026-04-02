@@ -219,6 +219,22 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
   nav .mob-tog{display:none!important}
 }
 
+
+/* ── CSS-ONLY HAMBURGER ── */
+#float-menu-btn{display:none !important}
+#hmenu-toggle{display:none}
+.hmenu-btn{position:fixed;top:12px;right:14px;z-index:9999;width:44px;height:44px;border-radius:50%;background:#1a2e22;border:1px solid rgba(0,156,65,.4);display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer}
+.hmenu-btn span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;transition:all .25s}
+@media(max-width:768px){.hmenu-btn{display:flex !important}}
+.hmenu-overlay{position:fixed;inset:0;z-index:9998;background:rgba(10,31,18,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .25s}
+.hmenu-overlay a{font-family:'Nunito',sans-serif;font-size:1.6rem;font-weight:900;color:rgba(255,255,255,.55);text-decoration:none;letter-spacing:-.02em;padding:10px 0;display:block}
+.hmenu-overlay a.active{color:#009c41}
+.hmenu-overlay .fo-divider{width:40px;height:2px;background:rgba(0,156,65,.3);border-radius:2px;margin:8px 0}
+.hmenu-overlay .fo-cta{margin-top:8px;height:52px;padding:0 36px;background:#009c41;color:#fff;border:none;border-radius:100px;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;cursor:pointer}
+#hmenu-toggle:checked ~ .hmenu-overlay{opacity:1;pointer-events:all}
+#hmenu-toggle:checked ~ .hmenu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+#hmenu-toggle:checked ~ .hmenu-btn span:nth-child(2){opacity:0}
+#hmenu-toggle:checked ~ .hmenu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 </style>
 
 <style>
@@ -231,6 +247,20 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
 </style>
 </head>
 <body>
+<!-- CSS-ONLY HAMBURGER -->
+<input type="checkbox" id="hmenu-toggle"/>
+<label class="hmenu-btn" for="hmenu-toggle">
+  <span></span><span></span><span></span>
+</label>
+<div class="hmenu-overlay">
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About</a>
+  <a href="programmes.html">Programmes</a>
+  <a href="kids.html">The Kids</a>
+  <a href="stories.html">Stories</a>
+  <div class="fo-divider"></div>
+  <button class="fo-cta" onclick="location.href='get-involved.html'">Get Involved</button>
+</div>
 <!-- FLOATING MENU BUTTON -->
 <button id="float-menu-btn" onclick="toggleFloatMenu()" aria-label="Menu">
   <span></span><span></span><span></span>
@@ -299,11 +329,11 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
       <div class="reveal-l">
         <div class="pill"><div class="pdot"></div>The Person</div>
         <h2 class="sh">Harry<br/><em>Maurice.</em></h2>
-        <p class="bd">Harry is not a public figure. He is not a career philanthropist. He is a man who showed up in Uganda and chose not to stop. His is not a grand gesture - it is a quiet, consistent practice of belief in young Ugandans.</p>
-        <p class="bd" style="margin-top:14px">Two of the young people he mentored - Fatu and Samuel - are now building this foundation around his approach.</p>
+        <p class="bd">Harry Maurice is not a public figure. He is not a career philanthropist. He is simply a man who looked at young people others walked past - and chose to stay. Not for recognition. Not for reward. Just because he believed something was there worth believing in.</p>
+        <p class="bd" style="margin-top:14px">Fatu and Samuel were two of those people. What he gave them quietly, they are now giving forward loudly - through this foundation, built in his honour, carrying his name into futures he will never know he shaped.</p>
         <div class="pull-q">
           <p>"Uganda needs doctors like you, Samuel. You can do this."</p>
-          <cite> -  Harry Maurice, to Samuel, one afternoon in Kampala</cite>
+          <cite> -  Harry Maurice, to Samuel</cite>
         </div>
         <div class="pull-q">
           <p>"Fatu, I am proud of you."</p>
@@ -312,7 +342,7 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
       </div>
       <div class="tc-img reveal-r">
         <!-- REPLACE: candid photo of Harry or mentorship moment -->
-        <img src="/Black and White Version 2.jpg" alt="Harry Maurice" width="100%"/>
+        <img src="harry.jpg" alt="Harry Maurice" width="100%"/>
       </div>
     </div>
   </div>
