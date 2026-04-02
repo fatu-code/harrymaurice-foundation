@@ -88,7 +88,7 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
 .f-btm{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .f-copy{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.2)}
 .f-tag{font-size:.75rem;font-weight:700;font-style:italic;color:rgba(255,255,255,.18)}
-@media(max-width:768px){.container{padding:0 24px}nav{padding:0 24px;background:#fff!important;border-bottom:1.5px solid #dde8e2!important}.brand-n{color:#1a2e22!important}.brand-n em{color:#009c41!important}.mob-tog{display:flex}.mob-tog span{background:#1a2e22!important}.nav-links{display:none}.nav-cta-btn{display:none}section{padding:64px 0}.f-grid{grid-template-columns:1fr;gap:28px}.fdonate{bottom:16px;right:16px;height:42px;padding:0 18px;font-size:.7rem}}
+@media(max-width:768px){.container{padding:0 24px}nav{padding:0 24px;background:rgba(10,31,18,.75)!important;backdrop-filter:blur(8px)}.mob-tog{display:flex}.nav-links{display:none}.nav-cta-btn{display:none}section{padding:64px 0}.f-grid{grid-template-columns:1fr;gap:28px}.fdonate{bottom:16px;right:16px;height:42px;padding:0 18px;font-size:.7rem}}
 @media(max-width:900px){nav{padding:0 32px}}
 
 .page-hero{position:relative;height:56vh;min-height:400px;display:flex;align-items:flex-end;overflow:hidden}
@@ -282,7 +282,7 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
   <svg viewBox="0 0 16 16"><path d="M8 13.5S2 9.9 2 5.8a4.2 4.2 0 018 0 4.2 4.2 0 018 0c0 4.1-6 7.7-6 7.7z"/></svg>Donate
 </a>
 
-<nav id="nav">
+<nav id="nav" class="scrolled">
   <a href="index.html" class="nav-brand" style="text-decoration:none">
     <span class="brand-n">Harry Maurice <em>Foundation</em></span>
   </a>
@@ -496,7 +496,7 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
 const spbar=document.getElementById('spbar'),navEl=document.getElementById('nav');
-window.addEventListener('scroll',()=>{spbar.style.width=(window.scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';navEl.classList.toggle('scrolled', window.scrollY > 60)},{passive:true});
+window.addEventListener('scroll',()=>{spbar.style.width=(window.scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';navEl.classList.add('scrolled')},{passive:true});
 function toggleMob(){const tog=document.getElementById('mobTog'),dr=document.getElementById('mobDrawer');tog.classList.toggle('open');dr.classList.toggle('open')}
 document.addEventListener('click',e=>{const dr=document.getElementById('mobDrawer'),tog=document.getElementById('mobTog');if(dr&&dr.classList.contains('open')&&!dr.contains(e.target)&&!tog.contains(e.target)){tog.classList.remove('open');dr.classList.remove('open')}});
 const ro=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),(i%3)*80);ro.unobserve(e.target)}})},{threshold:.1});
