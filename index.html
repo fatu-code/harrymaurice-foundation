@@ -274,7 +274,6 @@
         transform: translateY(-4px);
         opacity: 0;
         pointer-events: none;
-        -webkit-overflow-scrolling: touch;
         transition: all 0.22s;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       }
@@ -507,7 +506,7 @@
             rgba(10, 31, 18, 0.28) 44%,
             rgba(10, 31, 18, 0.86) 100%
           ),
-          url("https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWZyaWNhbiUyMGNoaWxkcmVufGVufDB8fDB8fHww?w=1800&q=90")
+          url("https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=900&q=88")
             center/cover no-repeat;
         transform: scale(1.05);
         transition: transform 10s ease;
@@ -1313,7 +1312,6 @@
         justify-content: center;
         opacity: 0;
         pointer-events: none;
-        -webkit-overflow-scrolling: touch;
         transition: opacity 0.3s;
         backdrop-filter: blur(12px);
         padding: 20px;
@@ -1875,8 +1873,8 @@
         top: 14px;
         right: 16px;
         z-index: 9999;
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         background: #1a2e22;
         border: 1px solid rgba(0, 156, 65, 0.35);
@@ -1923,7 +1921,6 @@
         gap: 8px;
         opacity: 0;
         pointer-events: none;
-        -webkit-overflow-scrolling: touch;
         transition: opacity 0.25s;
       }
       #float-overlay.open {
@@ -1931,7 +1928,6 @@
         pointer-events: all;
       }
       #float-overlay a {
-        -webkit-tap-highlight-color: rgba(0,156,65,.2);
         font-family: "Nunito", sans-serif;
         font-size: 1.6rem;
         font-weight: 900;
@@ -2184,7 +2180,7 @@
         <div class="story-img reveal-l">
           <!-- REPLACE: real community/group photo from Uganda -->
           <img
-            src="https://plus.unsplash.com/premium_photo-1664536968173-77fdf84069c4?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YmFzZWJhbGx8ZW58MHx8MHx8fDA%?w=900&q=88"
+            src="https://plus.unsplash.com/premium_photo-1664536968173-77fdf84069c4?w=900&q=88"
             alt="The foundation story"
             width="100%"
           />
@@ -2253,7 +2249,7 @@
             <div class="kid-photo">
               <!-- REPLACE: real photo of Mariam -->
               <img
-                src="https://images.unsplash.com/photo-1530785602389-07594beb8b73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydHJhaXRzfGVufDB8fDB8fHww?w=400&q=80"
+                src="https://images.unsplash.com/photo-1530785602389-07594beb8b73?w=900&q=88"
                 alt="Mariam"
               />
               <div class="kid-ov"></div>
@@ -2274,7 +2270,7 @@
             <div class="kid-photo">
               <!-- REPLACE: real photo of Emmanuel -->
               <img
-                src="https://images.unsplash.com/photo-1709004915887-0dec2f98c8de?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fHBvcnRyYWl0cyUyMG9mJTIwYmxhY2slMjBtZW58ZW58MHx8MHx8fDA%3D?w=400&q=80"
+                src="https://images.unsplash.com/photo-1709004915887-0dec2f98c8de?w=900&q=88"
                 alt="Emmanuel"
               />
               <div class="kid-ov"></div>
@@ -2295,7 +2291,7 @@
             <div class="kid-photo">
               <!-- REPLACE: real photo of Aisha -->
               <img
-                src="https://images.unsplash.com/photo-1511935039706-c2b225e45a44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTgwfHxwb3J0cmFpdHN8ZW58MHx8MHx8fDA%3D?w=400&q=80"
+                src="https://images.unsplash.com/photo-1511935039706-c2b225e45a44?w=900&q=88"
                 alt="Aisha"
               />
               <div class="kid-ov"></div>
@@ -2456,6 +2452,16 @@
           <button class="amt-btn" onclick="pickAmt(100, this)">$100</button>
           <button class="amt-btn" onclick="pickAmt(250, this)">$250</button>
           <button class="amt-btn" onclick="pickAmt(500, this)">$500</button>
+          <button class="amt-btn" id="customAmtBtn" onclick="pickCustom(this)">Other</button>
+        </div>
+        <div id="customAmtWrap" style="display:none;margin-bottom:14px">
+          <div style="display:flex;align-items:center;background:#fff;border:1.5px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s" id="customAmtBox">
+            <span style="padding:0 12px;font-size:1rem;font-weight:800;color:var(--green);border-right:1.5px solid var(--border)">$</span>
+            <input type="number" id="customAmtInput" placeholder="Enter your amount" min="1"
+              style="flex:1;height:44px;border:none;outline:none;padding:0 14px;font-family:'Nunito',sans-serif;font-size:.92rem;font-weight:700;color:var(--text);background:transparent"
+              oninput="applyCustomAmt()" onfocus="document.getElementById('customAmtBox').style.borderColor='var(--green)'" onblur="document.getElementById('customAmtBox').style.borderColor=''"/>
+            <span style="padding:0 12px;font-size:.7rem;font-weight:800;color:var(--muted)">USD</span>
+          </div>
         </div>
         <div class="imp-strip" id="impStrip">
           Select an amount to see your impact.
@@ -2539,7 +2545,7 @@
               <li><a href="get-involved.html#donate">Donate</a></li>
               <li><a href="get-involved.html#partner">Partner</a></li>
               <li>
-                <a href="/cdn-cgi/l/email-protection#6d04030b022d050c1f1f14000c181f040e080b021803090c1904020343021f0a">Contact</a>
+                <a href="/cdn-cgi/l/email-protection#deb7b0b8b19eb6bfacaca7b3bfabacb7bdbbb8b1abb0babfaab7b1b0f0b1acb9">Contact</a>
               </li>
             </ul>
           </div>
@@ -2710,7 +2716,30 @@
         btn.classList.add("active");
         if (sA) updateImp();
       }
+      function pickCustom(btn) {
+        document.querySelectorAll('.amt-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('customAmtWrap').style.display = 'block';
+        document.getElementById('customAmtInput').focus();
+        sA = 0;
+        document.getElementById('impStrip').innerHTML = 'Enter your amount above.';
+        document.getElementById('nfield').classList.remove('show');
+      }
+      function applyCustomAmt() {
+        const val = parseInt(document.getElementById('customAmtInput').value);
+        if (val && val > 0) {
+          sA = val;
+          const freq = sF === 'monthly' ? '/month' : ' one-time';
+          document.getElementById('impStrip').innerHTML = '$' + val + freq + ' goes directly to mentorship sessions and health programme delivery across Uganda.';
+          document.getElementById('nfield').classList.toggle('show', val >= 25);
+        } else {
+          sA = 0;
+          document.getElementById('impStrip').innerHTML = 'Enter your amount above.';
+        }
+      }
       function pickAmt(a, btn) {
+        document.getElementById('customAmtWrap').style.display = 'none';
+        document.getElementById('customAmtInput').value = '';
         sA = a;
         document
           .querySelectorAll(".amt-btn")
