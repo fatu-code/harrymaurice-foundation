@@ -69,8 +69,29 @@ body{font-family:var(--fn);background:#e5e5e5;-webkit-font-smoothing:antialiased
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
   body{background:#fff}
   .screen-ctrl{display:none!important}
-  .page{margin:0 auto;box-shadow:none;min-height:auto;width:100%!important}
-  @page{size:A4 portrait;margin:8mm}
+  .page{margin:0 auto;box-shadow:none;min-height:auto!important;width:100%!important;page-break-after:always}
+  .page:last-child{page-break-after:auto}
+  .pb-body{gap:13px!important;padding:18px 28px 16px!important}
+  .para{font-size:.74rem!important;line-height:1.65!important}
+  .step-d{font-size:.68rem!important;line-height:1.55!important}
+  .step-body{padding:8px 12px!important}
+  .step-num{padding:8px 12px!important}
+  .step-n{font-size:1.1rem!important}
+  .step-t{font-size:.76rem!important}
+  .oi-text{font-size:.7rem!important;line-height:1.4!important}
+  .obj-item{padding:7px 11px!important}
+  .wc-val{font-size:.72rem!important}
+  .as-left strong{font-size:.9rem!important}
+  .as-left span{font-size:.68rem!important}
+  .as-email{font-size:.68rem!important}
+  .ph-body{padding-bottom:16px!important}
+  .ph-title{font-size:1.9rem!important}
+  .ph-sub{font-size:.76rem!important}
+  .qband{padding:9px 28px!important}
+  .qband p{font-size:.76rem!important}
+  .pb-footer{padding:9px 28px!important}
+  .dline{margin:0!important}
+  @page{size:A4 portrait;margin:6mm}
 }
 .screen-ctrl{position:relative;top:auto;right:auto;justify-content:center;padding:16px;max-width:100%}}
 </style>
