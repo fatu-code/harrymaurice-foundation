@@ -1095,8 +1095,6 @@
         }
         nav {
           padding: 0 24px;
-          background: rgba(10, 31, 18, 0.75) !important;
-          backdrop-filter: blur(8px);
         }
         .mob-tog {
           display: flex;
@@ -1314,28 +1312,6 @@
 #hmenu-toggle:checked ~ .hmenu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 </style>
 
-    <style>
-      #nav {
-        background: rgba(255, 255, 255, 0.97) !important;
-        backdrop-filter: blur(16px) !important;
-        border-bottom: 1.5px solid #dde8e2 !important;
-      }
-      #nav .brand-n {
-        color: #1a2e22 !important;
-      }
-      #nav .brand-n em {
-        color: #009c41 !important;
-      }
-      #nav .nav-links a {
-        color: #374151 !important;
-      }
-      #nav .nav-links a:hover {
-        color: #009c41 !important;
-      }
-      #nav .mob-tog span {
-        background: #1a2e22 !important;
-      }
-    </style>
   </head>
   <body>
 <!-- CSS-ONLY HAMBURGER -->
@@ -1390,7 +1366,7 @@
       </div>
     </div>
 
-    <nav id="nav" class="scrolled">
+    <nav id="nav">
       <a href="index.html" class="nav-brand" style="text-decoration: none">
         <span class="brand-n">Harry Maurice <em>Foundation</em></span>
       </a>
@@ -1646,7 +1622,7 @@
             (window.scrollY / (document.body.scrollHeight - innerHeight)) *
               100 +
             "%";
-          navEl.classList.add("scrolled");
+          navEl.classList.toggle("scrolled", window.scrollY > 60);
         },
         { passive: true },
       );

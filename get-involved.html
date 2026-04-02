@@ -185,7 +185,7 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
 .m-close:hover{background:var(--gd)}
 
 @media(max-width:1024px){.how-grid{grid-template-columns:1fr 1fr}.partner-grid{grid-template-columns:1fr 1fr}.f-grid{grid-template-columns:1fr 1fr;gap:40px}}
-@media(max-width:768px){.container{padding:0 24px}nav{padding:0 24px;background:rgba(10,31,18,.75)!important;backdrop-filter:blur(8px)}.mob-tog{display:flex}.nav-links{display:none}.nav-cta-btn{display:none}section{padding:64px 0}.don-split{grid-template-columns:1fr}.don-left{padding:52px 24px;display:none}.don-right{padding:44px 24px}.mentor-grid{grid-template-columns:1fr;gap:36px}.how-grid{grid-template-columns:1fr}.partner-grid{grid-template-columns:1fr}.badges-row{gap:12px}.b-item{min-width:110px;padding:18px 14px}.f-grid{grid-template-columns:1fr;gap:28px}}
+@media(max-width:768px){.container{padding:0 24px}nav{padding:0 24px}.mob-tog{display:flex}.nav-links{display:none}.nav-cta-btn{display:none}section{padding:64px 0}.don-split{grid-template-columns:1fr}.don-left{padding:52px 24px;display:none}.don-right{padding:44px 24px}.mentor-grid{grid-template-columns:1fr;gap:36px}.how-grid{grid-template-columns:1fr}.partner-grid{grid-template-columns:1fr}.badges-row{gap:12px}.b-item{min-width:110px;padding:18px 14px}.f-grid{grid-template-columns:1fr;gap:28px}}
 @media(max-width:520px){}
 
 /* ── FLOATING HAMBURGER ── */
@@ -250,14 +250,6 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
 #hmenu-toggle:checked ~ .hmenu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 </style>
 
-<style>
-#nav{background:rgba(255,255,255,.97)!important;backdrop-filter:blur(16px)!important;border-bottom:1.5px solid #dde8e2!important}
-#nav .brand-n{color:#1a2e22!important}
-#nav .brand-n em{color:#009c41!important}
-#nav .nav-links a{color:#374151!important}
-#nav .nav-links a:hover{color:#009c41!important}
-#nav .mob-tog span{background:#1a2e22!important}
-</style>
 </head>
 <body>
 <!-- CSS-ONLY HAMBURGER -->
@@ -319,7 +311,7 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
   </div>
 </div>
 
-<nav id="nav" class="scrolled">
+<nav id="nav">
   <a href="index.html" class="nav-brand" style="text-decoration:none">
     <span class="brand-n">Harry Maurice <em>Foundation</em></span>
   </a>
@@ -517,7 +509,7 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const spbar=document.getElementById('spbar'),navEl=document.getElementById('nav');
-window.addEventListener('scroll',()=>{spbar.style.width=(window.scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';navEl.classList.add('scrolled')},{passive:true});
+window.addEventListener('scroll',()=>{spbar.style.width=(window.scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';navEl.classList.toggle("scrolled", window.scrollY > 60)},{passive:true});
 window.addEventListener('load',()=>{const b=document.getElementById('hbg');if(b)b.style.transform='scale(1)'});
 function toggleMob(){const tog=document.getElementById('mobTog'),dr=document.getElementById('mobDrawer');tog.classList.toggle('open');dr.classList.toggle('open')}
 document.addEventListener('click',e=>{const dr=document.getElementById('mobDrawer'),tog=document.getElementById('mobTog');if(dr&&dr.classList.contains('open')&&!dr.contains(e.target)&&!tog.contains(e.target)){tog.classList.remove('open');dr.classList.remove('open')}});
