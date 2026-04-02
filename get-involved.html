@@ -364,6 +364,16 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
       <button class="amt-btn" onclick="pickAmt(100,this)">$100</button>
       <button class="amt-btn" onclick="pickAmt(250,this)">$250</button>
       <button class="amt-btn" onclick="pickAmt(500,this)">$500</button>
+      <button class="amt-btn" id="customAmtBtn" onclick="pickCustom(this)">Other</button>
+    </div>
+    <div id="customAmtWrap" style="display:none;margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:0;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.27);border-radius:8px;overflow:hidden;transition:border-color .2s" id="customAmtBox">
+        <span style="padding:0 12px;font-size:1rem;font-weight:800;color:#fff;border-right:1.5px solid rgba(255,255,255,.2)">$</span>
+        <input type="number" id="customAmtInput" placeholder="Enter your amount" min="1"
+          style="flex:1;height:44px;border:none;outline:none;padding:0 14px;font-family:'Nunito',sans-serif;font-size:.92rem;font-weight:700;color:#fff;background:transparent"
+          oninput="applyCustomAmt()" onfocus="document.getElementById('customAmtBox').style.borderColor='#fff'" onblur="document.getElementById('customAmtBox').style.borderColor=''"/>
+        <span style="padding:0 12px;font-size:.7rem;font-weight:800;color:rgba(255,255,255,.5)">USD</span>
+      </div>
     </div>
     <div class="imp-strip" id="impStrip">Select an amount to see your impact.</div>
     <div class="nfield" id="nfield">
@@ -456,7 +466,7 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
       </div>
     </div>
     <div class="reveal" style="margin-top:36px;text-align:center">
-      <a href="mailto:info@harrymauricefoundation.org?subject=Partnership Enquiry" style="display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 32px;background:var(--green);color:#fff;border-radius:var(--rs);font-family:var(--fn);font-size:.88rem;font-weight:800;box-shadow:0 4px 16px rgba(0,156,65,.3);transition:all .2s">
+      <a href="/cdn-cgi/l/email-protection#71181f171e3119100303081c100403181214171e041f151005181e1f5f1e03164e0204131b1412054c211003051f14030219180151341f0004180308" style="display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 32px;background:var(--green);color:#fff;border-radius:var(--rs);font-family:var(--fn);font-size:.88rem;font-weight:800;box-shadow:0 4px 16px rgba(0,156,65,.3);transition:all .2s">
         Send a Partnership Enquiry
       </a>
     </div>
@@ -469,13 +479,13 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
       <div><div class="f-top"><span class="f-name">Harry Maurice <em>Foundation</em></span></div><p class="f-mission">A focused foundation working in Uganda through mentorship and health.</p></div>
       <div class="f-col"><h4>Programmes</h4><ul><li><a href="programmes.html#roots">Roots &amp; Rise</a></li><li><a href="programmes.html#diane">Diane Health Programme</a></li></ul></div>
       <div class="f-col"><h4>Foundation</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="kids.html">The Kids</a></li><li><a href="stories.html">Stories</a></li><li><a href="get-involved.html">Get Involved</a></li></ul></div>
-      <div class="f-col"><h4>Connect</h4><ul><li><a href="#donate">Donate</a></li><li><a href="#partner">Partner</a></li><li><a href="mailto:info@harrymauricefoundation.org">Contact</a></li></ul></div>
+      <div class="f-col"><h4>Connect</h4><ul><li><a href="#donate">Donate</a></li><li><a href="#partner">Partner</a></li><li><a href="/cdn-cgi/l/email-protection#036a6d656c436b6271717a6e6276716a6066656c766d6762776a6c6d2d6c7164">Contact</a></li></ul></div>
     </div>
     <div class="f-btm"><span class="f-copy">© 2026 Harry Maurice Foundation. Jinja, Uganda.</span><span class="f-tag">"Start with one, let it ripple."</span></div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const spbar=document.getElementById('spbar'),navEl=document.getElementById('nav');
 window.addEventListener('scroll',()=>{spbar.style.width=(window.scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';navEl.classList.add('scrolled')},{passive:true});
 window.addEventListener('load',()=>{const b=document.getElementById('hbg');if(b)b.style.transform='scale(1)'});
@@ -488,7 +498,30 @@ const imps={10:{once:'$10 contributes toward one mentorship session - a conversa
 function getBadge(a){if(a>=250)return{e:'🏆',n:'Founding Patron'};if(a>=100)return{e:'⭐',n:'Legacy Maker'};if(a>=50)return{e:'🧡',n:'Foundation Friend'};if(a>=25)return{e:'🤝',n:'Community Builder'};return{e:'🌱',n:'Ripple Starter'}}
 let sA=0,sF='once';
 function setFreq(f,btn){sF=f;document.querySelectorAll('.freq-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(sA)updateImp()}
-function pickAmt(a,btn){sA=a;document.querySelectorAll('.amt-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');updateImp();document.getElementById('nfield').classList.toggle('show',a>=25)}
+function pickCustom(btn){
+  document.querySelectorAll('.amt-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('customAmtWrap').style.display='block';
+  document.getElementById('customAmtInput').focus();
+  sA=0;
+  document.getElementById('impStrip').innerHTML='Enter your amount above.';
+  document.getElementById('nfield').classList.remove('show');
+}
+function applyCustomAmt(){
+  const val=parseInt(document.getElementById('customAmtInput').value);
+  if(val&&val>0){
+    sA=val;
+    const freq=sF==='monthly'?'/month':' one-time';
+    document.getElementById('impStrip').innerHTML='$'+val+freq+' goes directly to mentorship sessions and health programme delivery across Uganda.';
+    document.getElementById('nfield').classList.toggle('show',val>=25);
+  }else{
+    sA=0;
+    document.getElementById('impStrip').innerHTML='Enter your amount above.';
+  }
+}
+function pickAmt(a,btn){
+  document.getElementById('customAmtWrap').style.display='none';
+  document.getElementById('customAmtInput').value='';sA=a;document.querySelectorAll('.amt-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');updateImp();document.getElementById('nfield').classList.toggle('show',a>=25)}
 function updateImp(){const i=imps[sA];if(i)document.getElementById('impStrip').innerHTML=i[sF]}
 function donate(method){
   if(!sA){document.getElementById('impStrip').innerHTML='<strong style="color:#fff">Please choose an amount first.</strong>';return}
@@ -522,14 +555,4 @@ function toggleFloatMenu(){
   document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
 }
 // Close on escape
-document.addEventListener('keydown', function(e){
-  if(e.key==='Escape') {
-    document.getElementById('float-menu-btn').classList.remove('open');
-    document.getElementById('float-overlay').classList.remove('open');
-    document.body.style.overflow='';
-  }
-});
-</script>
-
-</body>
-</html>
+document.addEventListener('keydown', function(
