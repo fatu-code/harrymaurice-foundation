@@ -261,6 +261,7 @@
         transform: translateY(-4px);
         opacity: 0;
         pointer-events: none;
+        -webkit-overflow-scrolling: touch;
         transition: all 0.22s;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       }
@@ -851,6 +852,7 @@
         justify-content: center;
         opacity: 0;
         pointer-events: none;
+        -webkit-overflow-scrolling: touch;
         transition: opacity 0.3s;
         backdrop-filter: blur(10px);
         padding: 20px;
@@ -1189,11 +1191,10 @@
         top: 14px;
         right: 16px;
         z-index: 9999;
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
-        background: rgba(10, 31, 18, 0.75);
-        backdrop-filter: blur(10px);
+        background: #1a2e22;
         border: 1px solid rgba(0, 156, 65, 0.35);
         display: none;
         flex-direction: column;
@@ -1238,6 +1239,7 @@
         gap: 8px;
         opacity: 0;
         pointer-events: none;
+        -webkit-overflow-scrolling: touch;
         transition: opacity 0.25s;
       }
       #float-overlay.open {
@@ -1245,6 +1247,7 @@
         pointer-events: all;
       }
       #float-overlay a {
+        -webkit-tap-highlight-color: rgba(0,156,65,.2);
         font-family: "Nunito", sans-serif;
         font-size: 1.6rem;
         font-weight: 900;
@@ -1590,7 +1593,7 @@
               <li><a href="get-involved.html#donate">Donate</a></li>
               <li><a href="get-involved.html#partner">Partner</a></li>
               <li>
-                <a href="mailto:info@harrymauricefoundation.org">Contact</a>
+                <a href="/cdn-cgi/l/email-protection#70191e161f3018110202091d110502191315161f051e141104191f1e5e1f0217">Contact</a>
               </li>
             </ul>
           </div>
@@ -1603,7 +1606,7 @@
       </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
       const spbar = document.getElementById("spbar"),
         navEl = document.getElementById("nav");
       window.addEventListener(
@@ -1985,10 +1988,4 @@
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") {
           document.getElementById("float-menu-btn").classList.remove("open");
-          document.getElementById("float-overlay").classList.remove("open");
-          document.body.style.overflow = "";
-        }
-      });
-    </script>
-  </body>
-</html>
+          do

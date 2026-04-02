@@ -155,8 +155,8 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
 /* ── FLOATING HAMBURGER ── */
 #float-menu-btn{
   position:fixed;top:14px;right:16px;z-index:9999;
-  width:40px;height:40px;border-radius:50%;
-  background:rgba(10,31,18,.75);backdrop-filter:blur(10px);
+  width:44px;height:44px;border-radius:50%;
+  background:#1a2e22;
   border:1px solid rgba(0,156,65,.35);
   display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;
   cursor:pointer;padding:0;transition:background .2s
@@ -391,12 +391,12 @@ footer{background:var(--deeper);padding:80px 0 40px;border-top:1px solid rgba(0,
       <div><div class="f-top"><span class="f-name">Harry Maurice <em>Foundation</em></span></div><p class="f-mission">A focused foundation working in Jinja, Uganda through mentorship and health - because every person deserves someone who believes in them.</p></div>
       <div class="f-col"><h4>Programmes</h4><ul><li><a href="programmes.html#roots">Roots &amp; Rise</a></li><li><a href="programmes.html#diane">Diane Health Programme</a></li></ul></div>
       <div class="f-col"><h4>Foundation</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="kids.html">The Kids</a></li><li><a href="stories.html">Stories</a></li><li><a href="get-involved.html">Get Involved</a></li></ul></div>
-      <div class="f-col"><h4>Connect</h4><ul><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#partner">Partner</a></li><li><a href="mailto:info@harrymauricefoundation.org">Contact</a></li></ul></div>
+      <div class="f-col"><h4>Connect</h4><ul><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#partner">Partner</a></li><li><a href="/cdn-cgi/l/email-protection#1b72757d745b737a696962767a6e6972787e7d746e757f7a6f7274753574697c">Contact</a></li></ul></div>
     </div>
     <div class="f-btm"><span class="f-copy">© 2026 Harry Maurice Foundation. Jinja, Uganda.</span><span class="f-tag">"Start with one, let it ripple."</span></div>
   </div>
 </footer>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const spbar=document.getElementById('spbar'),navEl=document.getElementById('nav');
 window.addEventListener('scroll',()=>{spbar.style.width=(window.scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';navEl.classList.add('scrolled')},{passive:true});
 window.addEventListener('load',()=>{const b=document.getElementById('hbg');if(b)b.style.transform='scale(1)'});
@@ -427,12 +427,4 @@ function toggleFloatMenu(){
 // Close on escape
 document.addEventListener('keydown', function(e){
   if(e.key==='Escape') {
-    document.getElementById('float-menu-btn').classList.remove('open');
-    document.getElementById('float-overlay').classList.remove('open');
-    document.body.style.overflow='';
-  }
-});
-</script>
-
-</body>
-</html>
+    document.getElementById('float-menu-btn').classLi
